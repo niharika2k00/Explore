@@ -1,0 +1,121 @@
+.title {
+    text-align: left;
+    padding: 1rem 0.1rem 1rem 1.5rem;
+    margin: auto;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+    /* font-family: 'Cormorant Garamond', serif; */
+}
+
+.lead {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 1rem 0.1rem 1rem 1.5rem;
+    color: white;
+}
+
+.jumbotron {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    background-image: url("https://images.unsplash.com/photo-1491555103944-7c647fd857e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+}
+
+.block {
+    width: auto;
+    height: 300px;
+}
+
+.filterdropdown {
+    width: 100%;
+    background-color: #d40059;
+    margin-top: 80px;
+    transition: 0.5s;
+}
+
+.filterdropdown.show {
+    height: 100px;
+    padding: 10px;
+}
+
+#gap_top {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+}
+
+.self_ico {
+    padding: 0.6rem;
+}
+
+/* arraws of the slick carousel */
+
+.slick-prev:before, .slick-next:before {
+    color: black;
+}
+
+#filterflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CarouButton {
+    padding: 4px auto 1px auto;
+    margin-bottom: 1px;
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-end;
+    color: rgb(255, 255, 255);
+}
+
+.CarouButton .carouButton-btn {
+    /* font-family: "Raleway", sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin-top: 1px;
+    text-decoration: none;
+    border: 2px solid rgb(248, 230, 230);
+    background-color: #ff7221e1;
+}
+
+.CarouButton .carouButton-btn:hover {
+    background: #FF8F05;
+    border: 3px double #F72963;
+}
+
+/* ------------   MEDIA QUERYYY  ----------------- */
+
+@media (max-width: 450px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    .lead {
+        font-size: 1.2rem;
+    }
+    #gap_top {
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+    .slidergap {
+        margin: 0px 1rem;
+        padding: 0px 1rem;
+    }
+    .slick-dots li button:before {
+        font-family: 'slick';
+        font-size: 0px;
+    }
+}
+
+@media (max-width: 450px) {
+    #gapping {
+        margin-top: .1rem;
+    }
+}

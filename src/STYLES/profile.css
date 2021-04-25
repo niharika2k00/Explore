@@ -1,0 +1,66 @@
+.profilecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proimg {
+    border: 3px solid #ffffff;
+}
+
+.pro_card {
+    border: 2px dashed rgba(92, 88, 88, 0.815);
+    background-color: white;
+}
+
+.myrow {
+    padding: 1.8rem 0;
+    margin: 1.8rem 0;
+}
+
+.user_data h2 {
+    letter-spacing: 1px;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+}
+
+.user_data p {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #FF8F05;
+}
+
+.EditButton {
+    padding: 4px auto 1px auto;
+    margin-bottom: 1px;
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.EditButton .edit-btn {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 10px;
+    transition: 0.2s;
+    margin: 1px .7rem;
+    text-decoration: none;
+    border: 2px solid #949292;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.EditButton .edit-btn:hover {
+    background: rgb(248, 246, 246);
+    border: 2.5px solid #d90429;
+}
+
+.pro_catagory {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #FE4B46;
+}
