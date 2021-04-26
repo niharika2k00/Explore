@@ -1,0 +1,82 @@
+/* SELF CONTAINER HAVING GAPS IN THE TOP AND BOTTOM  */
+
+.self_container {
+  margin-top: 1.8rem;
+  margin-bottom: 4rem;
+  padding-top: 1.8rem;
+  padding-bottom: 4rem;
+}
+
+/* ***************************   IMAGE UPLOAD PART     ************************************* */
+
+.myrow {
+  margin: 40px;
+  padding: 30px;
+  background-color: #fff;
+  display: flex;
+  border-radius: 5px; // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);      outside
+  box-shadow: inset 2px 2px 5px #9499a8, inset -5px -5px 10px #fff;
+  background-color: rgba(255, 255, 255, 0.6);
+  &:focus {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+  }
+}
+
+.loginhead {
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 0rem;
+  font-family: "Cormorant", serif;
+  background: linear-gradient(160deg, #f1f3f2, #ff057f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+#login_form {
+  color: rgba(255, 255, 255, 0.959);
+  font-size: 20px;
+  font-family: "Cormorant", serif;
+}
+
+.form_box {
+  padding: 1.5px 30px;
+  border-radius: 18px;
+  height: 2.8rem;
+  font-size: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.959);
+}
+.form_box:hover {
+  border: 4px solid #fae5ed;
+}
+.form-control:focus {
+  border-color: #f7d3e0;
+  outline: none;
+  box-shadow: none;
+  //   border: none;
+}
+/* #checkout {
+  color: rgba(255, 255, 255, 0.925);
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+#checkout:hover {
+  color: rgb(255, 29, 135);
+}
+
+#checkoutDisabled {
+  color: rgba(158, 155, 155, 0.925);
+  font-size: 0.9rem;
+} */
+
+.upload_style {
+  color: black;
+}
+
+@media (max-width: 450px) {
+  .myrow {
+    margin: 60px auto;
+    padding: 8px;
+  }
+}

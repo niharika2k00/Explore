@@ -2,9 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import NAVIGATION_BAR from './Components/Navbar/Navbar_top.jsx';
-import FOOTER from './Components/Footer/Footer.js';
+import FOOTER from './Components/Footer/Footer.jsx';
 import HOMESCREEN from './Components/HomeScreen/HomeScreen.jsx';
 import PROFILESCREEN from './Components/ProfileScreen/Profile_Screen.jsx';
+import UPLOADSHOTSCREEN from './Components/UploadShot/UploadShot_Screen.jsx';
+import POSTSCREEN from './Components/UploadShot/UploadShot_Screen.jsx';
 
 
 
@@ -18,8 +20,9 @@ const App = () => {
 
         <main >
           <Route path='/' component={HOMESCREEN} exact />
-          <Route path='/profile' component={PROFILESCREEN} />
-
+          <Route path='/profile' component={PROFILESCREEN} exacr />
+          <Route path='/uploadpost' component={UPLOADSHOTSCREEN} exact />
+          <Route path='/post/:id' component={POSTSCREEN} exact />
 
 
 

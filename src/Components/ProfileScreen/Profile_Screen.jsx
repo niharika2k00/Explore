@@ -10,7 +10,7 @@ const Profile_Screen = () => {
     return (
         <Container >
 
-            <Row className="myrow">
+            <Row className="rowTopgap">
                 <Col md={6} className="profilecontainer" >
                     <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                         className="rounded-circle proimg"
@@ -45,14 +45,14 @@ const Profile_Screen = () => {
             <hr></hr>
 
             <section>
-                <Row className="myrow">
+                <Row className="rowTopgap">
                     <Col md={4} sm={12} >
                         <div className="card" Style="width: 18rem;" className="pro_card">
                             <div className="card-body">
                                 <h5 className="card-title">Upload your first shot</h5>
                                 <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tellus pellentesque.</p>
                                 <section className="Button">
-                                    <a className="Button-btn" href="/" style={{ marginTop: "1px " }}>
+                                    <a className="Button-btn" href="/uploadpost" style={{ marginTop: "1px " }}>
                                         Upload Shot </a>
                                 </section>
                             </div>

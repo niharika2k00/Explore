@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Dropdown, Row, Col, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -65,7 +66,7 @@ const HomeScreen = () => {
             {/* <div className={`filterdropdown ${show ? 'show' : ''}`}>This is a dropdown div.</div> */}
 
 
-            <Container>
+            <Container className="self_container-Bottomgap">
                 <section>
                     <Row id="gap_top">
                         <Col md={2} xs={12}>
@@ -126,7 +127,7 @@ const HomeScreen = () => {
                         </Col>
 
 
-
+                        {/* Codes for the Slider-----Carousal */}
                         {/* <Col md={8} xs={12}>
                             <div className="slidergap">
                                 <Slider {...slider}>
@@ -159,8 +160,11 @@ const HomeScreen = () => {
                 <section  >
                     <Row id="gap_top">
                         <Col md={4} xs={12}>
-                            <div className="card" Style={{ width: "18rem" }}>
-                                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                            {/* {`/post/${post._id}`} */}
+                            < div className="card" Style={{ width: "18rem" }}>
+                                <Link to='/post/:id'>
+                                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                                </Link>
                                 <div class="d-flex justify-content-end">
                                     <div>
                                         <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
@@ -171,6 +175,7 @@ const HomeScreen = () => {
                                     </div>
                                 </div>
                             </div>
+
                         </Col>
 
                         <Col md={4} xs={12}>
@@ -253,13 +258,10 @@ const HomeScreen = () => {
 
                 </section>
 
-
-
-
             </Container>
 
-        </div>
+        </div >
     )
 }
 
-export default HomeScreen
+export default HomeScreen;

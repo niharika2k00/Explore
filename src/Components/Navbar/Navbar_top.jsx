@@ -19,15 +19,15 @@ const Navbar_top = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto navItems">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Post</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/uploadpost">Post</Nav.Link>
                         <Nav.Link href="#link">Design</Nav.Link>
                     </Nav>
 
                     <Form inline>
                         <Nav.Link href="#link" className="modiflink" ><i class="fas fa-search" id="icoSearch"></i>Sign In</Nav.Link>
                         <section className="Button">
-                            <a className="Button-btn" href="/"> Sign up </a>
+                            <a className="Button-btn" href="/"> Sign Up </a>
                         </section>
                     </Form>
                 </Navbar.Collapse>

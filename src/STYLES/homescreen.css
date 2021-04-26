@@ -91,6 +91,11 @@
     border: 3px double #F72963;
 }
 
+.self_container-Bottomgap {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+}
+
 /* ------------   MEDIA QUERYYY  ----------------- */
 
 @media (max-width: 450px) {

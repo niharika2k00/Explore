@@ -1,6 +1,9 @@
 
 import React from 'react';
 import LOGO from '../../Assets/logo-light-fot.webp';
+import '../../STYLES/footer.css';
+
+
 
 const Footer = () => {
 
@@ -16,8 +19,7 @@ const Footer = () => {
                             <a href="/index.html">
                                 <img src={LOGO} alt="Logo images" width="200" />
                             </a>
-                            <p></p>
-                            <p>
+                            <p style={{ color: "#dad2d2de" }}>
                                 "Many businesses, large and small, have a huge source of great ideas that can help them
                                 improve, innovate and grow, and that's what we are here for."
                              </p>
@@ -26,7 +28,7 @@ const Footer = () => {
 
                         <div className="col-lg-3 offset-lg-1 col-md-6 mb-4 mb-md-0">
                             <h5 className="text-white mb-md-4 font-weight-bold">Grow your business with us</h5>
-                            <ul className="list-unstyled mb-0">
+                            <ul className="footer_cols mb-0">
                                 <li className="mb-md-2">
                                     <a href="/connect.html">Vocal for Local</a>
                                 </li>
@@ -52,7 +54,7 @@ const Footer = () => {
                         <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
                             <h5 className="text-white mb-md-4 font-weight-bold">Connect</h5>
 
-                            <ul className="list-unstyled">
+                            <ul className="footer_cols">
                                 <li className="mb-md-3">
                                     <i className="fas fa-map-marker-alt"></i><a href="/connect.html#map1" className="ml-2">HQ-
                                     Rourkela, Odisha,

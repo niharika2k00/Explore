@@ -1,7 +1,3 @@
-.bg_image--1 {
-    background-image: url(/assets/images/bg/bg-image-1.webp);
-}
-
 /* Set a specific color for each brand */
 
 .icon-facebook, .icon-instagram, .icon-linkedin, .icon-youtube, .icon-pinterest, .icon-quora, .icon-twitter, .icon-google, .icon-tumblr {
@@ -81,4 +77,23 @@
     transform: scale(1.1);
     background: white !important;
     transition: 0.5s;
+}
+
+.footer_cols li a {
+    color: #dad2d2de;
+    color: #f0e3e3de;
+    font-weight: 500;
+    font-size: 1.2rem;
+    font-family: 'Cormorant', serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+.footer_cols li a:hover {
+    color: #ffffffde;
+    font-size: 1.25rem;
+}
+
+.footer_cols li i {
+    color: white;
 }
