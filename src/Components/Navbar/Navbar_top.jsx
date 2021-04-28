@@ -3,19 +3,32 @@ import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Container, Nav, Navbar, Button, Form } from 'react-bootstrap';
 import '../../STYLES/navbar.css';
+import ExploreLOGO from '../../Assets/explorelogo1.png';
 import LOGO from '../../Assets/logo-top.webp';
+import { useLocation } from 'react-router-dom'
 
-const Navbar_top = () => {
 
 
+const Navbar_top = ({ match, history }) => {
+
+    // console.log("MATCH : ", match);
+    // console.log("HISTORY : ", history);
+
+    const location = useLocation();
+    const modify_url = location.pathname;
+    console.log(location.pathname);  // /post/:id
 
     return (
         <header>
-            <Navbar bg="light" variant="light" expand="lg" style={{ paddingLeft: "1.6rem", marginbottom: "0px" }} >
-                {/* <Container> */}
+            <Navbar bg="light" variant="light" expand="lg" style={{ padding: ".6rem", marginbottom: "0" }} >
+
                 <LinkContainer to="/"><Navbar.Brand id="nav_head">
-                    <img src={LOGO} alt="Prodigious People" />
+                    {(modify_url === "/post/:id") ? <img id="explore" src={ExploreLOGO} alt="lol" />
+                        :
+                        <img src={LOGO} id="prodigy" alt="lol" />
+                    }
                 </Navbar.Brand></LinkContainer>
+
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto navItems">
@@ -31,7 +44,7 @@ const Navbar_top = () => {
                         </section>
                     </Form>
                 </Navbar.Collapse>
-                {/* </Container> */}
+
             </Navbar>
         </header >
     )

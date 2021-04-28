@@ -1,0 +1,18 @@
+/* ---------------        MAIN STYLES APPLIED TO ALMOST ALL THE COMPONET    ------------------------ */
+
+.rowTopgap {
+    padding: 1.8rem 0;
+    margin: 1.8rem 0;
+}
+
+.self_container-Bottomgap {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+}
+
+.self_container {
+    margin-top: 1.8rem;
+    margin-bottom: 4rem;
+    padding-top: 1.8rem;
+    padding-bottom: 4rem;
+}

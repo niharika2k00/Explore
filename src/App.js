@@ -6,7 +6,7 @@ import FOOTER from './Components/Footer/Footer.jsx';
 import HOMESCREEN from './Components/HomeScreen/HomeScreen.jsx';
 import PROFILESCREEN from './Components/ProfileScreen/Profile_Screen.jsx';
 import UPLOADSHOTSCREEN from './Components/UploadShot/UploadShot_Screen.jsx';
-import POSTSCREEN from './Components/UploadShot/UploadShot_Screen.jsx';
+import POSTSCREEN from './Components/Post_Screen/Post_Screen.jsx';
 
 
 

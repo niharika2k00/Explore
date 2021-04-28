@@ -74,6 +74,60 @@
   color: black;
 }
 
+.file {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file > input[type="file"] {
+  display: none;
+}
+
+.file > label {
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+  outline: 0;
+  user-select: none;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: groove;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  border-width: 1.5px;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 29%);
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file > label > i {
+  padding-right: 5px;
+}
+
+.file--upload > label {
+  color: hsl(204, 86%, 53%);
+  border-color: #ef476f;
+}
+
+.file--upload > label:hover {
+  background-color: #fdffb6;
+}
+
+.file--upload > label:active {
+  background-color: hsl(204, 86%, 91%);
+}
+
+.ico_big {
+  font-size: 1.5rem;
+  color: crimson;
+}
+
+/* ---------------------         MEDIA QUERYYY         --------------------- */
 @media (max-width: 450px) {
   .myrow {
     margin: 60px auto;

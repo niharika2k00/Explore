@@ -1,0 +1,24 @@
+.post_titles {
+    font-size: 1.4rem;
+    font-weight: 700px;
+}
+
+.post_titles b {
+    color: #F72963;
+}
+
+.post_subtitles {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.post_subtitles b {
+    color: #FE4B46;
+}
+
+.row_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

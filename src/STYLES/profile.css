@@ -64,3 +64,10 @@
     font-size: 1.1rem;
     color: #FE4B46;
 }
+
+@media (max-width: 400px) {
+    .user_data h2 {
+        padding-top: 1rem;
+        font-size: 1.6rem;
+    }
+}
