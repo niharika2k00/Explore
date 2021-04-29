@@ -138,9 +138,6 @@ const HomeScreen = () => {
                         </div>
 
 
-
-
-
                         {/* Codes for the Slider-----Carousal */}
                         {/* <Col md={8} xs={12}>
                             <div className="slidergap">
@@ -168,11 +165,11 @@ const HomeScreen = () => {
 
 
 
-                <section  >
+                <section>
                     <Row id="gap_top">
-                        <Col md={4} xs={12}>
+                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
                             {/* {`/post/${post._id}`} */}
-                            < div className="card" Style={{ width: "18rem" }}>
+                            < div className="card " Style={{ width: "18rem" }}>
                                 <Link to='/post/:id'>
                                     <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
                                 </Link>
@@ -186,12 +183,14 @@ const HomeScreen = () => {
                                     </div>
                                 </div>
                             </div>
-
                         </Col>
 
-                        <Col md={4} xs={12}>
-                            <div className="card" Style={{ width: "18rem" }}>
-                                <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
+                            {/* {`/post/${post._id}`} */}
+                            < div className="card " Style={{ width: "18rem" }}>
+                                <Link to='/post/:id'>
+                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                                </Link>
                                 <div class="d-flex justify-content-end">
                                     <div>
                                         <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
@@ -204,9 +203,12 @@ const HomeScreen = () => {
                             </div>
                         </Col>
 
-                        <Col md={4} xs={12}>
-                            <div className="card" Style={{ width: "18rem" }}>
-                                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
+                            {/* {`/post/${post._id}`} */}
+                            < div className="card " Style={{ width: "18rem" }}>
+                                <Link to='/post/:id'>
+                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                                </Link>
                                 <div class="d-flex justify-content-end">
                                     <div>
                                         <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
@@ -219,11 +221,15 @@ const HomeScreen = () => {
                             </div>
                         </Col>
                     </Row>
+
 
                     <Row id="gap_top">
-                        <Col md={4} xs={12}>
-                            <div className="card" Style={{ width: "18rem" }}>
-                                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
+                            {/* {`/post/${post._id}`} */}
+                            < div className="card " Style={{ width: "18rem" }}>
+                                <Link to='/post/:id'>
+                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                                </Link>
                                 <div class="d-flex justify-content-end">
                                     <div>
                                         <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
@@ -236,9 +242,12 @@ const HomeScreen = () => {
                             </div>
                         </Col>
 
-                        <Col md={4} xs={12}>
-                            <div className="card" Style={{ width: "18rem" }}>
-                                <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
+                            {/* {`/post/${post._id}`} */}
+                            < div className="card " Style={{ width: "18rem" }}>
+                                <Link to='/post/:id'>
+                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                                </Link>
                                 <div class="d-flex justify-content-end">
                                     <div>
                                         <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
@@ -251,9 +260,12 @@ const HomeScreen = () => {
                             </div>
                         </Col>
 
-                        <Col md={4} xs={12}>
-                            <div className="card" Style={{ width: "18rem" }}>
-                                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
+                            {/* {`/post/${post._id}`} */}
+                            < div className="card " Style={{ width: "18rem" }}>
+                                <Link to='/post/:id'>
+                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                                </Link>
                                 <div class="d-flex justify-content-end">
                                     <div>
                                         <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
@@ -266,6 +278,7 @@ const HomeScreen = () => {
                             </div>
                         </Col>
                     </Row>
+
 
                 </section>
 

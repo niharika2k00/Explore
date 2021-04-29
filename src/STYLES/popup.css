@@ -16,7 +16,7 @@
 }
 
 .input-box {
-    width: 400px;
+    width: 50rem;
     padding: 40px;
     border-radius: 6px;
     background-color: white;
@@ -26,15 +26,15 @@
 }
 
 .cross-btn {
+    color: crimson;
+    height: 4rem;
+    width: 4rem;
+    font-size: 4rem;
     position: absolute;
     top: 0;
     right: 0;
     margin: 20px;
     cursor: pointer;
-}
-
-.input-box h3 {
-    margin-bottom: 30px;
 }
 
 .input-box h5 {
@@ -46,7 +46,7 @@
     padding: 8px;
     outline: 0;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 1.2rem;
     margin-bottom: 20px;
 }
 

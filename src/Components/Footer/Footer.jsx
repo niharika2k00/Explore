@@ -11,7 +11,9 @@ const Footer = () => {
     return (
         <div>
 
-            <footer className="bg_image bg_image--1 bg-black text-center text-lg-start" data-black-overlay="6">
+            <footer className="bg_image bg_image--1 bg-black text-center text-lg-start" data-black-overlay="6"
+                style={{ backgroundColor: "#00010c" }}
+            >
                 <div className="container p-5">
 
                     <div className="row">
@@ -19,29 +21,30 @@ const Footer = () => {
                             <a href="/index.html">
                                 <img src={LOGO} alt="Logo images" width="200" />
                             </a>
-                            <p style={{ color: "#dad2d2de" }}>
+                            <p style={{ color: "#c6c9d8", padding: "1rem 0" }} className="para">
                                 "Many businesses, large and small, have a huge source of great ideas that can help them
                                 improve, innovate and grow, and that's what we are here for."
                              </p>
                         </div>
 
 
-                        <div className="col-lg-3 offset-lg-1 col-md-6 mb-4 mb-md-0">
-                            <h5 className="text-white mb-md-4 font-weight-bold">Grow your business with us</h5>
-                            <ul className="footer_cols mb-0">
-                                <li className="mb-md-2">
+                        <div class="col-lg-3 offset-lg-1 col-md-6 mb-4 mb-md-0 fstyle ">
+                            <h5 class="text-white mb-md-4 font-weight-bold">Grow your business with us</h5>
+
+                            <ul class="list-unstyled footer_cols fstyle   mb-0">
+                                <li class="mb-md-2">
                                     <a href="/connect.html">Vocal for Local</a>
                                 </li>
-                                <li className="mb-md-2">
+                                <li class="mb-md-2">
                                     <a href="/connect.html">Corporates</a>
                                 </li>
-                                <li className="mb-md-2">
+                                <li class="mb-md-2">
                                     <a href="/connect.html">Small-Medium Enterprises</a>
                                 </li>
-                                <li className="mb-md-2">
+                                <li class="mb-md-2">
                                     <a href="/connect.html">Startups</a>
                                 </li>
-                                <li className="mb-md-2">
+                                <li class="mb-md-2">
                                     <a href="/connect.html">Influencers</a>
                                 </li>
                                 <li>
@@ -51,10 +54,11 @@ const Footer = () => {
                         </div>
 
 
-                        <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 className="text-white mb-md-4 font-weight-bold">Connect</h5>
+                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0 ">
+                            <h5 class="text-white mb-md-4 font-weight-bold">Connect</h5>
 
-                            <ul className="footer_cols">
+
+                            <ul className="list-unstyled fstyle footer_cols">
                                 <li className="mb-md-3">
                                     <i className="fas fa-map-marker-alt"></i><a href="/connect.html#map1" className="ml-2">HQ-
                                     Rourkela, Odisha,
@@ -141,8 +145,8 @@ const Footer = () => {
                             <div className="row d-flex justify-content-center">
 
                                 <div className="col-auto text-white">
-                                    <p className="pt-2">
-                                        <strong>Sign up for our newsletter</strong>
+                                    <p className="pt-2 para2">
+                                        <strong >Sign up for our newsletter</strong>
                                     </p>
                                 </div>
 
@@ -168,16 +172,19 @@ const Footer = () => {
 
 
                 {/* <!-- Copyright --> */}
-                <div className="text-center p-3" Style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }} >
-                    <div className="row">
+                <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }} >
+                    <div className="row for_a">
                         <div className="col col-lg-3 col-md-3 col-12 mb-4 mb-md-0">
                             <a className="text-light" href="/terms.html">Terms and Conditions</a>
                         </div>
-                        <div className="col col-lg-6 col-md-6 col-12 mb-4 mb-md-0">
+                        <div className="col col-lg-6 col-md-6 col-12 mb-4 mb-md-0"
+                            style={{ color: "#B1B4C1", padding: "4px 4px" }} >
                             © 2021 Copyright
-                        <a className="text-light" href="/index.html">Prodigious People LLP.</a>
-                        All Rights Reserved.
-                    </div>
+                          <a className="text-light" href="/index.html"
+                                style={{ padding: "0 8px " }}>Prodigious People LLP.</a>
+                          All Rights Reserved.
+                       </div>
+
                         <div className="col col-lg-3 col-md-3 col-12 mb-4 mb-md-0">
                             <a className="text-light" href="/privacy.html">Privacy Policy</a>
                         </div>

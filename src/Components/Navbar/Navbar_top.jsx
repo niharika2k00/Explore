@@ -3,7 +3,7 @@ import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Container, Nav, Navbar, Button, Form } from 'react-bootstrap';
 import '../../STYLES/navbar.css';
-import ExploreLOGO from '../../Assets/explorelogo1.png';
+import ExploreLOGO from '../../Assets/explorepng.png';
 import LOGO from '../../Assets/logo-top.webp';
 import { useLocation } from 'react-router-dom'
 
@@ -25,7 +25,7 @@ const Navbar_top = ({ match, history }) => {
                 <LinkContainer to="/"><Navbar.Brand id="nav_head">
                     {(modify_url === "/post/:id") ? <img id="explore" src={ExploreLOGO} alt="lol" />
                         :
-                        <img src={LOGO} id="prodigy" alt="lol" />
+                        <img src={ExploreLOGO} id="explore" alt="lol" />
                     }
                 </Navbar.Brand></LinkContainer>
 

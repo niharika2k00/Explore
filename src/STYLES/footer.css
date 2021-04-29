@@ -1,3 +1,31 @@
+.bg_image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: #00010c;
+}
+
+.bg_image--1 {
+    background-image: url("../Assets/bg-image-1.webp");
+}
+
+.bg_image.bg-position-fixed {
+    background-position: fixed;
+}
+
+[data-overlay="6"]:before, [data-black-overlay="6"]:before, [data-white-overlay="6"]:before {
+    opacity: 0.6;
+}
+
+[data-black-overlay]:before {
+    background-color: #00010c;
+}
+
+active-dark .active-dark .bg_image--1, .active-dark .rn-testimonial-content .inner p::before, .active-dark .rn-testimonial-content .inner p::after, .active-dark .footer-right {
+    background-image: inherit;
+}
+
 /* Set a specific color for each brand */
 
 .icon-facebook, .icon-instagram, .icon-linkedin, .icon-youtube, .icon-pinterest, .icon-quora, .icon-twitter, .icon-google, .icon-tumblr {
@@ -83,17 +111,49 @@
     color: #dad2d2de;
     color: #f0e3e3de;
     font-weight: 500;
-    font-size: 1.2rem;
-    font-family: 'Cormorant', serif;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     list-style: none;
 }
 
-.footer_cols li a:hover {
-    color: #ffffffde;
-    font-size: 1.25rem;
-}
-
 .footer_cols li i {
     color: white;
+}
+
+.text-light {
+    color: #fbfbfb!important;
+}
+
+.for_a a {
+    text-decoration: none;
+}
+
+.form-outline.form-white .form-control {
+    color: #fff;
+}
+
+/* 
+.form-outline .form-control {
+    min-height: auto;
+    padding: .33em .75em;
+    border: 0;
+    background: transparent;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+}*/
+
+.para {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.para2 {
+    font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.fstyle {
+    font-family: 'Montserrat', sans-serif;
 }
