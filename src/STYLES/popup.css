@@ -69,21 +69,3 @@
     background: #f0849d;
     border: 2px double #c6e48f;
 }
-
-.addcards {
-    color: white;
-    font-size: 4rem;
-    cursor: pointer;
-    position: absolute;
-    width: 4rem;
-    height: 4rem;
-    top: 4rem;
-    left: 4rem;
-}
-
-@media (max-width: 450px) {
-    .addcards {
-        top: 20rem;
-        left: 1rem;
-    }
-}

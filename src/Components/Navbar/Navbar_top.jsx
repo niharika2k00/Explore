@@ -1,22 +1,47 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Container, Nav, Navbar, Button, Form } from 'react-bootstrap';
 import '../../STYLES/navbar.css';
 import ExploreLOGO from '../../Assets/explorepng.png';
 import LOGO from '../../Assets/logo-top.webp';
 import { useLocation } from 'react-router-dom'
+import SignUp_popup from '../Authentication/SignUp.jsx';
+import Login from '../Authentication/Login.jsx';
+import app from "../../Firebase/Firebase.js";
 
 
 
 const Navbar_top = ({ match, history }) => {
 
-    // console.log("MATCH : ", match);
-    // console.log("HISTORY : ", history);
-
     const location = useLocation();
     const modify_url = location.pathname;
-    console.log(location.pathname);  // /post/:id
+    // console.log(location.pathname);  // /post/:id
+
+
+    const [signUp, setSignUp] = useState(false);
+    const [login, setLogin] = useState(false);
+
+    const [USER, setUSER] = useState(false);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmpass, setConfirmpass] = useState('');
+    // const [personName, setPersonName] = useState(''); // @type string
+
+
+
+
+
+
+    const handleLogOut = () => {
+        app.auth().signOut();
+        alert("Successfully LOGGED OUT !!");
+        setUSER(false);
+        // history.push("/register");
+    };
+
+
 
     return (
         <header>
@@ -37,12 +62,65 @@ const Navbar_top = ({ match, history }) => {
                         <Nav.Link href="#link">Design</Nav.Link>
                     </Nav>
 
-                    <Form inline>
-                        <Nav.Link href="#link" className="modiflink" ><i class="fas fa-search" id="icoSearch"></i>Sign In</Nav.Link>
-                        <section className="Button">
-                            <a className="Button-btn" href="/"> Sign Up </a>
+                    {/* --------------  LOGIN  POPUP   -- for exsisting user------------ */}
+                    {
+                        login && <Login
+                            type='logIn'
+                            setLogin={setLogin}
+                            setSignUp={setSignUp}
+                            email={email}
+                            setEmail={setEmail}
+                            password={password}
+                            setPassword={setPassword}
+                        />
+                    }
+
+                    {/* --------------  SIGNUP  POPUP -- for new user ------------ */}
+                    {
+                        signUp && <SignUp_popup
+                            type='signUp'
+                            setSignUp={setSignUp}
+                            setLogin={setLogin}
+                            name={name}
+                            setName={setName}
+                            email={email}
+                            setEmail={setEmail}
+                            password={password}
+                            setPassword={setPassword}
+                            confirmpass={confirmpass}
+                            setConfirmpass={setConfirmpass}
+                            USER={USER}
+                            setUSER={setUSER}
+                        />
+                    }
+
+                    <h5 onClick={() => setLogin(true)} id="signinbtn">Sign in </h5>
+
+                    {USER ?
+                        (<section className="Button">
+                            <button
+                                className="Button-btn"
+                                onClick={() => handleLogOut()}
+                                style={{ marginRight: "1rem" }}
+                            >
+                                Log Out
+                            </button>
                         </section>
-                    </Form>
+                        ) :
+
+                        (<section className="Button">
+                            <button
+                                className="Button-btn"
+                                onClick={() => setSignUp(true)}
+                                style={{ marginRight: "1rem" }}
+                            >
+                                Sign Up
+                                </button>
+                        </section>
+                        )
+                    }
+
+
                 </Navbar.Collapse>
 
             </Navbar>

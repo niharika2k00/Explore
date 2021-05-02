@@ -2,7 +2,7 @@
     /* font-family: 'Original Surfer', cursive; */
     font-family: 'Montserrat', sans-serif;
     width: 12rem;
-    height: 4rem;
+    height: 3rem;
 }
 
 #nav_head #explore {
@@ -15,9 +15,20 @@
     font-size: 1.2rem;
 }
 
+#signinbtn {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: black;
+}
+
+h5 #signinbtn:hover {
+    color: rgb(59, 252, 101);
+}
+
 .Button {
     padding: 4px auto 4px auto;
     margin-bottom: 6px;
+    color: white;
 }
 
 .Button .Button-btn {
