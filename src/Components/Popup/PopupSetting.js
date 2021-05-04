@@ -8,7 +8,7 @@ import '../../STYLES/popup.css';
 
 
 
-const Popup = ({ type, setsettingPopup }) => {
+const Popup = ({ type, setsettingPopup, title, setTitle }) => {
 
     const AddInfo = () => {
         console.log("Text added....");
@@ -42,8 +42,8 @@ const Popup = ({ type, setsettingPopup }) => {
                                     className="form_box"
                                     type='title'
                                     placeholder='add a title'
-                                // value={title}
-                                // onChange={(e) => settitle(e.target.value)}
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
                                 ></Form.Control>
                             </Form.Group>
                         </Col>

@@ -7,7 +7,7 @@ import HOMESCREEN from './Components/HomeScreen/HomeScreen.jsx';
 import PROFILESCREEN from './Components/ProfileScreen/Profile_Screen.jsx';
 import UPLOADSHOTSCREEN from './Components/UploadShot/UploadShot_Screen.jsx';
 import POSTSCREEN from './Components/Post_Screen/Post_Screen.jsx';
-import SIGN_UPSCREEN from './Components/Authentication/SignUp.jsx';
+
 
 
 
@@ -24,7 +24,6 @@ const App = () => {
           <Route path='/profile' component={PROFILESCREEN} exacr />
           <Route path='/uploadpost' component={UPLOADSHOTSCREEN} exact />
           <Route path='/post/:id' component={POSTSCREEN} exact />
-          <Route path='/signup' component={SIGN_UPSCREEN} exact />
 
 
 

@@ -5,9 +5,7 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import '../../STYLES/popup.css';
 
 
-
-
-const Popup = ({ type, setPopup }) => {
+const Popup = ({ type, setPopup, description, setDescription }) => {
 
     const AddNote = () => {
         console.log("Text added....");
@@ -23,12 +21,16 @@ const Popup = ({ type, setPopup }) => {
 
                     <Form>
                         <Form.Group controlId="exampleForm.ControlTextarea1">
-                            <Form.Control as="textarea" rows={5} />
+                            <Form.Control
+                                as="textarea" rows={5}
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
                         </Form.Group>
                     </Form>
 
                     <button onClick={() => AddNote()}>
-                        Add Text
+                        Add Description
                     </button>
 
 

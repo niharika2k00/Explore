@@ -34,9 +34,9 @@ const Navbar_top = ({ match, history }) => {
 
 
 
-    const handleLogOut = () => {
+    const handle_LogOut = () => {
         app.auth().signOut();
-        alert("Successfully LOGGED OUT !!");
+        alert(name, "Successfully LOGGED OUT !!");
         setUSER(false);
         // history.push("/register");
     };
@@ -94,13 +94,13 @@ const Navbar_top = ({ match, history }) => {
                         />
                     }
 
-                    <h5 onClick={() => setLogin(true)} id="signinbtn">Sign in </h5>
+                    {/* <h5 onClick={() => setLogin(true)} id="signinbtn">Sign in </h5> */}
 
                     {USER ?
                         (<section className="Button">
                             <button
                                 className="Button-btn"
-                                onClick={() => handleLogOut()}
+                                onClick={() => handle_LogOut()}
                                 style={{ marginRight: "1rem" }}
                             >
                                 Log Out
@@ -114,12 +114,11 @@ const Navbar_top = ({ match, history }) => {
                                 onClick={() => setSignUp(true)}
                                 style={{ marginRight: "1rem" }}
                             >
-                                Sign Up
+                                Sign In
                                 </button>
                         </section>
                         )
                     }
-
 
                 </Navbar.Collapse>
 

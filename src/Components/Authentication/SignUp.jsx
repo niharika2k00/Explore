@@ -14,7 +14,49 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
     const history = useHistory();
 
 
+    const signUp_Handler = async (e) => {
+        e.preventDefault();
+        console.log("Successfully Signed Up");
+        console.log("Email : ", email);
+        console.log("Password : ", password);
 
+        if (password !== confirmpass) {
+            console.log("Wrong password");
+            alert("Wrong password.Password dont Match");
+        }
+        else {
+            try {
+                const result = await app.auth().createUserWithEmailAndPassword(email, password);
+                console.log(result);
+                await result.user.updateProfile({
+                    displayName: name
+                });
+                console.log("Name : ", result.user.displayName);
+                setSignUp(false);
+                // history.push("/");
+            } catch (error) {
+                alert(error);
+                console.log(error);
+                setSignUp(false);
+            }
+        }
+    };
+
+
+
+    useEffect(() => {
+        app.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // alert("Currently Registered User " + user.displayName);
+                console.log(user.displayName);
+                // setPersonName(user.displayName);
+                setUSER(true);
+            } else {
+                console.log('No User');
+                setUSER(false);
+            }
+        });
+    }, [])
 
 
     return (
@@ -30,7 +72,7 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                     {loading && <Load />} */}
 
 
-                <Form /* onSubmit={signUp_Handler}  */ id="login_form">
+                <Form onSubmit={signUp_Handler} id="login_form">
                     <Form.Group controlId='name'>
                         {/* <Form.Label><b>Name </b></Form.Label> */}
                         <Form.Control
@@ -76,16 +118,12 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                         ></Form.Control>
                     </Form.Group>
 
-
                     <div className="btncenter">
                         <Button type='submit' variant='danger' >
                             <b style={{ fontSize: "14px" }}>Register</b>
                         </Button>
                     </div>
-
                 </Form>
-
-
 
 
                 <Row className='py-3'>

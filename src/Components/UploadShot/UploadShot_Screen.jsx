@@ -11,6 +11,9 @@ const UploadShot_Screen = () => {
     const [popup, setPopup] = useState(false);
     const [setting, setsettingPopup] = useState(false);
 
+    const [title, setTitle] = useState(' ');
+    const [description, setDescription] = useState(' ');
+
 
 
     return (
@@ -28,6 +31,8 @@ const UploadShot_Screen = () => {
                                     setting && <SETTING
                                         type='setting'
                                         setsettingPopup={setsettingPopup}   /* true paasss */
+                                        title={title}
+                                        setTitle={setTitle}
                                     />
                                 }
                                 <div className='file file--upload'>
@@ -49,11 +54,14 @@ const UploadShot_Screen = () => {
                                     </div>
 
 
+
                                     {/* --------------    POPUP  ------------ */}
                                     {
                                         popup && <POPUP
                                             type='addtxt'
                                             setPopup={setPopup}   /* true paasss */
+                                            description={description}
+                                            setDescription={setDescription}
                                         />
                                     }
                                     <div className='file file--upload'>
