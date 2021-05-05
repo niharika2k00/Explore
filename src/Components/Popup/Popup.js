@@ -5,11 +5,9 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import '../../STYLES/popup.css';
 
 
-const Popup = ({ type, setPopup, description, setDescription }) => {
+const Popup = ({ type, setPopup, description, setDescription, Description_handler }) => {
 
-    const AddNote = () => {
-        console.log("Text added....");
-    }
+
 
 
     return (
@@ -29,9 +27,12 @@ const Popup = ({ type, setPopup, description, setDescription }) => {
                         </Form.Group>
                     </Form>
 
-                    <button onClick={() => AddNote()}>
-                        Add Description
-                    </button>
+
+                    <div className="btncenter">
+                        <Button type='button' variant='danger' onClick={Description_handler} >
+                            <b style={{ fontSize: "14px" }}> Add Description</b>
+                        </Button>
+                    </div>
 
 
                 </div>

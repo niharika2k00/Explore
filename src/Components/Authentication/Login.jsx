@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Image, ListGroup, Card, Button, Container, Form } from 'react-bootstrap';
+import { Row, Col, Button, Container, Form } from 'react-bootstrap';
 import CancelIcon from '@material-ui/icons/Cancel';
 import '../../STYLES/authentication.scss';
 import app from "../../Firebase/Firebase.js";

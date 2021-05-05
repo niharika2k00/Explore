@@ -4,29 +4,38 @@ import React from 'react';
 import { Form, Row, Col, Container, Button } from 'react-bootstrap';
 import CancelIcon from '@material-ui/icons/Cancel';
 import '../../STYLES/popup.css';
+import firebase from 'firebase';
 
 
 
 
-const Popup = ({ type, setsettingPopup, title, setTitle }) => {
+const Popup = ({ type, setsettingPopup, title, setTitle, setTopic, topic, img, setImg, URL, setURL, Setting_handler }) => {
 
-    const AddInfo = () => {
-        console.log("Text added....");
-    }
+    const db = firebase.firestore();
+    const store = firebase.storage();
+
+
+
+
+
+    const Img_handle = (e) => {
+        if (e.target.files[0])
+            setImg(e.target.files[0]);
+    };
 
 
     return (
         <div>
             <div className="pop-up">
-                <div className="input-box">
+                <div className="input-box" /* onSubmit={Setting_handler} */>
                     <CancelIcon onClick={() => setsettingPopup(false)} className="cross-btn" />
-                    <h5>Enter the details:</h5>
+                    <h5 style={{ color: "#f99459" }} >ENTER THE DETAILS : </h5>
 
                     <Row>
                         <Col md={6}>
                             <Form.Group controlId="exampleForm.ControlSelect1">
                                 <Form.Label><b>Project Topic  <span style={{ color: 'crimson' }}>*</span></b></Form.Label>
-                                <Form.Control as="select" className="form_box">
+                                <Form.Control as="select" className="form_box" onChange={(e) => setTopic(e.target.value)} value={topic}>
                                     <option>Memes</option>
                                     <option>Motivational</option>
                                     <option>Food</option>
@@ -51,21 +60,27 @@ const Popup = ({ type, setsettingPopup, title, setTitle }) => {
                         <Col md={4}>
                             <div className="card" Style="width: 18rem;" className="pro_card">
                                 <div className="card-body">
-                                    <h5 className="card-title">Upload Cover Picture</h5>
+                                    {/* <h5 className="card-title">Upload Cover Picture</h5> */}
                                     <Form>
                                         <Form.Group style={{ color: "black" }} >
-                                            <Form.File id="exampleFormControlFile1" label="" />
+                                            <Form.File
+                                                id="exampleFormControlFile1"
+                                                label="Upload Cover Picture"
+                                                onChange={Img_handle}
+                                            />
                                         </Form.Group>
                                     </Form>
                                 </div>
                             </div>
                         </Col>
-
                     </Row>
 
-                    <button onClick={() => AddInfo()}>
-                        Add Text
-                    </button>
+
+                    <div className="btncenter">
+                        <Button type='button' variant='danger' onClick={Setting_handler}  >
+                            <b style={{ fontSize: "14px" }}>Add Text</b>
+                        </Button>
+                    </div>
 
 
                 </div>

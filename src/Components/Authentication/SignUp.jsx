@@ -5,6 +5,7 @@ import { Row, Col, Image, ListGroup, Card, Button, Container, Form } from 'react
 import CancelIcon from '@material-ui/icons/Cancel';
 import '../../STYLES/authentication.scss';
 import app from "../../Firebase/Firebase.js";
+import firebase from 'firebase';
 import { useHistory } from "react-router-dom";
 
 
@@ -12,6 +13,7 @@ import { useHistory } from "react-router-dom";
 const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, password, setPassword, confirmpass, setConfirmpass, USER, setUSER }) => {
 
     const history = useHistory();
+    const db = firebase.firestore();
 
 
     const signUp_Handler = async (e) => {
@@ -23,22 +25,41 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
         if (password !== confirmpass) {
             console.log("Wrong password");
             alert("Wrong password.Password dont Match");
+            return;
         }
-        else {
-            try {
-                const result = await app.auth().createUserWithEmailAndPassword(email, password);
-                console.log(result);
-                await result.user.updateProfile({
-                    displayName: name
-                });
-                console.log("Name : ", result.user.displayName);
-                setSignUp(false);
-                // history.push("/");
-            } catch (error) {
-                alert(error);
-                console.log(error);
-                setSignUp(false);
+
+        try {
+            // ----------- SignUp   --------
+            const result = await app.auth().createUserWithEmailAndPassword(email, password);
+            console.log(result);
+            await result.user.updateProfile({
+                displayName: name
+            });
+            console.log("Name : ", result.user.displayName);
+            setSignUp(false);
+            // history.push("/");
+
+            // --------- Putting into DB --------
+            const USER = firebase.auth().currentUser;
+            console.log(USER);
+            const User_obj = {
+                Name: name,
+                Email: email,
+                CreatedAt: new Date(),
+                Provider: "Custom"
             }
+            console.log(User_obj);
+            await db.collection('USER_INFO').doc(USER.uid).set(User_obj)
+            alert("Message summited Successfully!");
+            setName('');
+            setEmail('');
+            setConfirmpass('');
+            setPassword('');
+        }
+        catch (error) {
+            alert(error);
+            console.log(error);
+            setSignUp(false);
         }
     };
 
@@ -49,7 +70,6 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
             if (user) {
                 // alert("Currently Registered User " + user.displayName);
                 console.log(user.displayName);
-                // setPersonName(user.displayName);
                 setUSER(true);
             } else {
                 console.log('No User');
