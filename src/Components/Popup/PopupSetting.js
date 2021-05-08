@@ -9,19 +9,13 @@ import firebase from 'firebase';
 
 
 
-const Popup = ({ type, setsettingPopup, title, setTitle, setTopic, topic, img, setImg, URL, setURL, Setting_handler }) => {
+const Popup = ({ type, setsettingPopup, title, setTitle, setTopic, topic, Setting_handler, Img_handle }) => {
 
     const db = firebase.firestore();
     const store = firebase.storage();
 
 
 
-
-
-    const Img_handle = (e) => {
-        if (e.target.files[0])
-            setImg(e.target.files[0]);
-    };
 
 
     return (
@@ -78,7 +72,7 @@ const Popup = ({ type, setsettingPopup, title, setTitle, setTopic, topic, img, s
 
                     <div className="btncenter">
                         <Button type='button' variant='danger' onClick={Setting_handler}  >
-                            <b style={{ fontSize: "14px" }}>Add Text</b>
+                            <b style={{ fontSize: "14px" }}>SAVE</b>
                         </Button>
                     </div>
 

@@ -38,20 +38,6 @@
   box-shadow: none;
   //   border: none;
 }
-/* #checkout {
-  color: rgba(255, 255, 255, 0.925);
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-#checkout:hover {
-  color: rgb(255, 29, 135);
-}
-
-#checkoutDisabled {
-  color: rgba(158, 155, 155, 0.925);
-  font-size: 0.9rem;
-} */
 
 .upload_style {
   color: black;
@@ -60,8 +46,8 @@
 .file {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .file > input[type="file"] {
