@@ -1,12 +1,11 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Container, Nav, Navbar, Button, Form } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import '../../STYLES/navbar.css';
 import ExploreLOGO from '../../Assets/explorepng.png';
-import LOGO from '../../Assets/logo-top.webp';
 import { useLocation } from 'react-router-dom'
-import SignUp_popup from '../Authentication/SignUp.jsx';
+import SIGNUP_POPUP from '../Authentication/SignUp.jsx';
 import Login from '../Authentication/Login.jsx';
 import app from "../../Firebase/Firebase.js";
 
@@ -36,7 +35,7 @@ const Navbar_top = ({ match, history }) => {
 
     const handle_LogOut = () => {
         app.auth().signOut();
-        alert(name, "Successfully LOGGED OUT !!");
+        console.log("Successfully Logged out ", name);
         setUSER(false);
         // history.push("/register");
     };
@@ -71,13 +70,14 @@ const Navbar_top = ({ match, history }) => {
                             email={email}
                             setEmail={setEmail}
                             password={password}
+                            name={name}
                             setPassword={setPassword}
                         />
                     }
 
                     {/* --------------  SIGNUP  POPUP -- for new user ------------ */}
                     {
-                        signUp && <SignUp_popup
+                        signUp && <SIGNUP_POPUP
                             type='signUp'
                             setSignUp={setSignUp}
                             setLogin={setLogin}

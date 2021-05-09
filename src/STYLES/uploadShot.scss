@@ -17,6 +17,9 @@
   border-radius: 5px; // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);      outside
   box-shadow: inset 2px 2px 5px #9499a8, inset -5px -5px 10px #fff;
   background-color: rgba(255, 255, 255, 0.6);
+  // background-image: url("../Assets/post.jpg");
+  // background-repeat: no-repeat;
+  // background-size: cover;
   &:focus {
     box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
   }
@@ -99,7 +102,7 @@
 /* ---------------------         MEDIA QUERYYY         --------------------- */
 @media (max-width: 450px) {
   .myrow {
-    margin: 60px auto;
+    margin: 1.4rem auto;
     padding: 8px;
   }
 }

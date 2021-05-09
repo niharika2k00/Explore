@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect } from "react";
-import { Dropdown, Row, Col, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Row, Container } from "react-bootstrap";
+// import { Link } from "react-router-dom";
 import "../../App.css";
 import "../../STYLES/postscreen.css";
 // import ReactDOM from 'react-dom';
@@ -15,11 +15,11 @@ const Post_Screen = () => {
 
     let slides = [
 
-        <img src='https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' alt='Album one' data-action="https://facebook.github.io/react/" />,
-        <img src='https://images.unsplash.com/photo-1489493512598-d08130f49bea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1048&q=80' alt='Album two' data-action="http://passer.cc" />,
-        <img src='https://images.unsplash.com/photo-1529690086133-c8e4bc9e1f6a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1111&q=80' alt='Album three' data-action="https://doce.cc/" />,
-        <img src='https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' alt='Album four' data-action="http://tw.yahoo.com" />,
-        <img src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' alt='Album one' data-action="https://facebook.github.io/react/" />
+        <img src='https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' alt='Album one' data-action="https://facebook.github.io/react/" />,
+        <img src='https://images.unsplash.com/photo-1489493512598-d08130f49bea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' alt='Album two' data-action="http://passer.cc" />,
+        <img src='https://images.unsplash.com/photo-1529690086133-c8e4bc9e1f6a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' alt='Album three' data-action="https://doce.cc/" />,
+        <img src='https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' alt='Album four' data-action="http://tw.yahoo.com" />,
+        <img src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' alt='Album one' data-action="https://facebook.github.io/react/" />
 
     ];
 
@@ -64,7 +64,7 @@ const Post_Screen = () => {
                     </StyleRoot> */}
                     {/* </Col> */}
 
-                    <Carousel slides={slides} autoplay={false} interval={2000} />
+                    <Carousel slides={slides} autoplay={false} interval={2000} id="carousal" />
 
                 </Row>
 

@@ -1,18 +1,18 @@
 
 
 import React from 'react';
-import { Form, Row, Col, Container, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import CancelIcon from '@material-ui/icons/Cancel';
 import '../../STYLES/popup.css';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 
 
 
 
 const Popup = ({ type, setsettingPopup, title, setTitle, setTopic, topic, Setting_handler, Img_handle }) => {
 
-    const db = firebase.firestore();
-    const store = firebase.storage();
+    // const db = firebase.firestore();
+    // const store = firebase.storage();
 
 
 
@@ -47,23 +47,25 @@ const Popup = ({ type, setsettingPopup, title, setTitle, setTopic, topic, Settin
                                     placeholder='add a title'
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
+                                    required
                                 ></Form.Control>
                             </Form.Group>
                         </Col>
 
                         <Col md={4}>
-                            <div className="card" Style="width: 18rem;" className="pro_card">
+                            <div className="card" style={{ width: '18rem' }} className="pro_card">
                                 <div className="card-body">
                                     {/* <h5 className="card-title">Upload Cover Picture</h5> */}
-                                    <Form>
-                                        <Form.Group style={{ color: "black" }} >
-                                            <Form.File
-                                                id="exampleFormControlFile1"
-                                                label="Upload Cover Picture"
-                                                onChange={Img_handle}
-                                            />
-                                        </Form.Group>
-                                    </Form>
+
+                                    <Form.Group style={{ color: "black" }} >
+                                        <Form.File
+                                            id="exampleFormControlFile1"
+                                            label="Upload Cover Picture"
+                                            onChange={Img_handle}
+                                            required
+                                        />
+                                    </Form.Group>
+
                                 </div>
                             </div>
                         </Col>

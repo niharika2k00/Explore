@@ -1,9 +1,10 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Container, Button, Form } from 'react-bootstrap';
 import '../../STYLES/uploadShot.scss';
 import POPUP from '../Popup/Popup.js';
 import LOAD from '../Loading.js';
+import MESS from '../Message.js';
 import SETTING from '../Popup/PopupSetting.js';
 import firebase from 'firebase';
 
@@ -13,16 +14,19 @@ const UploadShot_Screen = () => {
     const db = firebase.firestore();
     const store = firebase.storage();
 
+    const [msg_Success, setMsg_Success] = useState(null);
+    const [msg_Warn, setMsg_Warn] = useState(null);
     const [loading, setLoading] = useState(false);
     const [popup, setPopup] = useState(false);
     const [setting, setsettingPopup] = useState(false);
-    const [title, setTitle] = useState(' ');
-    const [description, setDescription] = useState(' ');
-    const [topic, setTopic] = useState(' ');
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [topic, setTopic] = useState('');
     const [img, setImg] = useState(null);
-    const [URL, setURL] = useState(null);
+    // const [URL, setURL] = useState(null);
     const [files, setFiles] = useState([]);
     const [files_link, setFiles_Link] = useState([]);
+
 
 
 
@@ -52,15 +56,17 @@ const UploadShot_Screen = () => {
 
 
     const Upload_multi = async () => {
-        const promises = [];
         const Multi_array = [];
         setFiles_Link([]);
 
         console.log('starting loop');
         for (let i = 0; i < files.length; i++) {
             console.log('inside loop before uploading', i);
-            const uploadTask = firebase.storage().ref().child(`Files/${files[i].name}`).put(files[i]);
-            const MultidownloadURL = await store.ref().child(`Files/${files[i].name}`).getDownloadURL();
+            // const uploadTask = firebase.storage().ref().child(`Files/${files[i].name}`).put(files[i]);
+            const fileRef = await store.ref().child(`Files/${files[i].name}`);
+            await fileRef.put(files[i]);
+            const MultidownloadURL = await fileRef.getDownloadURL();
+
             console.log("MultidownloadURL = ", MultidownloadURL);
             Multi_array.push(MultidownloadURL);
         }
@@ -95,16 +101,18 @@ const UploadShot_Screen = () => {
                  }
              ) */
 
-            // const downloadURL = await store.ref("Images/Cover_pics").child(img.name).getDownloadURL();
-            const downloadURL = await store.ref().child(`Images/Cover_pics/${img.name}`).getDownloadURL();
+
+            // const downloadURL = await store.ref().child(`Images/Cover_pics/${img.name}`).getDownloadURL();
+            const a = store.ref().child(`Images/Cover_pics/${img.name}`);
+            await a.put(img);
+            const downloadURL = await a.getDownloadURL();
+
             console.log(downloadURL);
             return downloadURL;
         }
 
         catch (error) {
-            alert(error);
             console.log(error);
-            // return 0;
         }
     }
 
@@ -120,32 +128,46 @@ const UploadShot_Screen = () => {
 
 
 
+
     // -----------------    FINAL UPLOAD(submit) POST HANDLER   --------------------
     const PostSubmit_Handler = async (e) => {
         e.preventDefault();
 
         try {
+            setMsg_Warn(null);
             setLoading(true);
-
             const SINGLE = await Upload_single();
-            console.log("SINGLE ", URL)
-            await Upload_multi();
-            // console.log("MULTIPLE ", MULTIPLE)
-
-            const USER = firebase.auth().currentUser;
-            await db.collection('USER_INFO').doc(USER.uid).collection('POSTS').add({
-                Topic: topic,
-                Title: title,
-                // Cover_Image: SINGLE,
-                Description: description,
-                // Files: MULTIPLE,
-                Posted_On: new Date()
-            });
-
-            console.log("Succesfully POST submitted");
+            console.log("SINGLE ", SINGLE)
+            const MULTIPLE = await Upload_multi();
+            console.log("MULTIPLE ", MULTIPLE)
             setLoading(false);
-        }
 
+            if (topic && title && SINGLE.length !== 0 && description && MULTIPLE.length !== 0) {
+                setLoading(true);
+                const USER = firebase.auth().currentUser;
+                await db.collection('USER_INFO').doc(USER.uid).collection('POSTS').add({
+                    Topic: topic,
+                    Title: title,
+                    Cover_Image: SINGLE,
+                    Description: description,
+                    Files: MULTIPLE,
+                    Posted_On: new Date()
+                });
+
+                console.log("Succesfully POST submitted");
+                setLoading(false);
+
+                setMsg_Success("Post Submitted Successfully !!");
+                setDescription('');
+                setTitle('');
+                setTopic('');
+
+            }
+
+            else {
+                setMsg_Warn("Please fill all the fields to proceed further !!");
+            }
+        }
         catch (error) {
             console.log(error);
         }
@@ -159,10 +181,13 @@ const UploadShot_Screen = () => {
             <Container className="self_container ">
                 <h1 className="loginhead" >POST</h1>
 
+                {msg_Warn && <MESS variant='danger'>{msg_Warn}</MESS>}
+                {msg_Success && <MESS variant='success'>{msg_Success}</MESS>}
+
                 {
                     loading ? <LOAD /> :
-                        <Row className="justify-content-md-center  myrow">
-                            <Col md={6} xs={12} >
+                        <Row className="justify-content-md-center  myrow"  >
+                            <Col md={6} xs={12} style={{ padding: "1rem" }} >
                                 <Form id="login_form" onSubmit={PostSubmit_Handler} >
 
                                     <Form.Group controlId='title'>
@@ -190,12 +215,12 @@ const UploadShot_Screen = () => {
 
                                     <Form.Group controlId='title'>
                                         {/* Multiple Images Upload */}
-                                        <Form.Label><b>Upload Image <i class="fas fa-cloud-upload-alt ico_big"></i><span style={{ color: 'crimson' }}>*</span> </b></Form.Label>
-                                        <div class="d-flex justify-content-between">
+                                        <Form.Label><b>Upload Image <i className="fas fa-cloud-upload-alt ico_big"></i><span style={{ color: 'crimson' }}>*</span> </b></Form.Label>
+                                        <div className="d-flex justify-content-between">
 
                                             <div>
                                                 <div className='file file--upload'>
-                                                    <label for='input-file'>
+                                                    <label htmlFor='input-file'>
                                                         <i className="fas fa-images ico_big" ></i>
                                                     </label>
                                                     <input id='input-file' type='file' multiple onChange={MultipleFile_Onchange} />
@@ -208,7 +233,6 @@ const UploadShot_Screen = () => {
                                             {/* --------------    POPUP  ------------ */}
                                             {
                                                 popup && <POPUP
-                                                    type='addtxt'
                                                     setPopup={setPopup}   /* true paasss */
                                                     description={description}
                                                     setDescription={setDescription}
@@ -217,24 +241,22 @@ const UploadShot_Screen = () => {
                                             }
                                             <div>
                                                 <div className='file file--upload'>
-                                                    <label for='text' onClick={() => setPopup(true)}>
-                                                        <i class="fas fa-text-height ico_big"></i>
+                                                    <label htmlFor='text' onClick={() => setPopup(true)}>
+                                                        <i className="fas fa-text-height ico_big"></i>
                                                     </label>
                                                 </div>
                                                 <p style={{ color: 'black', marginLeft: "1rem" }}>Text</p>
                                             </div>
-
-
                                         </div>
                                     </Form.Group>
+
+
 
                                     <Button type='submit' variant='danger' disabled={loading} style={{ marginTop: "1rem" }} id="centerbtn" >
                                         <b style={{ fontSize: "16px" }}>Submit Post</b>
                                     </Button>
                                 </Form>
                             </Col>
-
-
                         </Row>
                 }
 

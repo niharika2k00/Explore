@@ -84,6 +84,7 @@
     text-decoration: none;
     border: 2px solid rgb(248, 230, 230);
     background-color: #ff7221e1;
+    color: white;
 }
 
 .CarouButton .carouButton-btn:hover {

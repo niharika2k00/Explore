@@ -1,3 +1,25 @@
+.react-3d-carousel .slider-container .slider-right div {
+    position: absolute;
+    top: 50% !important;
+    left: 0% !important;
+    margin-top: 0 !important;
+    color: #ffffff !important;
+    transform: translateY(-50%) !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.react-3d-carousel .slider-container .slider-left div {
+    position: absolute !important;
+    top: 50% !important;
+    left: 0% !important;
+    margin-top: 0 !important;
+    color: #ffffff !important;
+    transform: translateY(-50%) !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
 .post_titles {
     font-size: 1.4rem;
     font-weight: 700px;

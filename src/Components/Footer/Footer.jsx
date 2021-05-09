@@ -10,7 +10,6 @@ const Footer = () => {
 
     return (
         <div>
-
             <footer className="bg_image bg_image--1 bg-black text-center text-lg-start" data-black-overlay="6"
                 style={{ backgroundColor: "#00010c" }}
             >
@@ -28,23 +27,23 @@ const Footer = () => {
                         </div>
 
 
-                        <div class="col-lg-3 offset-lg-1 col-md-6 mb-4 mb-md-0 fstyle ">
-                            <h5 class="text-white mb-md-4 font-weight-bold">Grow your business with us</h5>
+                        <div className="col-lg-3 offset-lg-1 col-md-6 mb-4 mb-md-0 fstyle ">
+                            <h5 className="text-white mb-md-4 font-weight-bold">Grow your business with us</h5>
 
-                            <ul class="list-unstyled footer_cols fstyle   mb-0">
-                                <li class="mb-md-2">
+                            <ul className="list-unstyled footer_cols fstyle   mb-0">
+                                <li className="mb-md-2">
                                     <a href="/connect.html">Vocal for Local</a>
                                 </li>
-                                <li class="mb-md-2">
+                                <li className="mb-md-2">
                                     <a href="/connect.html">Corporates</a>
                                 </li>
-                                <li class="mb-md-2">
+                                <li className="mb-md-2">
                                     <a href="/connect.html">Small-Medium Enterprises</a>
                                 </li>
-                                <li class="mb-md-2">
+                                <li className="mb-md-2">
                                     <a href="/connect.html">Startups</a>
                                 </li>
-                                <li class="mb-md-2">
+                                <li className="mb-md-2">
                                     <a href="/connect.html">Influencers</a>
                                 </li>
                                 <li>
@@ -54,8 +53,8 @@ const Footer = () => {
                         </div>
 
 
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0 ">
-                            <h5 class="text-white mb-md-4 font-weight-bold">Connect</h5>
+                        <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ">
+                            <h5 className="text-white mb-md-4 font-weight-bold">Connect</h5>
 
 
                             <ul className="list-unstyled fstyle footer_cols">

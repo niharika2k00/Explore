@@ -1,10 +1,10 @@
 
-import React, { useState, useEffect } from 'react';
-import { Dropdown, Row, Col, Container } from 'react-bootstrap';
+import * as React from 'react';
+import { Row, Col, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import '../../App.css';
 import '../../STYLES/homescreen.css';
 
@@ -12,7 +12,7 @@ import '../../STYLES/homescreen.css';
 
 const HomeScreen = () => {
 
-    const [show, setShow] = useState(false)
+    /* const [show, setShow] = useState(false)
 
     var settings;
     const [slider, setslider] = useState(settings = {
@@ -39,7 +39,7 @@ const HomeScreen = () => {
         }
     }, []);
 
-    console.log(show)
+    console.log(show) */
 
 
     return (
@@ -54,10 +54,6 @@ const HomeScreen = () => {
 
                             <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                Suspendisse luctus ligula quis urna commodo, et pharetra lacus faucibus.</p>
-
-                            <section className="Button" Style={{ marginLeft: "2rem", paddingLeft: "2rem" }}>
-                                <a className="Button-btn" Style={{ marginLeft: "2rem", paddingLeft: "2rem" }} href="/">Design </a>
-                            </section>
                         </Col>
                     </Row>
                 </div>
@@ -71,59 +67,52 @@ const HomeScreen = () => {
                 <section>
                     <Row id="gap_top">
 
-                        <div class="d-flex flex-wrap justify-content-around">
+                        <div className="d-flex flex-wrap justify-content-around">
                             <div>
-                                <Dropdown>
-                                    <Dropdown.Toggle variant="info" id="dropdown-basic">
-                                        Popular
-                                </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">Lorem</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Ipsum</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Dolor</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
+                                <section className="Button">
+                                    <a className="Button-btn" href="/" style={{ marginTop: "1px " }}>
+                                        Popular </a>
+                                </section>
                             </div>
 
                             <div>
                                 <section className=" ml-auto  CarouButton">
-                                    <a className="carouButton-btn">
+                                    <a href=" " className="carouButton-btn">
                                         Motivational </a>
                                 </section>
                             </div>
 
                             <div>
                                 <section className=" ml-auto  CarouButton">
-                                    <a className="carouButton-btn">
+                                    <a href=" " className="carouButton-btn">
                                         Memes </a>
                                 </section>
                             </div>
 
                             <div>
                                 <section className=" ml-auto  CarouButton">
-                                    <a className="carouButton-btn">
+                                    <a href=" " className="carouButton-btn">
                                         Food </a>
                                 </section>
                             </div>
 
                             <div>
                                 <section className=" ml-auto  CarouButton">
-                                    <a className="carouButton-btn">
+                                    <a href=" " className="carouButton-btn">
                                         Travel </a>
                                 </section>
                             </div>
 
                             <div>
                                 <section className=" ml-auto  CarouButton">
-                                    <a className="carouButton-btn">
+                                    <a href=" " className="carouButton-btn">
                                         Art </a>
                                 </section>
                             </div>
 
                             <div>
                                 <section className=" ml-auto  CarouButton">
-                                    <a className="carouButton-btn">
+                                    <a href=" " className="carouButton-btn">
                                         Global News </a>
                                 </section>
                             </div>
@@ -131,7 +120,7 @@ const HomeScreen = () => {
                             <div>
                                 <section className="Button">
                                     <a className="Button-btn" href="/" style={{ marginTop: "1px " }}>
-                                        <i class="fas fa-filter"></i>Filter </a>
+                                        <i className="fas fa-filter"></i>Filter </a>
                                 </section>
                             </div>
 
@@ -169,7 +158,25 @@ const HomeScreen = () => {
                     <Row id="gap_top">
                         <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
                             {/* {`/post/${post._id}`} */}
-                            < div className="card " Style={{ width: "18rem" }}>
+                            < div className="card " >
+                                <Link to='/post/:id'>
+                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
+                                </Link>
+                                <div className="d-flex justify-content-end">
+                                    <div>
+                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
+                                    </div>
+
+                                    <div>
+                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+
+                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
+                            {/* {`/post/${post._id}`} */}
+                            < div className="card " >
                                 <Link to='/post/:id'>
                                     <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
                                 </Link>
@@ -187,35 +194,17 @@ const HomeScreen = () => {
 
                         <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
                             {/* {`/post/${post._id}`} */}
-                            < div className="card " Style={{ width: "18rem" }}>
+                            < div className="card " >
                                 <Link to='/post/:id'>
                                     <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
                                 </Link>
-                                <div class="d-flex justify-content-end">
+                                <div className="d-flex justify-content-end">
                                     <div>
-                                        <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
+                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
                                     </div>
 
                                     <div>
-                                        <i class="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-
-                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
-                            {/* {`/post/${post._id}`} */}
-                            < div className="card " Style={{ width: "18rem" }}>
-                                <Link to='/post/:id'>
-                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
-                                </Link>
-                                <div class="d-flex justify-content-end">
-                                    <div>
-                                        <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
-                                    </div>
-
-                                    <div>
-                                        <i class="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
+                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
                                     </div>
                                 </div>
                             </div>
@@ -226,17 +215,17 @@ const HomeScreen = () => {
                     <Row id="gap_top">
                         <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
                             {/* {`/post/${post._id}`} */}
-                            < div className="card " Style={{ width: "18rem" }}>
+                            < div className="card " >
                                 <Link to='/post/:id'>
                                     <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
                                 </Link>
-                                <div class="d-flex justify-content-end">
+                                <div className="d-flex justify-content-end">
                                     <div>
-                                        <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
+                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
                                     </div>
 
                                     <div>
-                                        <i class="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
+                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
                                     </div>
                                 </div>
                             </div>
@@ -244,17 +233,17 @@ const HomeScreen = () => {
 
                         <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
                             {/* {`/post/${post._id}`} */}
-                            < div className="card " Style={{ width: "18rem" }}>
+                            < div className="card " >
                                 <Link to='/post/:id'>
                                     <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
                                 </Link>
-                                <div class="d-flex justify-content-end">
+                                <div className="d-flex justify-content-end">
                                     <div>
-                                        <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
+                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
                                     </div>
 
                                     <div>
-                                        <i class="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
+                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
                                     </div>
                                 </div>
                             </div>
@@ -262,17 +251,17 @@ const HomeScreen = () => {
 
                         <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
                             {/* {`/post/${post._id}`} */}
-                            < div className="card " Style={{ width: "18rem" }}>
+                            < div className="card " >
                                 <Link to='/post/:id'>
                                     <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
                                 </Link>
-                                <div class="d-flex justify-content-end">
+                                <div className="d-flex justify-content-end">
                                     <div>
-                                        <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
+                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
                                     </div>
 
                                     <div>
-                                        <i class="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
+                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
                                     </div>
                                 </div>
                             </div>

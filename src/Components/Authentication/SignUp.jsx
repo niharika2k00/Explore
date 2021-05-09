@@ -1,18 +1,18 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Image, ListGroup, Card, Button, Container, Form } from 'react-bootstrap';
+import { Row, Col, Button, Form } from 'react-bootstrap';
 import CancelIcon from '@material-ui/icons/Cancel';
 import '../../STYLES/authentication.scss';
 import app from "../../Firebase/Firebase.js";
 import firebase from 'firebase';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 
 
 const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, password, setPassword, confirmpass, setConfirmpass, USER, setUSER }) => {
 
-    const history = useHistory();
+    // const history = useHistory();
     const db = firebase.firestore();
 
 
@@ -68,7 +68,6 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
     useEffect(() => {
         app.auth().onAuthStateChanged((user) => {
             if (user) {
-                // alert("Currently Registered User " + user.displayName);
                 console.log(user.displayName);
                 setUSER(true);
             } else {
@@ -76,23 +75,18 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                 setUSER(false);
             }
         });
-    }, [])
+    }, [setUSER])
 
 
     return (
         <div className="SignUppop-up">
             <div className="SignUpinput-box">
                 <CancelIcon onClick={() => setSignUp(false)} className="cross-btn" />
-                {/* <h5>Register yourself to Share your thoughts :</h5> */}
 
                 <h1 className="loginhead"> Sign Up </h1>
 
-                {/* {msg && <Mess variant='danger'>{msg}</Mess>}
-                    {error && <Mess variant='danger'>{error}</Mess>}
-                    {loading && <Load />} */}
 
-
-                <Form onSubmit={signUp_Handler} id="login_form">
+                <Form onSubmit={signUp_Handler} className="login_form">
                     <Form.Group controlId='name'>
                         {/* <Form.Label><b>Name </b></Form.Label> */}
                         <Form.Control
@@ -150,6 +144,7 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                     <Col style={{ color: "black" }}>
                         Already Have An Account ?{' '}
                         <Link /* to={redirect ? `/login?redirect=${redirect}` : '/login'} */
+                            to="#"
                             onClick={() => {
                                 setSignUp(false);
                                 setLogin(true);

@@ -73,7 +73,7 @@
   border: 2px double #c6e48f;
 }
 
-#login_form {
+.login_form {
   color: rgba(255, 255, 255, 0.959);
   font-size: 20px;
   font-family: "Cormorant", serif;
@@ -82,7 +82,7 @@
   /* display: flex; */
 }
 
-#login_form .form_box {
+.login_form .form_box {
   padding: 1px 30px;
   border-radius: 45px;
   font-size: 17px;
@@ -96,7 +96,7 @@
   text-align: center;
   padding-bottom: 0rem;
   font-family: "Cormorant", serif;
-  background: linear-gradient(160deg, #f3b997fa, #ff7321);
+  background: linear-gradient(160deg, #f3b997fa, #ffc300);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;

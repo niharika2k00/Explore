@@ -49,7 +49,7 @@ const Profile_Screen = () => {
                 <section>
                     <Row className="rowTopgap">
                         <Col md={4} sm={12} >
-                            <div className="card" Style="width: 18rem;" className="pro_card">
+                            <div className="card" style={{ width: "18rem" }} className="pro_card">
                                 <div className="card-body">
                                     <h5 className="card-title">Upload your first shot</h5>
                                     <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tellus pellentesque.</p>
