@@ -7,16 +7,16 @@ import LOAD from '../Loading.js';
 import MESS from '../Message.js';
 import SETTING from '../Popup/PopupSetting.js';
 import firebase from 'firebase';
+import moment from 'moment';
 
 
-const UploadShot_Screen = () => {
+const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
 
     const db = firebase.firestore();
     const store = firebase.storage();
 
     const [msg_Success, setMsg_Success] = useState(null);
     const [msg_Warn, setMsg_Warn] = useState(null);
-    const [loading, setLoading] = useState(false);
     const [popup, setPopup] = useState(false);
     const [setting, setsettingPopup] = useState(false);
     const [title, setTitle] = useState('');
@@ -142,6 +142,12 @@ const UploadShot_Screen = () => {
             console.log("MULTIPLE ", MULTIPLE)
             setLoading(false);
 
+            // Timestamp
+            let now = new Date();
+            var dateStringWithTime = moment(now).format('YYYY-MM-DD HH:MM:SS');
+            console.log(dateStringWithTime)                                                    // Output: 2020-07-21 07:24:06
+
+
             if (topic && title && SINGLE.length !== 0 && description && MULTIPLE.length !== 0) {
                 setLoading(true);
                 const USER = firebase.auth().currentUser;
@@ -151,8 +157,10 @@ const UploadShot_Screen = () => {
                     Cover_Image: SINGLE,
                     Description: description,
                     Files: MULTIPLE,
-                    Posted_On: new Date()
+                    Posted_On: dateStringWithTime
                 });
+
+
 
                 console.log("Succesfully POST submitted");
                 setLoading(false);
@@ -161,7 +169,6 @@ const UploadShot_Screen = () => {
                 setDescription('');
                 setTitle('');
                 setTopic('');
-
             }
 
             else {

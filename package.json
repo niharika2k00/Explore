@@ -13,6 +13,7 @@
     "material-icons": "^0.6.1",
     "mdb-ui-kit": "^3.5.0",
     "mdbootstrap": "^4.19.2",
+    "moment": "^2.29.1",
     "radium": "^0.26.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",

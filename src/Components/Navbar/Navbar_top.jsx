@@ -11,32 +11,18 @@ import app from "../../Firebase/Firebase.js";
 
 
 
-const Navbar_top = ({ match, history }) => {
+const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, set_USER, name, setName, email, setEmail, password, setPassword, confirmpass, setConfirmpass }) => {
+
 
     const location = useLocation();
     const modify_url = location.pathname;
     // console.log(location.pathname);  // /post/:id
 
 
-    const [signUp, setSignUp] = useState(false);
-    const [login, setLogin] = useState(false);
-
-    const [USER, setUSER] = useState(false);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmpass, setConfirmpass] = useState('');
-    // const [personName, setPersonName] = useState(''); // @type string
-
-
-
-
-
-
     const handle_LogOut = () => {
         app.auth().signOut();
         console.log("Successfully Logged out ", name);
-        setUSER(false);
+        set_USER({});
         // history.push("/register");
     };
 
@@ -90,13 +76,14 @@ const Navbar_top = ({ match, history }) => {
                             confirmpass={confirmpass}
                             setConfirmpass={setConfirmpass}
                             USER={USER}
-                            setUSER={setUSER}
+                            set_USER={set_USER}
                         />
                     }
 
                     {/* <h5 onClick={() => setLogin(true)} id="signinbtn">Sign in </h5> */}
 
-                    {USER ?
+                    {Object.keys(USER).length !== 0 ?
+
                         (<section className="Button">
                             <button
                                 className="Button-btn"
@@ -106,7 +93,9 @@ const Navbar_top = ({ match, history }) => {
                                 Log Out
                             </button>
                         </section>
-                        ) :
+                        )
+
+                        :
 
                         (<section className="Button">
                             <button

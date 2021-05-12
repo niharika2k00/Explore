@@ -20,27 +20,27 @@
     border: none !important;
 }
 
-.post_titles {
-    font-size: 1.4rem;
-    font-weight: 700px;
-}
-
 .post_titles b {
-    color: #F72963;
+    color: #40383a;
+    font-size: 1.4rem;
+    font-weight: 500px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .post_subtitles {
     font-size: 1.2rem;
     font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .post_subtitles b {
-    color: #FE4B46;
+    color: #3b3639;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .row_center {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
 }

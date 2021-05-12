@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
@@ -7,39 +7,33 @@ import "slick-carousel/slick/slick-theme.css";
 // import Slider from "react-slick";
 import '../../App.css';
 import '../../STYLES/homescreen.css';
+import EACH_CARD from './HomePost_Card.js';
+import firebase from 'firebase';
+import app from "../../Firebase/Firebase.js";
 
 
 
-const HomeScreen = () => {
+const HomeScreen = ({ USER, set_USER, items, setItems, fetched_Data }) => {
 
-    /* const [show, setShow] = useState(false)
 
-    var settings;
-    const [slider, setslider] = useState(settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-    })
+    // const [name, setName] = useState('');
 
-    var width = window.innerWidth;
+    // const [title, setTitle] = useState('');
+    // const [description, setDescription] = useState('');
+    // const [topic, setTopic] = useState('');
 
     useEffect(() => {
-        console.log(width);
-        if (width < 580) {     // <----- Responsive for VIEWPORT
-            console.log("if cond working");
-            setslider(settings = {
-                dots: true,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 2,
-                slidesToScroll: 1,
-            })
+        if (Object.keys(USER).length !== 0) {
+            fetched_Data();
         }
-    }, []);
+    }, [USER])
 
-    console.log(show) */
+
+    useEffect(() => {
+        console.log(items);
+    }, [items, set_USER])
+
+
 
 
     return (
@@ -154,122 +148,26 @@ const HomeScreen = () => {
 
 
 
-                <section>
-                    <Row id="gap_top">
-                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
-                            {/* {`/post/${post._id}`} */}
-                            < div className="card " >
-                                <Link to='/post/:id'>
-                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
-                                </Link>
-                                <div className="d-flex justify-content-end">
-                                    <div>
-                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
-                                    </div>
+                {items.length !== 0 ? (
 
-                                    <div>
-                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
+                    <section className="rowTopgap" >
+                        {/* {loading ? < Load /> :                                       // <h2>Loading...</h2> */}
+                        {/* error ? < Mess variant="danger" > {error}</Mess> :       //<h3>{error}</h3>  */}
 
-                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
-                            {/* {`/post/${post._id}`} */}
-                            < div className="card " >
-                                <Link to='/post/:id'>
-                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
-                                </Link>
-                                <div class="d-flex justify-content-end">
-                                    <div>
-                                        <i class="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
-                                    </div>
+                        <Row style={{ padding: "3rem auto" }} >
+                            {/* array of objects is mapped ------ [{} {} {}] */}
+                            {items.map(card => (
+                                <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
+                                    <EACH_CARD
+                                        ID={card.id}
+                                        each_cardObj={card}
+                                    />
+                                </Col>
+                            ))}
+                        </Row>
 
-                                    <div>
-                                        <i class="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-
-                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
-                            {/* {`/post/${post._id}`} */}
-                            < div className="card " >
-                                <Link to='/post/:id'>
-                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
-                                </Link>
-                                <div className="d-flex justify-content-end">
-                                    <div>
-                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
-                                    </div>
-
-                                    <div>
-                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
-
-
-                    <Row id="gap_top">
-                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
-                            {/* {`/post/${post._id}`} */}
-                            < div className="card " >
-                                <Link to='/post/:id'>
-                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
-                                </Link>
-                                <div className="d-flex justify-content-end">
-                                    <div>
-                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
-                                    </div>
-
-                                    <div>
-                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-
-                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
-                            {/* {`/post/${post._id}`} */}
-                            < div className="card " >
-                                <Link to='/post/:id'>
-                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
-                                </Link>
-                                <div className="d-flex justify-content-end">
-                                    <div>
-                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
-                                    </div>
-
-                                    <div>
-                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-
-                        <Col md={4} xs={12} className="hovercard" style={{ padding: "0px 10px" }}>
-                            {/* {`/post/${post._id}`} */}
-                            < div className="card " >
-                                <Link to='/post/:id'>
-                                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" className="card-img-top" alt="..." />
-                                </Link>
-                                <div className="d-flex justify-content-end">
-                                    <div>
-                                        <i className="fas fa-heart" style={{ padding: "2px 2px 2px 1rem", color: "crimson" }} ></i>68 {' '}
-                                    </div>
-
-                                    <div>
-                                        <i className="fas fa-eye" style={{ padding: "2px 2px 2px 1rem " }}></i>3.2K {' '}
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
-
-
-                </section>
+                    </section>
+                ) : []}
 
             </Container>
 

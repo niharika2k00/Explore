@@ -10,7 +10,7 @@ import firebase from 'firebase';
 
 
 
-const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, password, setPassword, confirmpass, setConfirmpass, USER, setUSER }) => {
+const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, password, setPassword, confirmpass, setConfirmpass, USER, set_USER }) => {
 
     // const history = useHistory();
     const db = firebase.firestore();
@@ -40,8 +40,8 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
             // history.push("/");
 
             // --------- Putting into DB --------
-            const USER = firebase.auth().currentUser;
-            console.log(USER);
+            const USER_CURRENT = firebase.auth().currentUser;
+            console.log(USER_CURRENT);
             const User_obj = {
                 Name: name,
                 Email: email,
@@ -49,7 +49,7 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                 Provider: "Custom"
             }
             console.log(User_obj);
-            await db.collection('USER_INFO').doc(USER.uid).set(User_obj)
+            await db.collection('USER_INFO').doc(USER_CURRENT.uid).set(User_obj)
             alert("Message summited Successfully!");
             setName('');
             setEmail('');
@@ -68,14 +68,21 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
     useEffect(() => {
         app.auth().onAuthStateChanged((user) => {
             if (user) {
-                console.log(user.displayName);
-                setUSER(true);
+                console.log(user.displayName, " , ", user.uid);
+                const User_Obj = {
+                    Name: user.displayName,
+                    Email: user.email,
+                    UID: user.uid
+                };
+                console.log(User_Obj);
+                set_USER(User_Obj);
+
             } else {
                 console.log('No User');
-                setUSER(false);
+                set_USER({});
             }
         });
-    }, [setUSER])
+    }, []);
 
 
     return (
