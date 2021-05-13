@@ -76,7 +76,7 @@ const Login = ({ setLogin, setSignUp, email, name, setEmail, password, setPasswo
             console.log(data);
 
 
-            await db.collection('USER_INFO').doc(USER.uid).set(data);
+            await db.collection('users').doc(USER.uid).set(data);
         }
         catch (error) {
             console.log(error);

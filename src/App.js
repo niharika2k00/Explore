@@ -32,7 +32,7 @@ const App = () => {
 
 
   const USER_DET = firebase.auth().currentUser;
-  console.log(USER_DET);
+  // console.log(USER_DET);
 
 
   useEffect(() => {
@@ -60,13 +60,14 @@ const App = () => {
 
 
 
-
+  // Fetching all the posts 
   const fetched_Data = () => {
 
     if (Object.keys(USER).length !== 0) {
       console.log("Logged In. ")
       console.log(USER_DET.uid);
-      db.collection('USER_INFO').doc(USER_DET.uid).collection('POSTS').onSnapshot(snapshot => {
+
+      db.collection('posts/all_posts/all_unverified').onSnapshot(snapshot => {
         const listItems = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
@@ -74,6 +75,16 @@ const App = () => {
         console.log(listItems);
         setItems(listItems)
       })
+
+
+      /*  db.collection('USER_INFO').doc(USER_DET.uid).collection('POSTS').onSnapshot(snapshot => {
+         const listItems = snapshot.docs.map(doc => ({
+           id: doc.id,
+           ...doc.data(),
+         }))
+         console.log(listItems);
+         setItems(listItems)
+       }) */
 
     }
     else {

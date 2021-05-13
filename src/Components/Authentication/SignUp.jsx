@@ -49,7 +49,7 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                 Provider: "Custom"
             }
             console.log(User_obj);
-            await db.collection('USER_INFO').doc(USER_CURRENT.uid).set(User_obj)
+            await db.collection('users').doc(USER_CURRENT.uid).set(User_obj)
             alert("Message summited Successfully!");
             setName('');
             setEmail('');

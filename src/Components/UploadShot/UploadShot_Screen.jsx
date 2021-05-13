@@ -145,21 +145,35 @@ const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
             // Timestamp
             let now = new Date();
             var dateStringWithTime = moment(now).format('YYYY-MM-DD HH:MM:SS');
-            console.log(dateStringWithTime)                                                    // Output: 2020-07-21 07:24:06
+            console.log(dateStringWithTime);                                                   // Output: 2020-07-21 07:24:06
 
 
             if (topic && title && SINGLE.length !== 0 && description && MULTIPLE.length !== 0) {
+
                 setLoading(true);
                 const USER = firebase.auth().currentUser;
-                await db.collection('USER_INFO').doc(USER.uid).collection('POSTS').add({
+                const POST = await db.collection('users').doc(USER.uid).collection('posts').add({
                     Topic: topic,
                     Title: title,
+                    Display_Name: USER.displayName,
                     Cover_Image: SINGLE,
                     Description: description,
                     Files: MULTIPLE,
                     Posted_On: dateStringWithTime
                 });
 
+                // console.log(POST.id);
+
+                await db.collection('posts/all_posts/all_unverified').doc(POST.id).set({
+                    Topic: topic,
+                    Title: title,
+                    Display_Name: USER.displayName,
+                    User_UID: USER.uid,
+                    Cover_Image: SINGLE,
+                    Description: description,
+                    Files: MULTIPLE,
+                    Posted_On: dateStringWithTime
+                });
 
 
                 console.log("Succesfully POST submitted");

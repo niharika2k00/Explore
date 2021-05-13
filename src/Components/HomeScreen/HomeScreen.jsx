@@ -65,6 +65,13 @@ const HomeScreen = ({ USER, set_USER, items, setItems, fetched_Data }) => {
                             <div>
                                 <section className="Button">
                                     <a className="Button-btn" href="/" style={{ marginTop: "1px " }}>
+                                        All </a>
+                                </section>
+                            </div>
+
+                            <div>
+                                <section className=" ml-auto  CarouButton">
+                                    <a href=" " className="carouButton-btn">
                                         Popular </a>
                                 </section>
                             </div>
@@ -108,13 +115,6 @@ const HomeScreen = ({ USER, set_USER, items, setItems, fetched_Data }) => {
                                 <section className=" ml-auto  CarouButton">
                                     <a href=" " className="carouButton-btn">
                                         Global News </a>
-                                </section>
-                            </div>
-
-                            <div>
-                                <section className="Button">
-                                    <a className="Button-btn" href="/" style={{ marginTop: "1px " }}>
-                                        <i className="fas fa-filter"></i>Filter </a>
                                 </section>
                             </div>
 

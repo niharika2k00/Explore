@@ -1,6 +1,6 @@
 
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -17,7 +17,7 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
                 <div className="d-flex justify-content-between" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }} >
                     <div>
                         <p className="post_titles">
-                            <i className="fas fa-user" style={{ fontSize: "1.4rem", paddingRight: ".5rem" }} ></i> <b>Posted by {USER.Name} {" "} </b>
+                            <i className="fas fa-user" style={{ fontSize: "1.4rem", paddingRight: ".5rem" }} ></i> <b>Posted by {card_body.Display_Name} {" "} </b>
                         </p>
                     </div>
                     <div style={{ fontWeight: "bold" }}  >
@@ -39,12 +39,15 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
                 </p>
 
 
-
-                <button type="button" className="btn btn-warning" style={{ marginTop: '4rem' }} > <b> Back </b> </button>
+                <section className="Button">
+                    <Link to="/">
+                        <button type="button" className="btn btn-danger " style={{ marginTop: '4rem' }} > <b> Back </b>   </button>
+                    </Link>
+                </section>
 
             </div>
         </div >
     )
 }
 
-export default Post_body
+export default Post_body;
