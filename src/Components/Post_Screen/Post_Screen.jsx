@@ -24,9 +24,9 @@ const Post_Screen = ({ history, USER, set_USER, items, setItems, fetched_Data })
 
 
     const modify_url = location.pathname;
-    const lastItem_url = modify_url.substring(modify_url.lastIndexOf('/') + 1)
+    const url_postId = modify_url.substring(modify_url.lastIndexOf('/') + 1)
 
-    // console.log(lastItem_url);
+    // console.log(url_postId);
 
 
     useEffect(() => {
@@ -42,6 +42,26 @@ const Post_Screen = ({ history, USER, set_USER, items, setItems, fetched_Data })
 
 
 
+    // CAROUSAL IMAGES LINKS PUSHED IN TO AN ARRAY 
+    const carou_links = [];
+    items.map(each_post => (
+
+        url_postId === each_post.id ? (
+            each_post.Files.map((url) => {
+
+                var a = <img src={url} />
+                carou_links.push(a);
+            })
+        ) : []
+
+    ));
+
+    // console.log(carou_links);
+
+
+
+
+
     let slides = [
         <img src='https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' alt='Album one' data-action="https://facebook.github.io/react/" />,
         <img src='https://images.unsplash.com/photo-1489493512598-d08130f49bea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' alt='Album two' data-action="http://passer.cc" />,
@@ -51,10 +71,6 @@ const Post_Screen = ({ history, USER, set_USER, items, setItems, fetched_Data })
     ];
 
 
-    for (var i = 0; i < items.length; i++) {
-        // console.log(items[i].Files);
-        var picture = items[i].Files
-    }
 
     const date = new Date();
     const addingDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'short' })}, ${date.getFullYear()}`  // 12 May, 2021
@@ -107,15 +123,16 @@ const Post_Screen = ({ history, USER, set_USER, items, setItems, fetched_Data })
                        </StyleRoot> */}
 
 
-                        <Carousel slides={slides} autoplay={false} interval={2000} id="carousal" />
+                        <Carousel slides={carou_links} autoplay={false} interval={2000} id="carousal" />
 
                     </Row>
+
 
                     {/* items  --- > [{} {} {}]  , obj are of each post  */}
                     <Row className="row_center">
                         {items.map(body => (
 
-                            lastItem_url === body.id ?
+                            url_postId === body.id ?
                                 (
                                     < CARD_BODY
                                         ID={body.id}
