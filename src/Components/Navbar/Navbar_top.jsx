@@ -44,7 +44,7 @@ const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, 
                     <Nav className="mr-auto navItems">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/uploadpost">Post</Nav.Link>
-                        <Nav.Link href="#link">Design</Nav.Link>
+                        <Nav.Link href="/profile">Profile</Nav.Link>
                     </Nav>
 
                     {/* --------------  LOGIN  POPUP   -- for exsisting user------------ */}

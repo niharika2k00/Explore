@@ -271,11 +271,12 @@ const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
                                         </div>
                                     </Form.Group>
 
+                                    <div id="centerbtn">
+                                        <Button type='submit' variant='danger' disabled={loading} style={{ marginTop: "1rem" }}  >
+                                            <b style={{ fontSize: "16px" }}>Submit Post</b>
+                                        </Button>
+                                    </div>
 
-
-                                    <Button type='submit' variant='danger' disabled={loading} style={{ marginTop: "1rem" }} id="centerbtn" >
-                                        <b style={{ fontSize: "16px" }}>Submit Post</b>
-                                    </Button>
                                 </Form>
                             </Col>
                         </Row>

@@ -93,7 +93,11 @@
 .file--upload > label:active {
   background-color: hsl(204, 86%, 91%);
 }
-
+#centerbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .ico_big {
   font-size: 1.5rem;
   color: crimson;

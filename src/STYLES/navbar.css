@@ -1,5 +1,4 @@
 #nav_head #prodigy {
-    /* font-family: 'Original Surfer', cursive; */
     font-family: 'Montserrat', sans-serif;
     width: 16rem;
     height: 2.5rem;
@@ -28,11 +27,10 @@ h5 #signinbtn:hover {
 .Button {
     padding: 4px auto 4px auto;
     margin-bottom: 6px;
-    color: white;
+    /* color: white; */
 }
 
 .Button .Button-btn {
-    /* font-family: "Raleway", sans-serif; */
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;
@@ -62,7 +60,6 @@ h5 #signinbtn:hover {
     color: black;
     font-weight: 700;
     font-size: 1.1rem;
-    /* font-family: 'Cormorant', serif; */
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
 }

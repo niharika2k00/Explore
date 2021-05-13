@@ -1,11 +1,28 @@
 
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from 'react-bootstrap';
 import '../../STYLES/profile.css';
+import '../../App.css';
+import EACH_CARD from '../HomeScreen/HomePost_Card.js';
+import LOAD from '../Loading.js';
 
 
 
-const Profile_Screen = () => {
+const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading }) => {
+
+    useEffect(() => {
+        setLoading(true);
+        if (Object.keys(USER).length !== 0) {
+            fetch_USER_Posts();
+        }
+    }, [USER]);
+
+
+    useEffect(() => {
+        console.log(user_Posts);
+        setLoading(false);
+    }, [user_Posts, set_USER]);
+
 
 
     return (
@@ -61,9 +78,30 @@ const Profile_Screen = () => {
                             </div>
                         </Col>
                     </Row>
-
                 </section>
 
+
+                <section>
+                    {loading ? <LOAD /> :
+                        user_Posts.length !== 0 ?
+                            (
+                                <section className="rowTopgap" >
+
+                                    <Row style={{ padding: "3rem auto" }} >
+                                        {user_Posts.map(card => (
+                                            <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
+                                                <EACH_CARD
+                                                    ID={card.id}
+                                                    each_cardObj={card}
+                                                />
+                                            </Col>
+                                        ))}
+                                    </Row>
+
+                                </section>
+                            ) : null
+                    }
+                </section>
 
 
 

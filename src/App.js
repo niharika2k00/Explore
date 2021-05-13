@@ -26,15 +26,15 @@ const App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpass, setConfirmpass] = useState('');
-  // const [personName, setPersonName] = useState(''); // @type string
+  const [allPost, setallPost] = useState([]);
+  const [user_Posts, setUser_Posts] = useState([]);
 
-  const [items, setItems] = useState([]);
 
-
-  const USER_DET = firebase.auth().currentUser;
+  const USER_DETAILS = firebase.auth().currentUser;
   // console.log(USER_DET);
 
 
+  // ----------------------------  USER VALIDATION    --------------------
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -60,32 +60,22 @@ const App = () => {
 
 
 
-  // Fetching all the posts 
-  const fetched_Data = () => {
+  // Fetching ALL the posts of ALL THE USERS
+  const fetch_ALL_Users_Posts = () => {
 
     if (Object.keys(USER).length !== 0) {
       console.log("Logged In. ")
-      console.log(USER_DET.uid);
+      console.log(USER_DETAILS.uid);
 
+      // fetch all the posts
       db.collection('posts/all_posts/all_unverified').onSnapshot(snapshot => {
         const listItems = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
         }))
         console.log(listItems);
-        setItems(listItems)
+        setallPost(listItems)
       })
-
-
-      /*  db.collection('USER_INFO').doc(USER_DET.uid).collection('POSTS').onSnapshot(snapshot => {
-         const listItems = snapshot.docs.map(doc => ({
-           id: doc.id,
-           ...doc.data(),
-         }))
-         console.log(listItems);
-         setItems(listItems)
-       }) */
-
     }
     else {
       console.log("Currently No User Logged In. ")
@@ -93,6 +83,28 @@ const App = () => {
   };
 
 
+
+  //  Fetching all the posts of THE LOGGED IN  USERS
+  const fetch_USER_Posts = () => {
+    if (Object.keys(USER).length !== 0) {
+      console.log("Logged In. ")
+      console.log(USER_DETAILS.uid);
+
+      // fetching only the logged In Users Posts
+      db.collection('users').doc(USER_DETAILS.uid).collection('posts').onSnapshot(snapshot => {
+        const User_All_Posts = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        console.log(User_All_Posts);
+        setUser_Posts(User_All_Posts)
+      })
+
+    }
+    else {
+      console.log("Currently No User Logged In. ")
+    }
+  };
 
 
 
@@ -122,15 +134,32 @@ const App = () => {
               <HOMESCREEN {...props}
                 USER={USER}
                 set_USER={set_USER}
-                items={items}
-                setItems={setItems}
-                fetched_Data={fetched_Data}
+                allPost={allPost}
+                setallPost={setallPost}
+                fetch_ALL_Users_Posts={fetch_ALL_Users_Posts}
+                loading={loading}
+                setLoading={setLoading}
               />
             )}
             exact
           />
 
-          <Route path='/profile' component={PROFILESCREEN} exacr />
+
+          <Route path='/profile'
+            render={(props) => (
+              <PROFILESCREEN {...props}
+                USER={USER}
+                set_USER={set_USER}
+                user_Posts={user_Posts}
+                setUser_Posts={setUser_Posts}
+                fetch_USER_Posts={fetch_USER_Posts}
+                loading={loading}
+                setLoading={setLoading}
+              />
+            )}
+            exact
+          />
+
 
           <Route path='/uploadpost'
             render={(props) => (
@@ -150,9 +179,11 @@ const App = () => {
               <POSTSCREEN {...props}
                 USER={USER}
                 set_USER={set_USER}
-                items={items}
-                setItems={setItems}
-                fetched_Data={fetched_Data}
+                allPost={allPost}
+                setallPost={setallPost}
+                fetch_ALL_Users_Posts={fetch_ALL_Users_Posts}
+                loading={loading}
+                setLoading={setLoading}
               />
             )}
             exact

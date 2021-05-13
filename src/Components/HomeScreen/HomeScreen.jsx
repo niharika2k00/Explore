@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Row, Col, Container } from 'react-bootstrap';
+import { Row, Col, Container, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,30 +10,27 @@ import '../../STYLES/homescreen.css';
 import EACH_CARD from './HomePost_Card.js';
 import firebase from 'firebase';
 import app from "../../Firebase/Firebase.js";
+import LOAD from '../Loading.js';
 
 
 
-const HomeScreen = ({ USER, set_USER, items, setItems, fetched_Data }) => {
+const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts, loading, setLoading }) => {
 
-
-    // const [name, setName] = useState('');
-
-    // const [title, setTitle] = useState('');
-    // const [description, setDescription] = useState('');
-    // const [topic, setTopic] = useState('');
 
     useEffect(() => {
+        setLoading(true);
         if (Object.keys(USER).length !== 0) {
-            fetched_Data();
+            fetch_ALL_Users_Posts();
         }
-    }, [USER])
+    }, [USER]);
 
 
     useEffect(() => {
-        console.log(items);
-    }, [items, set_USER])
+        console.log(allPost);
+        setLoading(false);
+    }, [allPost, set_USER]);
 
-
+    var width = window.innerWidth;
 
 
     return (
@@ -61,113 +58,119 @@ const HomeScreen = ({ USER, set_USER, items, setItems, fetched_Data }) => {
                 <section>
                     <Row id="gap_top">
 
-                        <div className="d-flex flex-wrap justify-content-around">
-                            <div>
-                                <section className="Button">
-                                    <a className="Button-btn" href="/" style={{ marginTop: "1px " }}>
-                                        All </a>
-                                </section>
-                            </div>
+                        {(width <= 450) ?
 
-                            <div>
-                                <section className=" ml-auto  CarouButton">
-                                    <a href=" " className="carouButton-btn">
-                                        Popular </a>
-                                </section>
-                            </div>
+                            // ---------  DROPDOWN (mobile response)  -----------
+                            (
+                                <div className="d-flex flex-wrap justify-content-end">
+                                    <div>
+                                        <Dropdown>
+                                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                                Filter <i class="fas fa-filter"></i>
+                                            </Dropdown.Toggle>
 
-                            <div>
-                                <section className=" ml-auto  CarouButton">
-                                    <a href=" " className="carouButton-btn">
-                                        Motivational </a>
-                                </section>
-                            </div>
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item href="#/action-1">All</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-2">Motivational</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">Memes</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">Food</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">Travel</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">Art</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">Global News</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">Popular</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </div>
+                                </div>
+                            ) :
 
-                            <div>
-                                <section className=" ml-auto  CarouButton">
-                                    <a href=" " className="carouButton-btn">
-                                        Memes </a>
-                                </section>
-                            </div>
+                            // ---------  LINE (desktop mode response)  -----------
+                            (
+                                <div className="d-flex flex-wrap justify-content-around">
+                                    <div>
+                                        <section className="Button">
+                                            <a className="Button-btn" href="/" style={{ marginTop: "1px " }}>
+                                                All </a>
+                                        </section>
+                                    </div>
 
-                            <div>
-                                <section className=" ml-auto  CarouButton">
-                                    <a href=" " className="carouButton-btn">
-                                        Food </a>
-                                </section>
-                            </div>
-
-                            <div>
-                                <section className=" ml-auto  CarouButton">
-                                    <a href=" " className="carouButton-btn">
-                                        Travel </a>
-                                </section>
-                            </div>
-
-                            <div>
-                                <section className=" ml-auto  CarouButton">
-                                    <a href=" " className="carouButton-btn">
-                                        Art </a>
-                                </section>
-                            </div>
-
-                            <div>
-                                <section className=" ml-auto  CarouButton">
-                                    <a href=" " className="carouButton-btn">
-                                        Global News </a>
-                                </section>
-                            </div>
-
-                        </div>
-
-
-                        {/* Codes for the Slider-----Carousal */}
-                        {/* <Col md={8} xs={12}>
-                            <div className="slidergap">
-                                <Slider {...slider}>
                                     <div>
                                         <section className=" ml-auto  CarouButton">
-                                            <a className="carouButton-btn">
+                                            <a href=" " className="carouButton-btn">
+                                                Popular </a>
+                                        </section>
+                                    </div>
+
+                                    <div>
+                                        <section className=" ml-auto  CarouButton">
+                                            <a href=" " className="carouButton-btn">
+                                                Motivational </a>
+                                        </section>
+                                    </div>
+
+                                    <div>
+                                        <section className=" ml-auto  CarouButton">
+                                            <a href=" " className="carouButton-btn">
                                                 Memes </a>
                                         </section>
-                                    </div>                                 
-                                </Slider>
-                            </div>
-                        </Col> */}
+                                    </div>
 
+                                    <div>
+                                        <section className=" ml-auto  CarouButton">
+                                            <a href=" " className="carouButton-btn">
+                                                Food </a>
+                                        </section>
+                                    </div>
 
-                        {/* <Col md={2} xs={12} id="filterflex" >                                                     
-                             <section className=" ml-auto  FilterButton">
-                                <a className="filterButton-btn" onClick={() => setShow(!show)}>
-                                    <i class="fas fa-filter"></i>Filter</a>
-                            </section> 
-                        </Col> */}
+                                    <div>
+                                        <section className=" ml-auto  CarouButton">
+                                            <a href=" " className="carouButton-btn">
+                                                Travel </a>
+                                        </section>
+                                    </div>
+
+                                    <div>
+                                        <section className=" ml-auto  CarouButton">
+                                            <a href=" " className="carouButton-btn">
+                                                Art </a>
+                                        </section>
+                                    </div>
+
+                                    <div>
+                                        <section className=" ml-auto  CarouButton">
+                                            <a href=" " className="carouButton-btn">
+                                                Global News </a>
+                                        </section>
+                                    </div>
+
+                                </div>
+                            )
+                        }
+
                     </Row>
-
                 </section>
 
 
+                {loading ? <LOAD /> :
+                    allPost.length !== 0 ?
+                        (
+                            <section className="rowTopgap" >
 
-                {items.length !== 0 ? (
+                                <Row style={{ padding: "3rem auto" }} >
+                                    {/* array of objects is mapped ------ [{} {} {}] */}
+                                    {allPost.map(card => (
+                                        <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
+                                            <EACH_CARD
+                                                ID={card.id}
+                                                each_cardObj={card}
+                                            />
+                                        </Col>
+                                    ))}
+                                </Row>
 
-                    <section className="rowTopgap" >
-                        {/* {loading ? < Load /> :                                       // <h2>Loading...</h2> */}
-                        {/* error ? < Mess variant="danger" > {error}</Mess> :       //<h3>{error}</h3>  */}
-
-                        <Row style={{ padding: "3rem auto" }} >
-                            {/* array of objects is mapped ------ [{} {} {}] */}
-                            {items.map(card => (
-                                <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
-                                    <EACH_CARD
-                                        ID={card.id}
-                                        each_cardObj={card}
-                                    />
-                                </Col>
-                            ))}
-                        </Row>
-
-                    </section>
-                ) : []}
+                            </section>
+                        ) : null
+                }
 
             </Container>
 

@@ -119,14 +119,14 @@
 
 .card_overlay {
     background: rgba(216, 213, 213, 0.251);
-    padding: 4px;
+    padding: 3px;
     position: absolute;
     /* visibility: hidden; */
     bottom: 3px;
     left: 3px;
     right: 0px;
     width: 100%;
-    height: 3rem;
+    height: 2.5rem;
     text-align: center;
     transition: .5s ease;
     opacity: 0;

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import "../../App.css";
 
 
 
@@ -12,7 +12,7 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
 
     return (
         <div>
-            <div className="rowTopgap" style={{ marginTop: "5rem", paddingTop: "5rem" }}  >
+            <div className="post-body"  >
 
                 <div className="d-flex justify-content-between" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }} >
                     <div>
@@ -20,8 +20,8 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
                             <i className="fas fa-user" style={{ fontSize: "1.4rem", paddingRight: ".5rem" }} ></i> <b>Posted by {card_body.Display_Name} {" "} </b>
                         </p>
                     </div>
-                    <div style={{ fontWeight: "bold" }}  >
-                        <i className="far fa-calendar-alt" style={{ fontSize: "1.4rem", paddingRight: ".7rem" }}></i>
+                    <div style={{ fontWeight: "bold" }} className="postedDate" >
+                        <i className="far fa-calendar-alt" style={{ fontSize: "1.4rem", paddingRight: ".7rem" }}  ></i>
                         Posted On  <p>{card_body.Posted_On} </p>
                     </div>
                 </div>
@@ -41,7 +41,7 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
 
                 <section className="Button">
                     <Link to="/">
-                        <button type="button" className="btn btn-danger " style={{ marginTop: '4rem' }} > <b> Back </b>   </button>
+                        <button type="button" className="btn btn-danger " style={{ marginTop: '3rem' }} > <b> Back </b>   </button>
                     </Link>
                 </section>
 
