@@ -1,5 +1,9 @@
 /* ---------------        MAIN STYLES APPLIED TO ALMOST ALL THE COMPONET    ------------------------ */
 
+body, html {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .rowTopgap {
     padding: 1.8rem 0;
     margin: 1.8rem 0;
@@ -29,3 +33,5 @@
         padding-bottom: 1rem !important;
     }
 }
+
+/* font-family: 'Montserrat', sans-serif; */

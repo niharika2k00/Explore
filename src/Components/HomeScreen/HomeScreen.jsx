@@ -86,63 +86,17 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
 
                             // ---------  LINE (desktop mode response)  -----------
                             (
-                                <div className="d-flex flex-wrap justify-content-around">
-                                    <div>
-                                        <section className="Button">
-                                            <a className="Button-btn" href="/" style={{ marginTop: "1px " }}>
-                                                All </a>
-                                        </section>
-                                    </div>
-
-                                    <div>
-                                        <section className=" ml-auto  CarouButton">
-                                            <a href=" " className="carouButton-btn">
-                                                Popular </a>
-                                        </section>
-                                    </div>
-
-                                    <div>
-                                        <section className=" ml-auto  CarouButton">
-                                            <a href=" " className="carouButton-btn">
-                                                Motivational </a>
-                                        </section>
-                                    </div>
-
-                                    <div>
-                                        <section className=" ml-auto  CarouButton">
-                                            <a href=" " className="carouButton-btn">
-                                                Memes </a>
-                                        </section>
-                                    </div>
-
-                                    <div>
-                                        <section className=" ml-auto  CarouButton">
-                                            <a href=" " className="carouButton-btn">
-                                                Food </a>
-                                        </section>
-                                    </div>
-
-                                    <div>
-                                        <section className=" ml-auto  CarouButton">
-                                            <a href=" " className="carouButton-btn">
-                                                Travel </a>
-                                        </section>
-                                    </div>
-
-                                    <div>
-                                        <section className=" ml-auto  CarouButton">
-                                            <a href=" " className="carouButton-btn">
-                                                Art </a>
-                                        </section>
-                                    </div>
-
-                                    <div>
-                                        <section className=" ml-auto  CarouButton">
-                                            <a href=" " className="carouButton-btn">
-                                                Global News </a>
-                                        </section>
-                                    </div>
-
+                                <div className="d-flex flex-wrap justify-content-evenly">
+                                    <ul id="tab" >
+                                        <li> <Link to="" >All </Link> </li>
+                                        <li> <Link to="" >Popular </Link> </li>
+                                        <li> <Link to="" > Motivational</Link> </li>
+                                        <li> <Link to="" >Memes</Link> </li>
+                                        <li> <Link to="" >Food </Link> </li>
+                                        <li> <Link to="" >Travel </Link> </li>
+                                        <li> <Link to="" > Art</Link> </li>
+                                        <li> <Link to="" >Global News </Link> </li>
+                                    </ul>
                                 </div>
                             )
                         }
@@ -154,7 +108,7 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                 {loading ? <LOAD /> :
                     allPost.length !== 0 ?
                         (
-                            <section className="rowTopgap" >
+                            <section style={{ padding: "1rem 0 ", margin: "1rem 0" }} >
 
                                 <Row style={{ padding: "3rem auto" }} >
                                     {/* array of objects is mapped ------ [{} {} {}] */}

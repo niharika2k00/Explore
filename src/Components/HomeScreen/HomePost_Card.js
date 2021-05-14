@@ -20,8 +20,7 @@ const Post_Card = ({ ID, each_cardObj }) => {
                         src={each_cardObj.Cover_Image}
                         className="card-img-top"
                         alt="..."
-                        width="10rem"
-                        heigth="8rem"
+                        style={{ height: "16rem" }}
                     />
                 </Link>
 

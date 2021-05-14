@@ -139,6 +139,16 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                         ></Form.Control>
                     </Form.Group>
 
+                    <Form.Group style={{ color: "black" }} >
+                        <Form.File
+                            // id="exampleFormControlFile1"
+                            label="Upload Profile Picture"
+                            style={{ fontSize: "1.0rem" }}
+                            // onChange={Img_handle}
+                            required
+                        />
+                    </Form.Group>
+
                     <div className="btncenter">
                         <Button type='submit' variant='danger' >
                             <b style={{ fontSize: "14px" }}>Register</b>

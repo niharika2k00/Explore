@@ -10,6 +10,7 @@ import HOMESCREEN from './Components/HomeScreen/HomeScreen.jsx';
 import PROFILESCREEN from './Components/ProfileScreen/Profile_Screen.jsx';
 import UPLOADSHOTSCREEN from './Components/UploadShot/UploadShot_Screen.jsx';
 import POSTSCREEN from './Components/Post_Screen/Post_Screen.jsx';
+import PROFILE_ABOUT from './Components/ProfileScreen/About.js';
 
 
 
@@ -62,18 +63,18 @@ const App = () => {
 
 
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (Object.keys(USER).length === 0) {
       setTimeout(function () {
         console.log('loggin immediately');
         setSignUp(true);
-      }, 60000);
+      }, 6000);
     }
     else {
       setSignUp(false);
       console.log("GOOOOD PERSON")
     }
-  }, [USER]);
+  }, [USER]); */
 
 
   // Fetching ALL the posts of ALL THE USERS
@@ -168,6 +169,20 @@ const App = () => {
             exact
           />
 
+          <Route path='/about'
+            render={(props) => (
+              <PROFILE_ABOUT {...props}
+                USER={USER}
+                set_USER={set_USER}
+                user_Posts={user_Posts}
+                setUser_Posts={setUser_Posts}
+                fetch_USER_Posts={fetch_USER_Posts}
+                loading={loading}
+                setLoading={setLoading}
+              />
+            )}
+            exact
+          />
 
           <Route path='/uploadpost'
             render={(props) => (

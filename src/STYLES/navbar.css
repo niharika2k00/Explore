@@ -12,6 +12,7 @@
 .navItems {
     font-weight: 700;
     font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .navbar-dark .navbar-toggler-icon, .navbar-light .navbar-toggler-icon {
@@ -22,6 +23,7 @@
     font-size: 1.4rem;
     font-weight: 700;
     color: black;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h5 #signinbtn:hover {
@@ -31,7 +33,7 @@ h5 #signinbtn:hover {
 .Button {
     padding: 4px auto 4px auto;
     margin-bottom: 6px;
-    /* color: white; */
+    font-family: 'Montserrat', sans-serif;
 }
 
 .Button .Button-btn {
@@ -65,5 +67,5 @@ h5 #signinbtn:hover {
     font-weight: 700;
     font-size: 1.1rem;
     font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
+    text-decoration: none !important;
 }
