@@ -19,10 +19,10 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
 
     useEffect(() => {
         setLoading(true);
-        if (Object.keys(USER).length !== 0) {
-            fetch_ALL_Users_Posts();
-        }
-    }, [USER]);
+        // if (Object.keys(USER).length !== 0) {
+        fetch_ALL_Users_Posts();
+        // }
+    }, []);
 
 
     useEffect(() => {
@@ -159,7 +159,7 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                                 <Row style={{ padding: "3rem auto" }} >
                                     {/* array of objects is mapped ------ [{} {} {}] */}
                                     {allPost.map(card => (
-                                        <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
+                                        <Col key={card.id} sm={12} md={6} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
                                             <EACH_CARD
                                                 ID={card.id}
                                                 each_cardObj={card}

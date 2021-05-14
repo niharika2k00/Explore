@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import '../../STYLES/navbar.css';
 import ExploreLOGO from '../../Assets/explorepng.png';
 import { useLocation } from 'react-router-dom'
@@ -42,9 +43,9 @@ const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto navItems">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/uploadpost">Post</Nav.Link>
-                        <Nav.Link href="/profile">Profile</Nav.Link>
+                        <Nav.Link  > <Link to="/">Home</Link></Nav.Link>
+                        <Nav.Link  ><Link to="/uploadpost">Post</Link></Nav.Link>
+                        <Nav.Link  > <Link to="/profile">Profile</Link></Nav.Link>
                     </Nav>
 
                     {/* --------------  LOGIN  POPUP   -- for exsisting user------------ */}

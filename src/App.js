@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
+import moment from 'moment';
 import app from "./Firebase/Firebase.js";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NAVIGATION_BAR from './Components/Navbar/Navbar_top.jsx';
@@ -31,7 +32,9 @@ const App = () => {
 
 
   const USER_DETAILS = firebase.auth().currentUser;
-  // console.log(USER_DET);
+  console.log(USER_DETAILS);
+
+
 
 
   // ----------------------------  USER VALIDATION    --------------------
@@ -43,13 +46,13 @@ const App = () => {
         const User_Obj = {
           Name: user.displayName,
           Email: user.email,
-          UID: user.uid
+          UID: user.uid,
+          Profile_Pic: user.photoURL
         };
         console.log(User_Obj);
-        // console.log(Object.keys(User_Obj).length)    // 3
         set_USER(User_Obj);
-
-      } else {
+      }
+      else {
         console.log('No User');
         set_USER({});
       }
@@ -59,27 +62,32 @@ const App = () => {
 
 
 
+  useEffect(() => {
+    if (Object.keys(USER).length === 0) {
+      setTimeout(function () {
+        console.log('loggin immediately');
+        setSignUp(true);
+      }, 60000);
+    }
+    else {
+      setSignUp(false);
+      console.log("GOOOOD PERSON")
+    }
+  }, [USER]);
+
 
   // Fetching ALL the posts of ALL THE USERS
   const fetch_ALL_Users_Posts = () => {
 
-    if (Object.keys(USER).length !== 0) {
-      console.log("Logged In. ")
-      console.log(USER_DETAILS.uid);
-
-      // fetch all the posts
-      db.collection('posts/all_posts/all_unverified').onSnapshot(snapshot => {
-        const listItems = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        console.log(listItems);
-        setallPost(listItems)
-      })
-    }
-    else {
-      console.log("Currently No User Logged In. ")
-    }
+    // fetch all the posts
+    db.collection('posts/all_posts/all_unverified').onSnapshot(snapshot => {
+      const listItems = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      console.log(listItems);
+      setallPost(listItems)
+    })
   };
 
 

@@ -143,9 +143,8 @@ const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
             setLoading(false);
 
             // Timestamp
-            let now = new Date();
-            var dateStringWithTime = moment(now).format('YYYY-MM-DD HH:MM:SS');
-            console.log(dateStringWithTime);                                                   // Output: 2020-07-21 07:24:06
+            const date = new Date();
+            const addingDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'short' })}, ${date.getFullYear()}`  // 12 May, 2021
 
 
             if (topic && title && SINGLE.length !== 0 && description && MULTIPLE.length !== 0) {
@@ -159,7 +158,7 @@ const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
                     Cover_Image: SINGLE,
                     Description: description,
                     Files: MULTIPLE,
-                    Posted_On: dateStringWithTime
+                    Posted_On: addingDate
                 });
 
                 // console.log(POST.id);
@@ -172,7 +171,7 @@ const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
                     Cover_Image: SINGLE,
                     Description: description,
                     Files: MULTIPLE,
-                    Posted_On: dateStringWithTime
+                    Posted_On: addingDate
                 });
 
 

@@ -11,8 +11,12 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.774);
+    background-color: rgba(0, 0, 0, 0.514);
     z-index: 99999;
+}
+
+.input-box input {
+    font-size: 1rem !important;
 }
 
 .input-box {

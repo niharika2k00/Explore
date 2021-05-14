@@ -31,7 +31,8 @@ const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_
 
                 <Row className="rowTopgap">
                     <Col md={6} className="profilecontainer" >
-                        <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                        <img
+                            src={USER.Profile_Pic}
                             className="rounded-circle proimg"
                             alt=" "
                             width="180rem"
@@ -41,12 +42,12 @@ const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_
 
                     <Col md={6} >
                         <div className="user_data">
-                            <h2>Niharika Dutta</h2>
+                            <h2>{USER.Name} </h2>
                             <p >Kolkata, INDIA</p>
-                            <section className="EditButton">
+                            <p >{USER.Email}</p>
+                            {/*  <section className="EditButton">
                                 <a className="edit-btn" href="/">Edit Profile</a>
-                                <a className="edit-btn" href="/">...</a>
-                            </section>
+                            </section> */}
                         </div>
                     </Col>
                 </Row>

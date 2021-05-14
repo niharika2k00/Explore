@@ -68,7 +68,37 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
 
     let now = new Date();
     var dateStringWithTime = moment(now).format('YYYY-MM-DD HH:MM:SS');
-    // console.log(addingDate) // Output: 2020-07-21 07:24:06
+    // console.log(dateStringWithTime)                                              // Output: 2020-07-21 07:24:06
+
+    // var currDate = new Date().toLocaleString();
+    // var newDateObj = moment(new Date()).add(1, 'm').toDate();
+
+    var currDate, newDateObj;
+
+    useEffect(() => {
+        currDate = new Date().toLocaleString();
+        console.log(currDate);
+        console.log(Date.parse(currDate))
+
+        newDateObj = moment(new Date()).add(1, 'm').toDate();
+        console.log(newDateObj);
+        console.log(Date.parse(newDateObj))
+
+
+
+    }, [])
+
+    if (Date.parse(currDate) === Date.parse(newDateObj))
+        console.log("HURRRAYYYYYYYYYYYYYYYYY !~");
+
+
+    useEffect(() => {
+        setTimeout(function () {
+            console.log('Hello world')
+        }, 5000)
+    }, [])
+
+
 
 
     return (

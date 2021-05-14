@@ -27,11 +27,14 @@ const Post_Card = ({ ID, each_cardObj }) => {
 
                 <div className="card_overlay" >
                     <div className="overlay_text" style={{ color: "white" }}>
-                        {each_cardObj.Title}
-                        {/* <div className="d-flex justify-content-end" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }} > */}
-                        <i className="fas fa-heart" style={{ padding: "2px 2px 1px 1rem", color: "crimson" }} ></i>68 {' '}
-                        <i className="fas fa-eye" style={{ padding: "2px 2px 1px 1rem ", color: "black" }}></i>3.2K {' '}
-                        {/* </div> */}
+
+                        <div className="d-flex justify-content-around" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }} >
+
+                            <div> {each_cardObj.Title}</div>
+                            <div><i className="fas fa-heart" style={{ padding: "2px 2px 1px 1rem", color: "crimson", fontSize: "1.4rem" }} ></i>68 {' '}</div>
+
+                            {/* <i className="fas fa-eye" style={{ padding: "2px 2px 1px 1rem ", color: "black" }}></i>3.2K {' '} */}
+                        </div>
                     </div>
                 </div>
             </div>
