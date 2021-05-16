@@ -73,33 +73,6 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
     // var currDate = new Date().toLocaleString();
     // var newDateObj = moment(new Date()).add(1, 'm').toDate();
 
-    var currDate, newDateObj;
-
-    useEffect(() => {
-        currDate = new Date().toLocaleString();
-        console.log(currDate);
-        console.log(Date.parse(currDate))
-
-        newDateObj = moment(new Date()).add(1, 'm').toDate();
-        console.log(newDateObj);
-        console.log(Date.parse(newDateObj))
-
-
-
-    }, [])
-
-    if (Date.parse(currDate) === Date.parse(newDateObj))
-        console.log("HURRRAYYYYYYYYYYYYYYYYY !~");
-
-
-    useEffect(() => {
-        setTimeout(function () {
-            console.log('Hello world')
-        }, 5000)
-    }, [])
-
-
-
 
     return (
         <div>

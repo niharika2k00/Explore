@@ -11,7 +11,7 @@ const Load = () => {
             <Spinner animation="grow" variant="danger" style={{ width: '70px', height: '70px', margin: '4rem auto', display: 'block' }}>
                 <span className="sr-only" style={{ color: " black" }} >Loading...</span>
             </Spinner>
-            <h6 style={{ justifyContent: "center", alignItems: "center" }} >Loading ....</h6>
+            <h4 style={{ justifyContent: "center", alignItems: "center", textAlign: "center" }} >Loading ....</h4>
         </div >
     )
 }

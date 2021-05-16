@@ -74,7 +74,7 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                     className="form_box"
                                     type='name'
                                     placeholder=' name'
-                                // value={name}
+                                    value={USER.Name}
                                 // onChange={(e) => setName(e.target.value)}
                                 ></Form.Control>
                             </Form.Group>
@@ -85,7 +85,7 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                     className="form_box"
                                     type='email'
                                     placeholder=' email'
-                                // value={email}
+                                    value={USER.Email}
                                 // onChange={(e) => setEmail(e.target.value)}
                                 ></Form.Control>
                             </Form.Group>

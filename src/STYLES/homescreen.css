@@ -169,8 +169,10 @@
     font-size: 1.2rem;
 }
 
-li a:hover {
-    background-color: #ffe66d;
+#tab li a:hover {
+    /* background-color: #ffe66d; */
+    background-image: linear-gradient( 90deg, #cc2e72, #fb9000);
+    color: white;
 }
 
 /* ------------   MEDIA QUERYYY  ----------------- */

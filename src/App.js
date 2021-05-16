@@ -18,18 +18,21 @@ import PROFILE_ABOUT from './Components/ProfileScreen/About.js';
 const App = () => {
 
   const db = firebase.firestore();
+  const store = firebase.storage();
 
   const [signUp, setSignUp] = useState(false);
   const [login, setLogin] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [USER, set_USER] = useState({});
+  const [Profile_Image, setProfile_Image] = useState(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpass, setConfirmpass] = useState('');
   const [allPost, setallPost] = useState([]);
   const [user_Posts, setUser_Posts] = useState([]);
+  const [Person, setPerson] = useState({});
 
 
   const USER_DETAILS = firebase.auth().currentUser;
@@ -37,11 +40,32 @@ const App = () => {
 
 
 
+  const profile_img_handle = (e) => {
+    if (e.target.files[0])
+      setProfile_Image(e.target.files[0]);
+  };
+
+
+  const Upload_ProfileImg = async () => {
+    try {
+      const a = store.ref().child(`Profile_Image/${Profile_Image.name}`);
+      await a.put(Profile_Image);
+      const downloadURL = await a.getDownloadURL();
+
+      console.log(downloadURL);
+      return downloadURL;
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
 
   // ----------------------------  USER VALIDATION    --------------------
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
-      if (user) {
+      console.log(user);
+      if (user) {                     // both present
         console.log("USER EXIST")
         console.log(user.displayName, " , ", user.uid);
         const User_Obj = {
@@ -62,7 +86,6 @@ const App = () => {
 
 
 
-
   /* useEffect(() => {
     if (Object.keys(USER).length === 0) {
       setTimeout(function () {
@@ -75,6 +98,7 @@ const App = () => {
       console.log("GOOOOD PERSON")
     }
   }, [USER]); */
+
 
 
   // Fetching ALL the posts of ALL THE USERS
@@ -135,6 +159,10 @@ const App = () => {
           setPassword={setPassword}
           confirmpass={confirmpass}
           setConfirmpass={setConfirmpass}
+          Profile_Image={Profile_Image}
+          setProfile_Image={setProfile_Image}
+          profile_img_handle={profile_img_handle}
+          Upload_ProfileImg={Upload_ProfileImg}
         />
 
         <main >
