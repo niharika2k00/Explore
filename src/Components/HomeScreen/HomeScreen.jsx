@@ -156,6 +156,7 @@ const HomeScreen = ({ USER, set_USER, items, setItems, fetched_Data }) => {
 
                         <Row style={{ padding: "3rem auto" }} >
                             {/* array of objects is mapped ------ [{} {} {}] */}
+                            
                             {items.map(card => (
                                 <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
                                     <EACH_CARD
