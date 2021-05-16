@@ -105,30 +105,6 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                 </section>
 
 
-<<<<<<< HEAD
-
-                {items.length !== 0 ? (
-
-                    <section className="rowTopgap" >
-                        {/* {loading ? < Load /> :                                       // <h2>Loading...</h2> */}
-                        {/* error ? < Mess variant="danger" > {error}</Mess> :       //<h3>{error}</h3>  */}
-
-                        <Row style={{ padding: "3rem auto" }} >
-                            {/* array of objects is mapped ------ [{} {} {}] */}
-                            
-                            {items.map(card => (
-                                <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
-                                    <EACH_CARD
-                                        ID={card.id}
-                                        each_cardObj={card}
-                                    />
-                                </Col>
-                            ))}
-                        </Row>
-
-                    </section>
-                ) : []}
-=======
                 {loading ? <LOAD /> :
                     allPost.length !== 0 ?
                         (
@@ -149,7 +125,6 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                             </section>
                         ) : null
                 }
->>>>>>> 97de15f0e4027fc93ffbb055ccb50ceb898a6a1a
 
             </Container>
 
