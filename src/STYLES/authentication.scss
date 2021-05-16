@@ -10,6 +10,7 @@
   justify-content: center;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.514);
+  font-family: "Montserrat", sans-serif;
   /* visibility: hidden; */
   /* opacity: 0; */
   /* transition: all 1s ease; */
@@ -26,6 +27,7 @@
   position: relative;
   justify-content: center;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 .cross-btn {
@@ -51,6 +53,7 @@
   border-radius: 4px;
   font-size: 1.2rem;
   margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .SignUpinput-box button {
@@ -63,7 +66,6 @@
   border: 0;
   cursor: pointer;
   font-family: "Cormorant Infant", serif;
-  font-family: "Varta", sans-serif;
   /* text-transform: uppercase; */
   border-radius: 4px;
 }
@@ -72,11 +74,17 @@
   background: #f0849d;
   border: 2px double #c6e48f;
 }
-
+.SignUpinput-box input {
+  width: 100%;
+  padding: 8px;
+  outline: 0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
 .login_form {
   color: rgba(255, 255, 255, 0.959);
   font-size: 20px;
-  font-family: "Cormorant", serif;
+  font-family: "Montserrat", sans-serif;
   justify-content: center;
   align-items: center;
   /* display: flex; */
@@ -95,11 +103,12 @@
   justify-content: center;
   text-align: center;
   padding-bottom: 0rem;
-  font-family: "Cormorant", serif;
+  font-family: "Montserrat", sans-serif;
   background: linear-gradient(160deg, #f3b997fa, #ffc300);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
+  font-size: 1.8rem;
 }
 
 .btncenter {

@@ -11,17 +11,16 @@
 .pro_card {
     border: 2px dashed rgba(92, 88, 88, 0.815);
     background-color: white;
-}
-
-.rowTopgap {
-    padding: 1.8rem 0;
-    margin: 1.8rem 0;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+    padding: 1.5rem 9.6px;
+    margin: 1rem;
 }
 
 .user_data h2 {
     letter-spacing: 1px;
     font-size: 2.2rem;
-    text-transform: uppercase;
 }
 
 .user_data p {
@@ -59,10 +58,26 @@
     border: 2.5px solid #d90429;
 }
 
-.pro_catagory {
-    font-weight: 500;
+#line .subtopic a {
+    font-weight: 700;
     font-size: 1.1rem;
-    color: #FE4B46;
+    color: #FE4B46 !important;
+    text-decoration: none;
+}
+
+#line .subtopic a:hover {
+    color: #292524db !important;
+}
+
+/* ----------------------------------------------         ABOUT SECTION STYLES      -------------------- */
+
+#about {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.form_box {
+    font-size: 1.1rem !important;
 }
 
 @media (max-width: 400px) {

@@ -10,9 +10,7 @@ const Footer = () => {
 
     return (
         <div>
-            <footer className="bg_image bg_image--1 bg-black text-center text-lg-start" data-black-overlay="6"
-                style={{ backgroundColor: "#00010c" }}
-            >
+            <footer className="bg_image bg_image--1 bg-black text-center text-lg-start" data-black-overlay="6" >
                 <div className="container p-5">
 
                     <div className="row">
@@ -68,9 +66,13 @@ const Footer = () => {
                                     Kolkata, West Bengal,
                                     India</a>
                                 </li>
-                                <li>
+                                <li className="mb-md-3">
                                     <i className="fas fa-envelope"></i><a href="mailto:info@theprodigiouspeople.com"
                                         className="ml-2">info@theprodigiouspeople.com</a>
+                                </li>
+                                <li className="mb-md-3">
+                                    <i className="fas fa-newspaper"></i><a href="/service-catalogue.pdf" target="_blank"
+                                        className="ml-2">Service Catalogue</a>
                                 </li>
                             </ul>
                         </div>
@@ -177,10 +179,10 @@ const Footer = () => {
                             <a className="text-light" href="/terms.html">Terms and Conditions</a>
                         </div>
                         <div className="col col-lg-6 col-md-6 col-12 mb-4 mb-md-0"
-                            style={{ color: "#B1B4C1", padding: "4px 4px" }} >
+                            style={{ color: "#c6c3ae", padding: "4px 4px" }} >
                             © 2021 Copyright
                           <a className="text-light" href="/index.html"
-                                style={{ padding: "0 8px " }}>Prodigious People LLP.</a>
+                                style={{ color: "#c6c3ae", padding: "0 8px " }}>Prodigious People LLP.</a>
                           All Rights Reserved.
                        </div>
 

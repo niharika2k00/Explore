@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import '../../STYLES/navbar.css';
 import ExploreLOGO from '../../Assets/explorepng.png';
 import { useLocation } from 'react-router-dom'
@@ -11,7 +12,8 @@ import app from "../../Firebase/Firebase.js";
 
 
 
-const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, set_USER, name, setName, email, setEmail, password, setPassword, confirmpass, setConfirmpass }) => {
+const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, set_USER, name, setName, email, setEmail, password, setPassword,
+    confirmpass, setConfirmpass, Profile_Image, setProfile_Image, profile_img_handle, Upload_ProfileImg }) => {
 
 
     const location = useLocation();
@@ -42,9 +44,9 @@ const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto navItems">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/uploadpost">Post</Nav.Link>
-                        <Nav.Link href="#link">Design</Nav.Link>
+                        <Nav.Link  > <Link to="/" className="modiflink" >Home</Link></Nav.Link>
+                        <Nav.Link  ><Link to="/uploadpost" className="modiflink"  >Post</Link></Nav.Link>
+                        <Nav.Link  > <Link to="/profile" className="modiflink"  >Profile</Link></Nav.Link>
                     </Nav>
 
                     {/* --------------  LOGIN  POPUP   -- for exsisting user------------ */}
@@ -77,6 +79,10 @@ const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, 
                             setConfirmpass={setConfirmpass}
                             USER={USER}
                             set_USER={set_USER}
+                            Profile_Image={Profile_Image}
+                            setProfile_Image={setProfile_Image}
+                            profile_img_handle={profile_img_handle}
+                            Upload_ProfileImg={Upload_ProfileImg}
                         />
                     }
 

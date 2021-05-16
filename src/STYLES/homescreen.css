@@ -112,21 +112,21 @@
 }
 
 .hovercard .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
     /* box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06); */
     box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
 
 .card_overlay {
     background: rgba(216, 213, 213, 0.251);
-    padding: 4px;
+    padding: 3px;
     position: absolute;
     /* visibility: hidden; */
-    bottom: 5px;
+    bottom: 3px;
     left: 3px;
     right: 0px;
     width: 100%;
-    height: 3rem;
+    height: 2.5rem;
     text-align: center;
     transition: .5s ease;
     opacity: 0;
@@ -143,6 +143,36 @@
     font-size: 1rem;
     text-align: left;
     padding-left: 1rem;
+}
+
+#tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #333333; */
+}
+
+#tab li {
+    float: left;
+    margin: 1rem;
+    /* padding: 1rem; */
+}
+
+#tab li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: .8rem;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+#tab li a:hover {
+    /* background-color: #ffe66d; */
+    background-image: linear-gradient( 90deg, #cc2e72, #fb9000);
+    color: white;
 }
 
 /* ------------   MEDIA QUERYYY  ----------------- */

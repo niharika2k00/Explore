@@ -1,5 +1,4 @@
 #nav_head #prodigy {
-    /* font-family: 'Original Surfer', cursive; */
     font-family: 'Montserrat', sans-serif;
     width: 16rem;
     height: 2.5rem;
@@ -13,12 +12,18 @@
 .navItems {
     font-weight: 700;
     font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-dark .navbar-toggler-icon, .navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
 #signinbtn {
     font-size: 1.4rem;
     font-weight: 700;
     color: black;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h5 #signinbtn:hover {
@@ -28,11 +33,10 @@ h5 #signinbtn:hover {
 .Button {
     padding: 4px auto 4px auto;
     margin-bottom: 6px;
-    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .Button .Button-btn {
-    /* font-family: "Raleway", sans-serif; */
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;
@@ -62,7 +66,6 @@ h5 #signinbtn:hover {
     color: black;
     font-weight: 700;
     font-size: 1.1rem;
-    /* font-family: 'Cormorant', serif; */
     font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
+    text-decoration: none !important;
 }

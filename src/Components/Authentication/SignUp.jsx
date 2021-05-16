@@ -10,10 +10,12 @@ import firebase from 'firebase';
 
 
 
-const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, password, setPassword, confirmpass, setConfirmpass, USER, set_USER }) => {
+const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, password, setPassword, confirmpass, setConfirmpass, USER, set_USER,
+    profile_img_handle, Upload_ProfileImg }) => {
 
     // const history = useHistory();
     const db = firebase.firestore();
+
 
 
     const signUp_Handler = async (e) => {
@@ -21,6 +23,10 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
         console.log("Successfully Signed Up");
         console.log("Email : ", email);
         console.log("Password : ", password);
+
+        const Profile_Pic = await Upload_ProfileImg();
+        console.log(Profile_Pic);
+
 
         if (password !== confirmpass) {
             console.log("Wrong password");
@@ -33,7 +39,8 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
             const result = await app.auth().createUserWithEmailAndPassword(email, password);
             console.log(result);
             await result.user.updateProfile({
-                displayName: name
+                displayName: name,
+                photoURL: Profile_Pic
             });
             console.log("Name : ", result.user.displayName);
             setSignUp(false);
@@ -46,10 +53,11 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                 Name: name,
                 Email: email,
                 CreatedAt: new Date(),
-                Provider: "Custom"
+                Provider: "Custom",
+                Profile_Image: Profile_Pic
             }
             console.log(User_obj);
-            await db.collection('USER_INFO').doc(USER_CURRENT.uid).set(User_obj)
+            await db.collection('users').doc(USER_CURRENT.uid).set(User_obj)
             alert("Message summited Successfully!");
             setName('');
             setEmail('');
@@ -57,7 +65,6 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
             setPassword('');
         }
         catch (error) {
-            alert(error);
             console.log(error);
             setSignUp(false);
         }
@@ -65,24 +72,28 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
 
 
 
-    useEffect(() => {
-        app.auth().onAuthStateChanged((user) => {
-            if (user) {
-                console.log(user.displayName, " , ", user.uid);
-                const User_Obj = {
-                    Name: user.displayName,
-                    Email: user.email,
-                    UID: user.uid
-                };
-                console.log(User_Obj);
-                set_USER(User_Obj);
 
-            } else {
-                console.log('No User');
-                set_USER({});
-            }
-        });
-    }, []);
+
+    /*    useEffect(() => {
+           app.auth().onAuthStateChanged((user) => {
+               if (user) {
+                   console.log(user.displayName, " , ", user.uid);
+                   const User_Obj = {
+                       Name: user.displayName,
+                       Email: user.email,
+                       UID: user.uid
+                   };
+                   // console.log(User_Obj);
+                   set_USER(User_Obj);
+   
+               } else {
+                   console.log('No User');
+                   set_USER({});
+               }
+           });
+       }, []); */
+
+
 
 
     return (
@@ -137,6 +148,16 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                             value={confirmpass}
                             onChange={(e) => setConfirmpass(e.target.value)}
                         ></Form.Control>
+                    </Form.Group>
+
+                    <Form.Group style={{ color: "black" }} >
+                        <Form.File
+                            // id="exampleFormControlFile1"
+                            label="Upload Profile Picture"
+                            style={{ fontSize: "1.0rem" }}
+                            onChange={profile_img_handle}
+                            required
+                        />
                     </Form.Group>
 
                     <div className="btncenter">
