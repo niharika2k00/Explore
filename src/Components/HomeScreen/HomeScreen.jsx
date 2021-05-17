@@ -11,12 +11,26 @@ import EACH_CARD from './HomePost_Card.js';
 import firebase from 'firebase';
 import app from "../../Firebase/Firebase.js";
 import LOAD from '../Loading.js';
+import { ArtTrack, CardTravel, FontDownload } from "@material-ui/icons";
+import {clone} from 'ramda';
 
 
 
 const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts, loading, setLoading }) => {
 
-
+    const [currentPost,setcurrentPost]=useState([]);
+    const sort=(Topic)=>{
+        if(!Topic)
+            setcurrentPost(allPost);
+        else{
+            let arr=clone(allPost);
+            arr=arr.filter((obj)=>obj.Topic===Topic);
+            setcurrentPost(arr);    
+        }
+    }
+    useEffect(()=>{
+        setcurrentPost(allPost);
+    },[allPost])
     useEffect(() => {
         setLoading(true);
         // if (Object.keys(USER).length !== 0) {
@@ -24,7 +38,7 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
         // }
     }, []);
 
-
+    
     useEffect(() => {
         console.log(allPost);
         setLoading(false);
@@ -88,14 +102,14 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                             (
                                 <div className="d-flex flex-wrap justify-content-evenly">
                                     <ul id="tab" >
-                                        <li> <Link to="" >All </Link> </li>
-                                        <li> <Link to="" >Popular </Link> </li>
-                                        <li> <Link to="" > Motivational</Link> </li>
-                                        <li> <Link to="" >Memes</Link> </li>
-                                        <li> <Link to="" >Food </Link> </li>
-                                        <li> <Link to="" >Travel </Link> </li>
-                                        <li> <Link to="" > Art</Link> </li>
-                                        <li> <Link to="" >Global News </Link> </li>
+                                        <li onClick={()=>sort("")}> <Link to="" >All </Link> </li>
+                                        <li onClick={()=>sort("Popular")}> <Link to="">Popular </Link> </li>
+                                        <li onClick={()=>sort("Motivational")}> <Link to=""> Motivational</Link> </li>
+                                        <li onClick={()=>sort("Memes")}> <Link to="">Memes</Link> </li>
+                                        <li onClick={()=>sort("Food")}> <Link to="">Food </Link> </li>
+                                        <li onClick={()=>sort("Travel")}> <Link to="">Travel </Link> </li>
+                                        <li onClick={()=>sort("Art")}> <Link to=""> Art</Link> </li>
+                                        <li onClick={()=>sort("Global")}> <Link to="">Global News </Link> </li>
                                     </ul>
                                 </div>
                             )
@@ -111,15 +125,23 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                             <section style={{ padding: "1rem 0 ", margin: "1rem 0" }} >
 
                                 <Row style={{ padding: "3rem auto" }} >
-                                    {/* array of objects is mapped ------ [{} {} {}] */}
-                                    {allPost.map(card => (
-                                        <Col key={card.id} sm={12} md={6} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
+                               
+                                    
+                                          { currentPost.map(card => (
+                                   
+                                        
+                                            (<Col key={card.id} sm={12} md={6} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
                                             <EACH_CARD
                                                 ID={card.id}
                                                 each_cardObj={card}
                                             />
-                                        </Col>
-                                    ))}
+                                        </Col>)
+                                        
+                                        
+                                        
+                                    ))
+                                          }
+                                    
                                 </Row>
 
                             </section>
