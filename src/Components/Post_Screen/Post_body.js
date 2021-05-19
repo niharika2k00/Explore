@@ -94,7 +94,9 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
 
             <section className="Button">
                 <Link to="/">
-                    <button type="button" className="btn btn-danger " style={{ marginTop: '3rem' }} > <b> Back </b>   </button>
+                    <button className="Button-btn" style={{ margin: '3rem 0px' }} >
+                        BACK
+                </button>
                 </Link>
             </section>
 

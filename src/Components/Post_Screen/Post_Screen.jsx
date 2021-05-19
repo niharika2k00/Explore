@@ -9,7 +9,7 @@ import "../../STYLES/postscreen.css";
 // import { StyleRoot } from 'radium';
 import { Carousel } from '3d-react-carousal';
 import firebase from 'firebase';
-import app from "../../Firebase/Firebase.js";
+// import app from "../../Firebase/Firebase.js";
 import CARD_BODY from './Post_body.js';
 import { useLocation } from 'react-router-dom';
 import moment from 'moment';
@@ -126,7 +126,6 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
                         {/* items  --- > [{} {} {}]  , obj are of each post  */}
                         <Row className="row_center">
                             {allPost.map(body => (
-
                                 url_postId === body.id ?
                                     (
                                         < CARD_BODY

@@ -1,38 +1,21 @@
 
-import React, { useState, useEffect } from "react";
-import { Row, Col, Container, Button, Form } from 'react-bootstrap';
+import React, { useEffect } from "react";
+import { Row, Col, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../STYLES/profile.css';
 import '../../App.css';
 import firebase from 'firebase';
-import EACH_CARD from '../HomeScreen/HomePost_Card.js';
-import LOAD from '../Loading.js';
 
 
 
-const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading, country, setCity, city, setCountry, setState, state }) => {
+const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading, country, setCity, city, setCountry, setState, state,
+    fetch_About, about, setAbout }) => {
 
     const db = firebase.firestore();
 
 
-    useEffect(() => {
-        setLoading(true);
-        if (Object.keys(USER).length !== 0) {
-            fetch_USER_Posts();
-        }
-    }, [USER]);
-
-
-    useEffect(() => {
-        setLoading(false);
-    }, [user_Posts, set_USER]);
-
-
-
     const about_submit_Handler = async (e) => {
         e.preventDefault();
-        console.log("Email : ", country);
-
         try {
             // --------- Putting into DB --------
             const USER_CURRENT = firebase.auth().currentUser;
@@ -52,6 +35,22 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
     }
 
 
+
+    useEffect(() => {
+        if (Object.keys(USER).length !== 0) {
+            fetch_About();
+        }
+    }, [USER]);
+
+
+
+    useEffect(() => {
+        if (about.length !== 0) {
+            console.log(about);
+            // console.log(about[0].City)
+        }
+        else { console.log("not running"); }
+    }, [about]);
 
 
 
@@ -75,11 +74,11 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                     <div className="user_data">
                         <h2>{USER.Name} </h2>
                         <p >{USER.Email}</p>
-                        {
-                            city && country ?
-                                (<p >{city}{' , '} {country}  </p>)
-                                : <p>Please complete the details</p>
-                        }
+                        {/*  {
+                            (about.length !== 0) ?
+                                (<p >{about[0].City}{' , '} {about[0].Country}  </p>)
+                                : <p>Please complete the details ...</p>
+                        } */}
                     </div>
                 </Col>
             </Row>
@@ -110,7 +109,6 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                     type='name'
                                     placeholder=' name'
                                     value={USER.Name}
-                                // onChange={(e) => setName(e.target.value)}
                                 ></Form.Control>
                             </Form.Group>
 
@@ -121,18 +119,8 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                     type='email'
                                     placeholder=' email'
                                     value={USER.Email}
-                                // onChange={(e) => setEmail(e.target.value)}
                                 ></Form.Control>
                             </Form.Group>
-
-                            {/*  <Form.Group controlId='password'>
-                                <Form.Label><b>Password</b></Form.Label>
-                                <Form.Control
-                                    className="form_box"
-                                    type='password'
-                                    placeholder='password'
-                                ></Form.Control>
-                            </Form.Group> */}
 
                             <Form.Group controlId='confirmpassword'>
                                 <Form.Label><b>Country</b></Form.Label>

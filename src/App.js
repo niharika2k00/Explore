@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
-import moment from 'moment';
 import app from "./Firebase/Firebase.js";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NAVIGATION_BAR from './Components/Navbar/Navbar_top.jsx';
@@ -36,6 +35,7 @@ const App = () => {
   const [city, setCity] = useState(null);
   const [state, setState] = useState(null);
   const [country, setCountry] = useState(null);
+  const [about, setAbout] = useState({});
 
 
   const USER_DETAILS = firebase.auth().currentUser;
@@ -144,6 +144,26 @@ const App = () => {
 
 
 
+  //  Fetching the ABOUT DETAILS of the Logged In USER 
+  const fetch_About = () => {
+    if (Object.keys(USER).length !== 0) {
+      db.collection('users').doc(USER_DETAILS.uid).collection('about').onSnapshot(snapshot => {
+        const User_About = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        console.log(User_About);
+        setAbout(User_About);
+      })
+    }
+    else {
+      console.log("Currently No User Logged In. ")
+    }
+  };
+
+
+
+
   return (
     <Router>
       <div className="App" style={{ backgroundColor: "#edf2f4" }} >
@@ -199,6 +219,9 @@ const App = () => {
                 city={city}
                 state={state}
                 country={country}
+                fetch_About={fetch_About}
+                about={about}
+                setAbout={setAbout}
               />
             )}
             exact
@@ -221,6 +244,9 @@ const App = () => {
                 setState={setState}
                 state={state}
                 country={country}
+                fetch_About={fetch_About}
+                about={about}
+                setAbout={setAbout}
               />
             )}
             exact

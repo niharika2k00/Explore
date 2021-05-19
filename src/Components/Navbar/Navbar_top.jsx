@@ -43,10 +43,10 @@ const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, 
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto navItems">
-                        <Nav.Link  > <Link to="/" className="modiflink" >Home</Link></Nav.Link>
-                        <Nav.Link  ><Link to="/uploadpost" className="modiflink"  >Post</Link></Nav.Link>
-                        <Nav.Link  > <Link to="/profile" className="modiflink"  >Profile</Link></Nav.Link>
+                    <Nav className="ml-auto navItems">
+                        <Nav.Link  > <Link to="/" className="modiflink nav_top" >HOME</Link></Nav.Link>
+                        <Nav.Link  ><Link to="/uploadpost" className="modiflink nav_top"  >POST</Link></Nav.Link>
+                        <Nav.Link  > <Link to="/profile" className="modiflink nav_top"  >PROFILE</Link></Nav.Link>
                     </Nav>
 
                     {/* --------------  LOGIN  POPUP   -- for exsisting user------------ */}

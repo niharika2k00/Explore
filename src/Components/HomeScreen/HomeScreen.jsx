@@ -8,8 +8,8 @@ import "slick-carousel/slick/slick-theme.css";
 import '../../App.css';
 import '../../STYLES/homescreen.css';
 import EACH_CARD from './HomePost_Card.js';
-import firebase from 'firebase';
-import app from "../../Firebase/Firebase.js";
+// import firebase from 'firebase';
+// import app from "../../Firebase/Firebase.js";
 import LOAD from '../Loading.js';
 import { clone } from 'ramda';
 

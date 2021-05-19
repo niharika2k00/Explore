@@ -31,8 +31,8 @@ h5 #signinbtn:hover {
 }
 
 .Button {
-    padding: 4px auto 4px auto;
-    margin-bottom: 6px;
+    padding: 2px auto 2px auto;
+    margin-bottom: 4px;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -42,7 +42,7 @@ h5 #signinbtn:hover {
     font-size: 16px;
     letter-spacing: 1px;
     display: inline-block;
-    padding: 6px 24px;
+    padding: 4px 1rem;
     border-radius: 4px;
     transition: 0.5s;
     margin-top: 10px;
@@ -55,7 +55,7 @@ h5 #signinbtn:hover {
 
 .Button .Button-btn:hover {
     background: #f54893ea;
-    border: 4px double #2a9d8f;
+    border: 3px double #2a9d8f;
 }
 
 #icoSearch {
@@ -64,8 +64,12 @@ h5 #signinbtn:hover {
 
 .modiflink {
     color: black;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1.1rem;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none !important;
+}
+
+.nav_top {
+    margin: 0px .7rem;
 }
