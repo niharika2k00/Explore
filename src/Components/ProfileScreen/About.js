@@ -4,12 +4,16 @@ import { Row, Col, Container, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../STYLES/profile.css';
 import '../../App.css';
+import firebase from 'firebase';
 import EACH_CARD from '../HomeScreen/HomePost_Card.js';
 import LOAD from '../Loading.js';
 
 
 
-const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading }) => {
+const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading, country, setCity, city, setCountry, setState, state }) => {
+
+    const db = firebase.firestore();
+
 
     useEffect(() => {
         setLoading(true);
@@ -20,9 +24,36 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
 
 
     useEffect(() => {
-        console.log(user_Posts);
         setLoading(false);
     }, [user_Posts, set_USER]);
+
+
+
+    const about_submit_Handler = async (e) => {
+        e.preventDefault();
+        console.log("Email : ", country);
+
+        try {
+            // --------- Putting into DB --------
+            const USER_CURRENT = firebase.auth().currentUser;
+            console.log(USER_CURRENT);
+            const About = {
+                Country: country,
+                City: city,
+                State: state
+            }
+            console.log(About);
+            await db.collection('users').doc(USER_CURRENT.uid).collection('about').add(About)
+            alert("Message summited Successfully!");
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+
+
+
 
 
 
@@ -43,8 +74,12 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                 <Col md={6} >
                     <div className="user_data">
                         <h2>{USER.Name} </h2>
-                        <p >Kolkata, INDIA</p>
                         <p >{USER.Email}</p>
+                        {
+                            city && country ?
+                                (<p >{city}{' , '} {country}  </p>)
+                                : <p>Please complete the details</p>
+                        }
                     </div>
                 </Col>
             </Row>
@@ -67,7 +102,7 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                         <h2 className="loginhead" >ABOUT</h2>
 
 
-                        <Form /* onSubmit={submitHandler} */ id="about">
+                        <Form onSubmit={about_submit_Handler} id="about">
                             <Form.Group controlId='name'>
                                 <Form.Label><b>Name</b></Form.Label>
                                 <Form.Control
@@ -90,16 +125,14 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                 ></Form.Control>
                             </Form.Group>
 
-                            <Form.Group controlId='password'>
+                            {/*  <Form.Group controlId='password'>
                                 <Form.Label><b>Password</b></Form.Label>
                                 <Form.Control
                                     className="form_box"
                                     type='password'
                                     placeholder='password'
-                                // value={password}
-                                // onChange={(e) => setPassword(e.target.value)}
                                 ></Form.Control>
-                            </Form.Group>
+                            </Form.Group> */}
 
                             <Form.Group controlId='confirmpassword'>
                                 <Form.Label><b>Country</b></Form.Label>
@@ -107,8 +140,8 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                     className="form_box"
                                     type='country'
                                     placeholder='country'
-                                // value={confirmpass}
-                                // onChange={(e) => setConfirmpass(e.target.value)}
+                                    value={country}
+                                    onChange={(e) => setCountry(e.target.value)}
                                 ></Form.Control>
                             </Form.Group>
 
@@ -120,8 +153,8 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                             className="form_box"
                                             type='state'
                                             placeholder='state'
-                                        // value={confirmpass}
-                                        // onChange={(e) => setConfirmpass(e.target.value)}
+                                            value={state}
+                                            onChange={(e) => setState(e.target.value)}
                                         ></Form.Control>
                                     </Form.Group>
                                 </Col>
@@ -133,21 +166,24 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                             className="form_box"
                                             type='city'
                                             placeholder='city'
-                                        // value={confirmpass}
-                                        // onChange={(e) => setConfirmpass(e.target.value)}
+                                            value={city}
+                                            onChange={(e) => setCity(e.target.value)}
                                         ></Form.Control>
                                     </Form.Group>
                                 </Col>
 
                             </Row>
+
+                            <Row>
+                                <div id="centerSubmit">
+                                    <button type="submit" className="btn btn-dark"
+                                        style={{ marginTop: '3rem', justifyContent: "center", alignItems: "center" }} >Submit</button>
+                                </div>
+                            </Row>
                         </Form>
                         {/* </Loginform_Container> */}
                     </Col>
                 </Row>
-
-
-
-
 
             </section>
 

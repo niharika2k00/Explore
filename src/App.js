@@ -33,10 +33,13 @@ const App = () => {
   const [allPost, setallPost] = useState([]);
   const [user_Posts, setUser_Posts] = useState([]);
   const [Person, setPerson] = useState({});
+  const [city, setCity] = useState(null);
+  const [state, setState] = useState(null);
+  const [country, setCountry] = useState(null);
 
 
   const USER_DETAILS = firebase.auth().currentUser;
-  console.log(USER_DETAILS);
+  // console.log(USER_DETAILS);
 
 
 
@@ -59,6 +62,7 @@ const App = () => {
       console.log(error);
     }
   };
+
 
 
   // ----------------------------  USER VALIDATION    --------------------
@@ -86,6 +90,7 @@ const App = () => {
 
 
 
+
   /* useEffect(() => {
     if (Object.keys(USER).length === 0) {
       setTimeout(function () {
@@ -103,8 +108,6 @@ const App = () => {
 
   // Fetching ALL the posts of ALL THE USERS
   const fetch_ALL_Users_Posts = () => {
-
-    // fetch all the posts
     db.collection('posts/all_posts/all_unverified').onSnapshot(snapshot => {
       const listItems = snapshot.docs.map(doc => ({
         id: doc.id,
@@ -165,6 +168,7 @@ const App = () => {
           Upload_ProfileImg={Upload_ProfileImg}
         />
 
+
         <main >
           <Route path='/'
             render={(props) => (
@@ -192,10 +196,14 @@ const App = () => {
                 fetch_USER_Posts={fetch_USER_Posts}
                 loading={loading}
                 setLoading={setLoading}
+                city={city}
+                state={state}
+                country={country}
               />
             )}
             exact
           />
+
 
           <Route path='/about'
             render={(props) => (
@@ -207,6 +215,12 @@ const App = () => {
                 fetch_USER_Posts={fetch_USER_Posts}
                 loading={loading}
                 setLoading={setLoading}
+                setCity={setCity}
+                city={city}
+                setCountry={setCountry}
+                setState={setState}
+                state={state}
+                country={country}
               />
             )}
             exact

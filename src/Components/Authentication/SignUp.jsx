@@ -30,7 +30,7 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
 
         if (password !== confirmpass) {
             console.log("Wrong password");
-            alert("Wrong password.Password dont Match");
+            alert("Wrong password.Password doesn't Match");
             return;
         }
 

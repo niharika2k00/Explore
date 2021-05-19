@@ -24,9 +24,10 @@
 }
 
 .user_data p {
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1.3rem;
-    color: #FF8F05;
+    color: black;
+    margin-bottom: 4px;
 }
 
 .EditButton {
@@ -66,7 +67,19 @@
 }
 
 #line .subtopic a:hover {
-    color: #292524db !important;
+    color: blue !important;
+}
+
+#line .subtopic a:focus {
+    color: blue !important;
+    font-size: 1.2rem;
+}
+
+#centerSubmit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .6rem;
 }
 
 /* ----------------------------------------------         ABOUT SECTION STYLES      -------------------- */
