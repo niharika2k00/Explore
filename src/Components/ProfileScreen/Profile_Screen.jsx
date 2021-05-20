@@ -10,7 +10,7 @@ import LOAD from '../Loading.js';
 
 
 
-const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading, city, country, state ,  fetch_About, about, setAbout}) => {
+const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading, city, country, state, fetch_About, about, setAbout }) => {
 
     useEffect(() => {
         setLoading(true);
@@ -46,7 +46,11 @@ const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_
                         <div className="user_data">
                             <h2>{USER.Name} </h2>
                             <p >{USER.Email}</p>
-
+                            {
+                                (about && about.length !== 0) ?
+                                    (<p >{about[0].City}{' , '} {about[0].Country}  </p>)
+                                    : <p>Please complete the details ...</p>
+                            }
                         </div>
                     </Col>
                 </Row>

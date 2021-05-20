@@ -45,9 +45,9 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
 
 
     useEffect(() => {
-        if (about.length !== 0) {
+        if (about && about.length !== 0) {
             console.log(about);
-            // console.log(about[0].City)
+            console.log(about[0].City)
         }
         else { console.log("not running"); }
     }, [about]);
@@ -74,11 +74,11 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                     <div className="user_data">
                         <h2>{USER.Name} </h2>
                         <p >{USER.Email}</p>
-                        {/*  {
-                            (about.length !== 0) ?
+                        {
+                            (about && about.length !== 0) ?
                                 (<p >{about[0].City}{' , '} {about[0].Country}  </p>)
                                 : <p>Please complete the details ...</p>
-                        } */}
+                        }
                     </div>
                 </Col>
             </Row>

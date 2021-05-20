@@ -35,7 +35,7 @@ const App = () => {
   const [city, setCity] = useState(null);
   const [state, setState] = useState(null);
   const [country, setCountry] = useState(null);
-  const [about, setAbout] = useState({});
+  const [about, setAbout] = useState(null);
 
 
   const USER_DETAILS = firebase.auth().currentUser;
@@ -228,6 +228,7 @@ const App = () => {
           />
 
 
+
           <Route path='/about'
             render={(props) => (
               <PROFILE_ABOUT {...props}
@@ -251,6 +252,8 @@ const App = () => {
             )}
             exact
           />
+
+
 
           <Route path='/uploadpost'
             render={(props) => (
