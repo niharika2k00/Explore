@@ -162,7 +162,7 @@ const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
                 });
 
                 // console.log(POST.id);
-
+                // ****************      GLOBAL STORAGE        ********************
                 await db.collection('posts/all_posts/all_unverified').doc(POST.id).set({
                     Topic: topic,
                     Title: title,
@@ -171,7 +171,8 @@ const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
                     Cover_Image: SINGLE,
                     Description: description,
                     Files: MULTIPLE,
-                    Posted_On: addingDate
+                    Posted_On: addingDate,
+                    Like_count: 0
                 });
 
 

@@ -26,7 +26,6 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
 
     const modify_url = location.pathname;
     const url_postId = modify_url.substring(modify_url.lastIndexOf('/') + 1)
-
     // console.log(url_postId);
 
 

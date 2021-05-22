@@ -17,6 +17,7 @@ import { clone } from 'ramda';
 
 const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts, loading, setLoading }) => {
 
+    // --------- FILTER FUNCTIONALITY ----------
     const [currentPost, setcurrentPost] = useState([]);
     const sort = (Topic) => {
         if (!Topic)
@@ -28,15 +29,16 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
         }
     }
 
-
     useEffect(() => {
         setcurrentPost(allPost);
     }, [allPost])
+
+
+
+    // FETCHING ALL THE POSTS OF ALL THE USERS
     useEffect(() => {
         setLoading(true);
-        // if (Object.keys(USER).length !== 0) {
         fetch_ALL_Users_Posts();
-        // }
     }, []);
 
 
@@ -46,6 +48,14 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
     }, [allPost, set_USER]);
 
     var width = window.innerWidth;
+
+
+
+
+
+
+
+
 
 
     return (
@@ -74,7 +84,6 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                     <Row id="gap_top">
 
                         {(width <= 450) ?
-
                             // ---------  DROPDOWN (mobile response)  -----------
                             (
                                 <div className="d-flex flex-wrap justify-content-end">
@@ -85,21 +94,21 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                                             </Dropdown.Toggle>
 
                                             <Dropdown.Menu>
-                                                <Dropdown.Item href="#/action-1">All</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">Motivational</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Memes</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Food</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Travel</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Art</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Global News</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Popular</Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("")}> <Link to="" >All </Link> </Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("Motivational")}><Link to=""> Motivational</Link></Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("Memes")}> <Link to="">Memes</Link></Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("Food")}><Link to="">Food </Link></Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("Travel")}><Link to="">Travel </Link></Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("Art")}><Link to=""> Art</Link></Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("Global")}><Link to="">Global News </Link> </Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("Popular")}><Link to="">Popular </Link></Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
                                     </div>
                                 </div>
                             ) :
 
-                            // ---------  LINE (desktop mode response)  -----------
+                            /* // ---------  LINE (desktop mode response)  ----------- */
                             (
                                 <div className="d-flex flex-wrap justify-content-evenly">
                                     <ul id="tab" >
@@ -126,25 +135,16 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                             <section style={{ padding: "1rem 0 ", margin: "1rem 0" }} >
 
                                 <Row style={{ padding: "3rem auto" }} >
-
-
                                     {currentPost.map(card => (
-
-
                                         (<Col key={card.id} sm={12} md={6} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
                                             <EACH_CARD
                                                 ID={card.id}
                                                 each_cardObj={card}
+                                                USER={USER}
                                             />
                                         </Col>)
-
-
-
-                                    ))
-                                    }
-
+                                    ))}
                                 </Row>
-
                             </section>
                         ) : null
                 }

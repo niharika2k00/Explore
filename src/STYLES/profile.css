@@ -98,4 +98,8 @@
         padding-top: 1rem;
         font-size: 1.6rem;
     }
+    #line .subtopic a {
+        font-weight: 700;
+        font-size: .8rem;
+    }
 }

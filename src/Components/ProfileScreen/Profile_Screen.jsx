@@ -96,7 +96,6 @@ const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_
                                                 />
                                             </Col>
                                         ))
-
                                     ) : null
                             }
                         </Row>
