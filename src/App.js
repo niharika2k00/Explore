@@ -169,18 +169,20 @@ const App = () => {
 
 
   // Fetching all the Liked Posts of a Particular User
-  const fetch_LikedShots = () => {
+  const fetch_LikedShots = async () => {
     if (Object.keys(USER).length !== 0) {
 
       // fetching only the logged In Users Posts
-      db.collection('users').doc(USER_DETAILS.uid).collection('posts').onSnapshot(snapshot => {
-        const User_All_Posts = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        console.log(User_All_Posts);
-        setUser_Posts(User_All_Posts)
-      })
+      /*  const Coll_Size = await db.collection("users").doc(USER_DETAILS.uid).collection("liked_posts").get();
+ 
+       db.collection('users').doc(USER_DETAILS.uid).collection('liked_posts').doc('Coll_Size.docs[0].id').onSnapshot(snapshot => {
+         const User_All_Posts = snapshot.docs.map(doc => ({
+           id: doc.id,
+           ...doc.data(),
+         }))
+         console.log(User_All_Posts);
+         setUser_Posts(User_All_Posts)
+       }) */
 
     }
     else {

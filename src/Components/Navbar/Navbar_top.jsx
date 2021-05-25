@@ -35,10 +35,7 @@ const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, 
             <Navbar bg="light" variant="light" expand="lg" style={{ padding: ".6rem", marginbottom: "0" }} >
 
                 <LinkContainer to="/"><Navbar.Brand id="nav_head">
-                    {(modify_url === "/post/:id") ? <img id="explore" src={ExploreLOGO} alt="EXPLORE" />
-                        :
-                        <img src={ExploreLOGO} id="explore" alt="lol" />
-                    }
+                    <img id="explore" src={ExploreLOGO} alt="EXPLORE" />
                 </Navbar.Brand></LinkContainer>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

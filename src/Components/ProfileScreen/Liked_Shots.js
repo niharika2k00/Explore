@@ -1,18 +1,20 @@
 
 
 import React, { useEffect } from "react";
-import { Row, Col, Container, Form } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../STYLES/profile.css';
+import '../../STYLES/homescreen.css';
 import '../../App.css';
-import firebase from 'firebase';
+import EACH_CARD from '../HomeScreen/HomePost_Card.js';
+import LOAD from '../Loading.js';
 
 
 
 const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading, country, setCity, city, setCountry, setState, state, fetch_About, about,
     setAbout }) => {
 
-    const db = firebase.firestore();
+    // const db = firebase.firestore();
 
 
 
@@ -76,8 +78,23 @@ const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Pos
             <hr></hr>
 
             <section>
-                <Row className="justify-content-md-center rowTopgap" style={{ width: "100%", height: "50rem" }}>
+                {/* <h2 className="profile_head" >LIKED SHOTS</h2> */}
+                <Row className="justify-content-md-center rowTopgap" style={{ width: "100%", height: "40rem" }}>
 
+                    {loading ? <LOAD /> :
+                        user_Posts.length !== 0 ?
+                            (
+                                user_Posts.map(card => (
+                                    <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
+                                        <EACH_CARD
+                                            ID={card.id}
+                                            each_cardObj={card}
+                                            USER={USER}
+                                        />
+                                    </Col>
+                                ))
+                            ) : null
+                    }
                 </Row>
 
             </section>

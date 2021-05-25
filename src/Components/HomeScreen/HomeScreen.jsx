@@ -19,29 +19,17 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
 
     // --------- FILTER FUNCTIONALITY ----------
     const [currentPost, setcurrentPost] = useState([]);
-<<<<<<< HEAD
-    // const [select, setSelect] = useState(false);
 
+
+    const [activee, setActivee] = useState("");
     const sort = (Topic) => {
         if (!Topic) {
             setcurrentPost(allPost);
+            setActivee("");
         }
         else {
-            // setSelect(true);
-=======
-    const [active,setActive]=useState("");
-    const sort = (Topic) => {
-       
-        if (!Topic)
-        {
-            setcurrentPost(allPost);
-             setActive("");   
-        }
-        else {
-                
->>>>>>> b9057d924286595b23237b3e2764060c638e46ad
             let arr = clone(allPost);
-            setActive(Topic);
+            setActivee(Topic);
             arr = arr.filter((obj) => obj.Topic === Topic);
             setcurrentPost(arr);
         }
@@ -131,25 +119,16 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                             (
                                 <div className="d-flex flex-wrap justify-content-evenly">
                                     <ul id="tab" >
-<<<<<<< HEAD
-                                        <li onClick={() => sort("")}> <Link to="" >All </Link> </li>
-                                        <li onClick={() => sort("Popular")}> <Link to="">Popular </Link> </li>
-                                        <li onClick={() => sort("Motivational")}> <Link to=""> Motivational</Link> </li>
-                                        <li onClick={() => sort("Memes")}> <Link to="">Memes</Link> </li>
-                                        <li onClick={() => sort("Food")}> <Link to="">Food </Link> </li>
-                                        <li onClick={() => sort("Travel")}> <Link to="">Travel </Link> </li>
-                                        <li onClick={() => sort("Art")}> <Link to=""> Art</Link> </li>
-                                        <li onClick={() => sort("Global News")}> <Link to="">Global News </Link> </li>
-=======
-                                        <li  onClick={() => sort("")}> <Link to=""  className={active===""?"active":""}>All </Link> </li>
-                                        <li onClick={() => sort("Popular")}> <Link to="" className={active==="Popular"?"active":""}>Popular </Link> </li>
-                                        <li onClick={() => sort("Motivational")}> <Link to="" className={active==="Motivational"?"active":""}> Motivational</Link> </li>
-                                        <li onClick={() => sort("Memes")}> <Link to="" className={active==="Memes"?"active":""}>Memes</Link> </li>
-                                        <li onClick={() => sort("Food")}> <Link to="" className={active==="Food"?"active":""}>Food </Link> </li>
-                                        <li onClick={() => sort("Travel")}> <Link to="" className={active==="Travel"?"active":""}>Travel </Link> </li>
-                                        <li onClick={() => sort("Art")}> <Link to="" className={active==="Art"?"active":""}> Art</Link> </li>
-                                        <li onClick={() => sort("Global")}> <Link to="" className={active==="Global"?"active":""}>Global News </Link> </li>
->>>>>>> b9057d924286595b23237b3e2764060c638e46ad
+
+                                        <li onClick={() => sort("")}> <Link to="" className={activee === "" ? "activee" : ""}>All </Link> </li>
+                                        <li onClick={() => sort("Popular")}> <Link to="" className={activee === "Popular" ? "activee" : ""}>Popular </Link> </li>
+                                        <li onClick={() => sort("Motivational")}> <Link to="" className={activee === "Motivational" ? "activee" : ""}> Motivational</Link> </li>
+                                        <li onClick={() => sort("Memes")}> <Link to="" className={activee === "Memes" ? "activee" : ""}>Memes</Link> </li>
+                                        <li onClick={() => sort("Food")}> <Link to="" className={activee === "Food" ? "activee" : ""}>Food </Link> </li>
+                                        <li onClick={() => sort("Travel")}> <Link to="" className={activee === "Travel" ? "activee" : ""}>Travel </Link> </li>
+                                        <li onClick={() => sort("Art")}> <Link to="" className={activee === "Art" ? "activee" : ""}> Art</Link> </li>
+                                        <li onClick={() => sort("Global News")}> <Link to="" className={activee === "Global News" ? "activee" : ""}>Global News </Link> </li>
+
                                     </ul>
                                 </div>
                             )
