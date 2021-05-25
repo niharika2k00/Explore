@@ -83,15 +83,16 @@
 
 .file--upload > label {
   color: hsl(204, 86%, 53%);
-  border-color: #ef476f;
+  border: 3px ridge rgb(236, 182, 193);
+  // border-color: #2fac66;
 }
 
 .file--upload > label:hover {
-  background-color: #f8edeb;
+  background-color: #e0fdfc8d;
 }
 
 .file--upload > label:active {
-  background-color: hsl(204, 86%, 91%);
+  background-color: #ffffffe8;
 }
 #centerbtn {
   display: flex;
@@ -101,7 +102,7 @@
 }
 .ico_big {
   font-size: 1.5rem;
-  color: crimson;
+  color: #2fac66;
 }
 
 /* ---------------------         MEDIA QUERYYY         --------------------- */

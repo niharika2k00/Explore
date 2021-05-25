@@ -35,3 +35,10 @@ body, html {
 }
 
 /* font-family: 'Montserrat', sans-serif; */
+
+/* ------ Colours ------ */
+
+.colors {
+    color: #00a19a, #68c7c2, #2fac66, #ffa200, #fff766;
+    color: #fbdad3, #a6b1cf, #bfe1e0;
+}

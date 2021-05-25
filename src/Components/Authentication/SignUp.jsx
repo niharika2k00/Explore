@@ -65,7 +65,7 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
             setPassword('');
         }
         catch (error) {
-            console.log(error);
+            // console.log(error);
             setSignUp(false);
         }
     };
@@ -161,7 +161,7 @@ const SignUp = ({ type, setSignUp, setLogin, name, setName, email, setEmail, pas
                     </Form.Group>
 
                     <div className="btncenter">
-                        <Button type='submit' variant='danger' >
+                        <Button type='submit' variant='success' >
                             <b style={{ fontSize: "14px" }}>Register</b>
                         </Button>
                     </div>

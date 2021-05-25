@@ -62,16 +62,16 @@
 #line .subtopic a {
     font-weight: 700;
     font-size: 1.2rem;
-    color: #FE4B46 !important;
+    color: #ffa200 !important;
     text-decoration: none;
 }
 
 #line .subtopic a:hover {
-    color: blue !important;
+    color: black !important;
 }
 
 #line .subtopic a:focus {
-    color: blue !important;
+    color: black !important;
     font-size: 1.2rem;
 }
 
@@ -80,6 +80,18 @@
     justify-content: center;
     align-items: center;
     margin-top: .6rem;
+}
+
+.profile_head {
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(160deg, #268951, #fff766);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* ----------------------------------------------         ABOUT SECTION STYLES      -------------------- */
@@ -93,13 +105,16 @@
     font-size: 1.1rem !important;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
     .user_data h2 {
         padding-top: 1rem;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
     #line .subtopic a {
         font-weight: 700;
-        font-size: .8rem;
+        font-size: 1.15rem;
+    }
+    #line {
+        padding-top: 1.8rem;
     }
 }

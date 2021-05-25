@@ -20,9 +20,10 @@ import { useLocation } from 'react-router-dom';
 const Post_body = ({ ID, card_body, USER, set_USER, }) => {
 
     const location = useLocation();
-    const URL = location.pathname;
+    // const URL = location.pathname;
     var width = window.innerWidth;
-
+    const URL = window.location.href;     // full url of the site
+    console.log(URL);
 
 
 
@@ -39,7 +40,7 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
                         < LinkedinIcon size={38} round={true} />
                     </LinkedinShareButton>
 
-                    < WhatsappShareButton url={URL} title="Post_self" separator=" " className="btn btn-primary btn-floating m-1 btn-lg icon-whatsapp" >
+                    < WhatsappShareButton url={URL} title="Go and Check Out Our Post... " separator=" " className="btn btn-primary btn-floating m-1 btn-lg icon-whatsapp" >
                         <WhatsappIcon size={38} round={true} />
                     </WhatsappShareButton>
                 </div>
@@ -51,7 +52,7 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
                     <div>
                         <div>
                             <p className="post_titles">
-                                <i className="fas fa-user" style={{ fontSize: "1.4rem", paddingRight: ".5rem" }} ></i> <b>Posted by {card_body.Display_Name} {" "} </b>
+                                <i className="fas fa-user" style={{ fontSize: "2rem", paddingRight: ".5rem" }} ></i> <b>Posted by {card_body.Display_Name} {" "} </b>
                             </p>
                         </div>
 

@@ -1,11 +1,11 @@
 #nav_head #prodigy {
     font-family: 'Montserrat', sans-serif;
-    width: 16rem;
+    width: 11rem;
     height: 2.5rem;
 }
 
 #nav_head #explore {
-    width: 11rem;
+    width: 13rem;
     height: 4rem;
 }
 
@@ -42,20 +42,20 @@ h5 #signinbtn:hover {
     font-size: 16px;
     letter-spacing: 1px;
     display: inline-block;
-    padding: 4px 1rem;
+    padding: 5px 1.1rem;
     border-radius: 4px;
-    transition: 0.5s;
+    transition: 0.1s;
     margin-top: 10px;
     margin-left: 1.2rem;
     text-decoration: none;
-    border: 2px solid #f9c74f;
-    background-color: #ff006e;
+    border: 3px solid #2fac66;
+    background-color: #00a19a;
     color: rgb(255, 255, 255);
 }
 
 .Button .Button-btn:hover {
-    background: #f54893ea;
-    border: 3px double #2a9d8f;
+    background: #00a199aa;
+    border: 3px double #2fac66;
 }
 
 #icoSearch {

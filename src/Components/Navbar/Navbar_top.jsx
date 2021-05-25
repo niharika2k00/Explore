@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -28,14 +28,14 @@ const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, 
         // history.push("/register");
     };
 
-
+    console.log(USER)
 
     return (
         <header>
             <Navbar bg="light" variant="light" expand="lg" style={{ padding: ".6rem", marginbottom: "0" }} >
 
                 <LinkContainer to="/"><Navbar.Brand id="nav_head">
-                    {(modify_url === "/post/:id") ? <img id="explore" src={ExploreLOGO} alt="lol" />
+                    {(modify_url === "/post/:id") ? <img id="explore" src={ExploreLOGO} alt="EXPLORE" />
                         :
                         <img src={ExploreLOGO} id="explore" alt="lol" />
                     }
@@ -46,7 +46,11 @@ const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, 
                     <Nav className="ml-auto navItems">
                         <Nav.Link  > <Link to="/" className="modiflink nav_top" >HOME</Link></Nav.Link>
                         <Nav.Link  ><Link to="/uploadpost" className="modiflink nav_top"  >POST</Link></Nav.Link>
-                        <Nav.Link  > <Link to="/profile" className="modiflink nav_top"  >PROFILE</Link></Nav.Link>
+
+                        {
+                            Object.keys(USER).length !== 0 ? (<Nav.Link> <Link to="/profile" className="modiflink nav_top">PROFILE</Link></Nav.Link>) : null
+                        }
+
                     </Nav>
 
                     {/* --------------  LOGIN  POPUP   -- for exsisting user------------ */}

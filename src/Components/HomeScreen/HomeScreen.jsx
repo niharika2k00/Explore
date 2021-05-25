@@ -19,10 +19,14 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
 
     // --------- FILTER FUNCTIONALITY ----------
     const [currentPost, setcurrentPost] = useState([]);
+    // const [select, setSelect] = useState(false);
+
     const sort = (Topic) => {
-        if (!Topic)
+        if (!Topic) {
             setcurrentPost(allPost);
+        }
         else {
+            // setSelect(true);
             let arr = clone(allPost);
             arr = arr.filter((obj) => obj.Topic === Topic);
             setcurrentPost(arr);
@@ -58,6 +62,7 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
 
 
 
+
     return (
         <div>
             <section>
@@ -65,11 +70,11 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                     <Row>
                         <Col md={6} xs={12}>
                             <div className="title">
-                                <h1>Lorem Ipsum Dolor</h1>
+                                <h1>Every second of life is a New Exploration !!</h1>
                             </div>
 
-                            <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                               Suspendisse luctus ligula quis urna commodo, et pharetra lacus faucibus.</p>
+                            <p className="lead">Lets explore art & travel experiences globally and gets motivated together in life
+                            with the Prodigious Peoples new Explore section ......</p>
                         </Col>
                     </Row>
                 </div>
@@ -94,13 +99,13 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                                             </Dropdown.Toggle>
 
                                             <Dropdown.Menu>
-                                                <Dropdown.Item onClick={() => sort("")}> <Link to="" >All </Link> </Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("")}  > <Link to="" >All </Link> </Dropdown.Item>
                                                 <Dropdown.Item onClick={() => sort("Motivational")}><Link to=""> Motivational</Link></Dropdown.Item>
-                                                <Dropdown.Item onClick={() => sort("Memes")}> <Link to="">Memes</Link></Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("Memes")} /* style={{ color: select ? "red" : "green" }} */> <Link to="">Memes</Link></Dropdown.Item>
                                                 <Dropdown.Item onClick={() => sort("Food")}><Link to="">Food </Link></Dropdown.Item>
                                                 <Dropdown.Item onClick={() => sort("Travel")}><Link to="">Travel </Link></Dropdown.Item>
                                                 <Dropdown.Item onClick={() => sort("Art")}><Link to=""> Art</Link></Dropdown.Item>
-                                                <Dropdown.Item onClick={() => sort("Global")}><Link to="">Global News </Link> </Dropdown.Item>
+                                                <Dropdown.Item onClick={() => sort("Global News")}><Link to="">Global News </Link> </Dropdown.Item>
                                                 <Dropdown.Item onClick={() => sort("Popular")}><Link to="">Popular </Link></Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
@@ -119,7 +124,7 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                                         <li onClick={() => sort("Food")}> <Link to="">Food </Link> </li>
                                         <li onClick={() => sort("Travel")}> <Link to="">Travel </Link> </li>
                                         <li onClick={() => sort("Art")}> <Link to=""> Art</Link> </li>
-                                        <li onClick={() => sort("Global")}> <Link to="">Global News </Link> </li>
+                                        <li onClick={() => sort("Global News")}> <Link to="">Global News </Link> </li>
                                     </ul>
                                 </div>
                             )
@@ -129,24 +134,24 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                 </section>
 
 
-                {loading ? <LOAD /> :
-                    allPost.length !== 0 ?
-                        (
-                            <section style={{ padding: "1rem 0 ", margin: "1rem 0" }} >
+                {loading && allPost.length !== 0 ? <LOAD /> :
 
-                                <Row style={{ padding: "3rem auto" }} >
-                                    {currentPost.map(card => (
-                                        (<Col key={card.id} sm={12} md={6} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
-                                            <EACH_CARD
-                                                ID={card.id}
-                                                each_cardObj={card}
-                                                USER={USER}
-                                            />
-                                        </Col>)
-                                    ))}
-                                </Row>
-                            </section>
-                        ) : null
+                    (
+                        <section style={{ padding: "1rem 0 ", margin: "1rem 0" }} >
+
+                            <Row style={{ padding: "3rem auto" }} >
+                                {currentPost.map(card => (
+                                    (<Col key={card.id} sm={12} md={6} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
+                                        <EACH_CARD
+                                            ID={card.id}
+                                            each_cardObj={card}
+                                            USER={USER}
+                                        />
+                                    </Col>)
+                                ))}
+                            </Row>
+                        </section>
+                    )
                 }
 
             </Container>
@@ -156,3 +161,5 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
 }
 
 export default HomeScreen;
+
+

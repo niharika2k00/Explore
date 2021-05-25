@@ -7,21 +7,20 @@ import LOAD from '../Loading.js';
 import MESS from '../Message.js';
 import SETTING from '../Popup/PopupSetting.js';
 import firebase from 'firebase';
-import moment from 'moment';
+// import moment from 'moment';
 
 
-const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
+const UploadShot_Screen = ({ USER, set_USER, loading, setLoading, msg_Warn, setMsg_Warn, msg_Success, setMsg_Success }) => {
 
     const db = firebase.firestore();
     const store = firebase.storage();
 
-    const [msg_Success, setMsg_Success] = useState(null);
-    const [msg_Warn, setMsg_Warn] = useState(null);
+
     const [popup, setPopup] = useState(false);
     const [setting, setsettingPopup] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [topic, setTopic] = useState('');
+    const [topic, setTopic] = useState('Memes');
     const [img, setImg] = useState(null);
     // const [URL, setURL] = useState(null);
     const [files, setFiles] = useState([]);
@@ -212,7 +211,8 @@ const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
                                 <Form id="login_form" onSubmit={PostSubmit_Handler} >
 
                                     <Form.Group controlId='title'>
-                                        <Form.Label><b>Settings<span style={{ color: 'crimson' }}>*</span> </b></Form.Label>
+                                        <h5 style={{ color: "#ffa200" }} >Please fill all the fields .... </h5>
+                                        <Form.Label><b style={{ fontSize: "1.2rem" }} >Settings<span style={{ color: 'crimson' }}>*</span> </b></Form.Label>
                                         {
                                             setting && <SETTING
                                                 type='setting'
@@ -236,7 +236,8 @@ const UploadShot_Screen = ({ USER, set_USER, loading, setLoading }) => {
 
                                     <Form.Group controlId='title'>
                                         {/* Multiple Images Upload */}
-                                        <Form.Label><b>Upload Image <i className="fas fa-cloud-upload-alt ico_big"></i><span style={{ color: 'crimson' }}>*</span> </b></Form.Label>
+                                        <Form.Label><b style={{ fontSize: "1.2rem" }}  >Upload Image {' '}
+                                            <i className="fas fa-cloud-upload-alt ico_big"></i><span style={{ paddingLeft: "6px" }}>*</span> </b></Form.Label>
                                         <div className="d-flex justify-content-between">
 
                                             <div>

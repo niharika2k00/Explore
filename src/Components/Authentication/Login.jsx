@@ -24,7 +24,7 @@ const Login = ({ setLogin, setSignUp, email, name, setEmail, password, setPasswo
             setLogin(false);
 
         } catch (error) {
-            alert(error);
+            // alert(error);
             console.log(error);
             setLogin(false);
         }
@@ -79,7 +79,7 @@ const Login = ({ setLogin, setSignUp, email, name, setEmail, password, setPasswo
             await db.collection('users').doc(USER.uid).set(data);
         }
         catch (error) {
-            console.log(error);
+            // console.log(error);
             const errorMessage = error.message;
             console.log(errorMessage);
         }

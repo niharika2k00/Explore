@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Row, Container } from "react-bootstrap";
+import { Row, Container, Col } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import "../../App.css";
 import "../../STYLES/postscreen.css";
@@ -26,7 +26,7 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
 
     const modify_url = location.pathname;
     const url_postId = modify_url.substring(modify_url.lastIndexOf('/') + 1)
-    // console.log(url_postId);
+
 
 
     useEffect(() => {
@@ -78,12 +78,15 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
 
             {loading ? <LOAD /> :
                 allPost.length !== 0 ?
-
+                    //  ===================================      CAROUSAL       ====================================
                     (<Container className="self_container ">
-                        <Row className="justify-content-center">
+                        <Row className="justify-content-center" id="rowht">
+                            <Col md={12} xs={12} sm={12} lg={12} style={{ height: "50%" }}  >
+                                <Carousel slides={carou_links} autoplay={false} interval={1000} id="carousal" />
+                            </Col>
 
                             {/*  <StyleRoot>
-                        <Coverflow
+                          <Coverflow
                             displayQuantityOfSide={2}
                             infiniteScroll
                             navigation={false}
@@ -102,7 +105,7 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
                                     height: '10rem'
                                 }
                             }}
-                        >
+                         >
 
                             <img src='https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' alt='Album one' data-action="https://facebook.github.io/react/" />
                             <img src='https://images.unsplash.com/photo-1489493512598-d08130f49bea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1048&q=80' alt='Album two' data-action="http://passer.cc" />
@@ -113,11 +116,11 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
                             <img src='https://images.unsplash.com/photo-1489493512598-d08130f49bea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1048&q=80' alt='Album three' data-action="https://doce.cc/" />
                             <img src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' alt='Album four' data-action="http://tw.yahoo.com" />
 
-                        </Coverflow>
-                       </StyleRoot> */}
+                         </Coverflow>
+                         /StyleRoot> */}
 
 
-                            <Carousel slides={carou_links} autoplay={false} interval={1000} id="carousal" />
+
 
                         </Row>
 

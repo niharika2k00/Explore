@@ -4,12 +4,14 @@ import { Row, Col, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../STYLES/profile.css';
 import '../../App.css';
+import LOAD from '../Loading.js';
+import MESS from '../Message.js';
 import firebase from 'firebase';
 
 
 
 const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading, country, setCity, city, setCountry, setState, state,
-    fetch_About, about, setAbout }) => {
+    fetch_About, about, setAbout, msg_Warn, setMsg_Warn, msg_Success, setMsg_Success }) => {
 
     const db = firebase.firestore();
 
@@ -27,7 +29,7 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
             }
             console.log(About);
             await db.collection('users').doc(USER_CURRENT.uid).collection('about').add(About)
-            alert("Message summited Successfully!");
+            setMsg_Success("Successfully Submitted ...");
         }
         catch (error) {
             console.log(error);
@@ -48,6 +50,9 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
         if (about && about.length !== 0) {
             console.log(about);
             console.log(about[0].City)
+            setCountry(about[0].Country || '');
+            setState(about[0].State || '');
+            setCity(about[0].City || '');
         }
         else { console.log("not running"); }
     }, [about]);
@@ -86,8 +91,8 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
             <section  >
                 <div className="d-flex justify-content-evenly" id="line"  >
                     <div className="subtopic"  > <Link to="/profile" > SHOTS </Link> </div>
-                    <div className="subtopic"> <Link to=" " >LIKED SHOTS </Link> </div>
-                    <div className="subtopic"> <Link to=" " >COLLECTION  </Link> </div>
+                    <div className="subtopic"> <Link to="/likedshots" >LIKED SHOTS </Link> </div>
+                    {/* <div className="subtopic"> <Link to="/collection" >COLLECTION  </Link> </div> */}
                     <div className="subtopic"> <Link to="/about" > ABOUT</Link> </div>
                 </div>
             </section>
@@ -95,10 +100,13 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
             <hr></hr>
 
             <section>
+                {msg_Warn && <MESS variant='danger'>{msg_Warn}</MESS>}
+                {msg_Success && <MESS variant='success'>{msg_Success}</MESS>}
+
                 <Row className="justify-content-md-center rowTopgap" >
                     <Col md={6} xs={12} sm={11} >
                         {/* <Loginform_Container> */}
-                        <h2 className="loginhead" >ABOUT</h2>
+                        <h2 className="profile_head" >ABOUT</h2>
 
 
                         <Form onSubmit={about_submit_Handler} id="about">
@@ -141,6 +149,7 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                             className="form_box"
                                             type='state'
                                             placeholder='state'
+                                            // value={(about && about.length !== 0) ? about[0].State : state}
                                             value={state}
                                             onChange={(e) => setState(e.target.value)}
                                         ></Form.Control>
@@ -159,7 +168,6 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
                                         ></Form.Control>
                                     </Form.Group>
                                 </Col>
-
                             </Row>
 
                             <Row>
@@ -179,7 +187,7 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
 
 
 
-        </Container>
+        </Container >
     )
 }
 

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import app from "./Firebase/Firebase.js";
+import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NAVIGATION_BAR from './Components/Navbar/Navbar_top.jsx';
 import FOOTER from './Components/Footer/Footer.jsx';
@@ -10,6 +11,7 @@ import PROFILESCREEN from './Components/ProfileScreen/Profile_Screen.jsx';
 import UPLOADSHOTSCREEN from './Components/UploadShot/UploadShot_Screen.jsx';
 import POSTSCREEN from './Components/Post_Screen/Post_Screen.jsx';
 import PROFILE_ABOUT from './Components/ProfileScreen/About.js';
+import PROFILE_LIKEDSHOTS from './Components/ProfileScreen/Liked_Shots.js';
 
 
 
@@ -23,6 +25,8 @@ const App = () => {
   const [login, setLogin] = useState(false);
 
   const [loading, setLoading] = useState(false);
+  const [msg_Success, setMsg_Success] = useState(null);
+  const [msg_Warn, setMsg_Warn] = useState(null);
   const [USER, set_USER] = useState({});
   const [Profile_Image, setProfile_Image] = useState(null);
   const [name, setName] = useState('');
@@ -32,10 +36,10 @@ const App = () => {
   const [allPost, setallPost] = useState([]);
   const [user_Posts, setUser_Posts] = useState([]);
   const [Person, setPerson] = useState({});
-  const [city, setCity] = useState(null);
-  const [state, setState] = useState(null);
-  const [country, setCountry] = useState(null);
-  const [about, setAbout] = useState(null);
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [country, setCountry] = useState('');
+  const [about, setAbout] = useState([]);
 
 
   const USER_DETAILS = firebase.auth().currentUser;
@@ -164,9 +168,35 @@ const App = () => {
 
 
 
+  // Fetching all the Liked Posts of a Particular User
+  const fetch_LikedShots = () => {
+    if (Object.keys(USER).length !== 0) {
+
+      // fetching only the logged In Users Posts
+      db.collection('users').doc(USER_DETAILS.uid).collection('posts').onSnapshot(snapshot => {
+        const User_All_Posts = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        console.log(User_All_Posts);
+        setUser_Posts(User_All_Posts)
+      })
+
+    }
+    else {
+      console.log("Currently No User Logged In. ")
+    }
+  }
+
+
+
+
+
+
+
   return (
     <Router>
-      <div className="App" style={{ backgroundColor: "#edf2f4" }} >
+      <div className="App" style={{ backgroundColor: "white" }} >
         <NAVIGATION_BAR
           signUp={signUp}
           setSignUp={setSignUp}
@@ -248,10 +278,41 @@ const App = () => {
                 fetch_About={fetch_About}
                 about={about}
                 setAbout={setAbout}
+                msg_Warn={msg_Warn}
+                setMsg_Warn={setMsg_Warn}
+                msg_Success={msg_Success}
+                setMsg_Success={setMsg_Success}
               />
             )}
             exact
           />
+
+
+
+          <Route path='/likedshots'
+            render={(props) => (
+              <PROFILE_LIKEDSHOTS {...props}
+                USER={USER}
+                set_USER={set_USER}
+                user_Posts={user_Posts}
+                setUser_Posts={setUser_Posts}
+                fetch_USER_Posts={fetch_USER_Posts}
+                loading={loading}
+                setLoading={setLoading}
+                setCity={setCity}
+                city={city}
+                setCountry={setCountry}
+                setState={setState}
+                state={state}
+                country={country}
+                fetch_About={fetch_About}
+                about={about}
+                setAbout={setAbout}
+              />
+            )}
+            exact
+          />
+
 
 
 
@@ -262,6 +323,10 @@ const App = () => {
                 set_USER={set_USER}
                 loading={loading}
                 setLoading={setLoading}
+                msg_Warn={msg_Warn}
+                setMsg_Warn={setMsg_Warn}
+                msg_Success={msg_Success}
+                setMsg_Success={setMsg_Success}
               />
             )}
             exact
