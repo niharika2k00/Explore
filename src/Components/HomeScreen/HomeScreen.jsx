@@ -19,11 +19,18 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
 
     // --------- FILTER FUNCTIONALITY ----------
     const [currentPost, setcurrentPost] = useState([]);
+    const [active,setActive]=useState("");
     const sort = (Topic) => {
+       
         if (!Topic)
+        {
             setcurrentPost(allPost);
+             setActive("");   
+        }
         else {
+                
             let arr = clone(allPost);
+            setActive(Topic);
             arr = arr.filter((obj) => obj.Topic === Topic);
             setcurrentPost(arr);
         }
@@ -112,14 +119,14 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                             (
                                 <div className="d-flex flex-wrap justify-content-evenly">
                                     <ul id="tab" >
-                                        <li onClick={() => sort("")}> <Link to="" >All </Link> </li>
-                                        <li onClick={() => sort("Popular")}> <Link to="">Popular </Link> </li>
-                                        <li onClick={() => sort("Motivational")}> <Link to=""> Motivational</Link> </li>
-                                        <li onClick={() => sort("Memes")}> <Link to="">Memes</Link> </li>
-                                        <li onClick={() => sort("Food")}> <Link to="">Food </Link> </li>
-                                        <li onClick={() => sort("Travel")}> <Link to="">Travel </Link> </li>
-                                        <li onClick={() => sort("Art")}> <Link to=""> Art</Link> </li>
-                                        <li onClick={() => sort("Global")}> <Link to="">Global News </Link> </li>
+                                        <li  onClick={() => sort("")}> <Link to=""  className={active===""?"active":""}>All </Link> </li>
+                                        <li onClick={() => sort("Popular")}> <Link to="" className={active==="Popular"?"active":""}>Popular </Link> </li>
+                                        <li onClick={() => sort("Motivational")}> <Link to="" className={active==="Motivational"?"active":""}> Motivational</Link> </li>
+                                        <li onClick={() => sort("Memes")}> <Link to="" className={active==="Memes"?"active":""}>Memes</Link> </li>
+                                        <li onClick={() => sort("Food")}> <Link to="" className={active==="Food"?"active":""}>Food </Link> </li>
+                                        <li onClick={() => sort("Travel")}> <Link to="" className={active==="Travel"?"active":""}>Travel </Link> </li>
+                                        <li onClick={() => sort("Art")}> <Link to="" className={active==="Art"?"active":""}> Art</Link> </li>
+                                        <li onClick={() => sort("Global")}> <Link to="" className={active==="Global"?"active":""}>Global News </Link> </li>
                                     </ul>
                                 </div>
                             )
