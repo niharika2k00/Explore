@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import '../../STYLES/profile.css';
 import '../../STYLES/homescreen.css';
 import '../../App.css';
-import EACH_CARD from '../HomeScreen/HomePost_Card.js';
+import LIKED_CARD from '../HomeScreen/Likedshots_page.js';
 import LOAD from '../Loading.js';
 import firebase from "firebase";
 
@@ -46,40 +46,66 @@ const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Pos
 
 
 
+
+
+
     useEffect(() => {
-        if (LK_posts && LK_posts[0] && LK_posts[0].arr.length !== 0) {
-            console.log(LK_posts[0].arr);
-            // console.log(LK_posts[0].arr[0])
+        console.log(LK_posts[0]);
+        if (LK_posts && LK_posts[0]) {
 
-            var i, j;
+            setLoading(true)
+            if (LK_posts[0].arr && LK_posts[0].arr.length !== 0) {
+                console.log(LK_posts[0].arr);
+                // console.log(LK_posts[0].arr[0])
 
-
-            db.collection("posts/all_posts/all_unverified").onSnapshot(snapshot => {
-                var likedposts_array = [];
-                for (i = 0; i < LK_posts[0].arr.length; i++) {                           // array of the user Liked_Post__________ in USER COLLECTION
-
-                    for (j = 0; j < snapshot.docs.length; j++) {
-                        if (LK_posts[0].arr[i] === snapshot.docs[j].id) {
-                            console.log(snapshot.docs[j].data());
-                            // console.log(snapshot.docs[j].id);
-
-                            likedposts_array.push(snapshot.docs[j].data());
+                var i, j;
+                db.collection("posts/all_posts/all_unverified").onSnapshot(snapshot => {
+                    var likedposts_array = [];
+                    for (i = 0; i < LK_posts[0].arr.length; i++) {                           // array of the user Liked_Post__________ in USER COLLECTION
+                        for (j = 0; j < snapshot.docs.length; j++) {
+                            if (LK_posts[0].arr[i] === snapshot.docs[j].id) {
+                                console.log(snapshot.docs[j].data());
+                                // console.log(snapshot.docs[j].id);
+                                likedposts_array.push(snapshot.docs[j].data());
+                            }
                         }
                     }
-                }
-                setfinal_arr(likedposts_array);
-            })
+                    setfinal_arr(likedposts_array);
+                })
+                setLoading(false);
+            }
+
+            else if (LK_posts[0].ArrOF_LikedPostsID && LK_posts[0].ArrOF_LikedPostsID.length !== 0) {
+                setLoading(true);
+                console.log(LK_posts[0].ArrOF_LikedPostsID);
+                var i, j;
+                db.collection("posts/all_posts/all_unverified").onSnapshot(snapshot => {
+                    var likedposts_array = [];
+                    for (i = 0; i < LK_posts[0].ArrOF_LikedPostsID.length; i++) {                           // array of the user Liked_Post__________ in USER COLLECTION
+                        for (j = 0; j < snapshot.docs.length; j++) {
+                            if (LK_posts[0].ArrOF_LikedPostsID[i] === snapshot.docs[j].id) {
+                                console.log(snapshot.docs[j].data());
+                                // console.log(snapshot.docs[j].id);
+
+                                likedposts_array.push(snapshot.docs[j].data());
+                            }
+                        }
+                    }
+
+                    setfinal_arr(likedposts_array);
+                })
+                setLoading(false);
+            }
         }
         else {
             console.log("Not yet Fetched")
         }
-    }, [LK_posts]);
-
-
+    }, [LK_posts, setfinal_arr]);
 
 
 
     console.log(final_arr);
+
 
 
 
@@ -121,18 +147,25 @@ const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Pos
 
             <hr></hr>
 
-            <section>
-                {/* <h2 className="profile_head" >LIKED SHOTS</h2> */}
-                <Row className="justify-content-md-center rowTopgap" style={{ width: "100%", height: "40rem" }}>
+
+
+            <section className="rowTopgap" >
+
+                <h2 className="profile_head" >
+                    <i className="fas fa-heart profile_icon_heart" ></i>
+                LIKED SHOTS
+                    <i className="fas fa-heart profile_icon_heart" style={{ padding: "2px 2px 1px .4rem" }}></i>
+                </h2>
+                <Row style={{ padding: "4rem auto" }} >
 
                     {loading ? <LOAD /> :
                         final_arr && final_arr.length !== 0 ?
                             (
                                 final_arr.map(card => (
                                     <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
-                                        <EACH_CARD
+                                        <LIKED_CARD
                                             ID={card.id}
-                                            each_cardObj={card}
+                                            each_cardObj={card}   // Each Object 
                                             USER={USER}
                                         />
                                     </Col>

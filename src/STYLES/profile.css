@@ -105,6 +105,12 @@
     font-size: 1.1rem !important;
 }
 
+.profile_icon_heart {
+    padding: 2px 5px 1px .4rem;
+    color: red;
+    font-size: 2rem;
+}
+
 @media (max-width: 600px) {
     .user_data h2 {
         padding-top: 1rem;
@@ -116,5 +122,11 @@
     }
     #line {
         padding-top: 1.8rem;
+    }
+    .profile_head {
+        font-size: 1.4rem;
+    }
+    .profile_icon_heart {
+        font-size: 1.3rem;
     }
 }

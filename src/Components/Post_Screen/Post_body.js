@@ -52,7 +52,7 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
                     <div>
                         <div>
                             <p className="post_titles">
-                                <i className="fas fa-user" style={{ fontSize: "2rem", paddingRight: ".5rem" }} ></i> <b>Posted by {card_body.Display_Name} {" "} </b>
+                                <i className="fas fa-user" style={{ fontSize: "1.2rem", paddingRight: ".5rem" }} ></i> <b>Posted by {card_body.Display_Name} {" "} </b>
                             </p>
                         </div>
 

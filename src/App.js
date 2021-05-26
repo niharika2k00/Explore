@@ -190,7 +190,6 @@ const App = () => {
   }
 
 
-  // console.log(final_LKarr)
 
 
 

@@ -23,8 +23,8 @@ body, html {
 
 @media (max-width: 450px) {
     .rowTopgap {
-        padding: .2rem 0 !important;
-        margin: .2rem 0 !important;
+        padding: .2rem 0 .6rem 0 !important;
+        margin: .2rem 0 .6rem 0 !important;
     }
     .self_container {
         margin-top: 1rem !important;

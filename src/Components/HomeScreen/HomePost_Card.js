@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import firebase from "firebase";
@@ -84,8 +85,6 @@ const Post_Card = ({ ID, each_cardObj, USER }) => {
 
                 db.collection("users").doc(USER_CURRENT.uid).collection("liked_posts").doc(Coll_Size.docs[0].id).set({ ArrOF_LikedPostsID } /* , { merge: true } */);
                 db.collection("posts/all_posts/all_unverified").doc(CLICKED_POST_ID).update({ Like_count: firebase.firestore.FieldValue.increment(1) });
-
-
             }
             else if (Coll_Size.size > 0 && num_of_ID_present > 1) {             // COLLECTION EXSIST && ALREADY LIKED
 
@@ -111,7 +110,6 @@ const Post_Card = ({ ID, each_cardObj, USER }) => {
 
 
 
-
     const setStyleColor = () => {
         if (fetchLIKED_POSTS_arr.includes(ID)) return "red";
         return "white";
@@ -133,7 +131,6 @@ const Post_Card = ({ ID, each_cardObj, USER }) => {
                 }}>
                 <Link to={`/post/${ID}`}>
                     <img
-                        // src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                         src={each_cardObj.Cover_Image}
                         className="card-img-top"
                         alt="..."
@@ -150,7 +147,6 @@ const Post_Card = ({ ID, each_cardObj, USER }) => {
                             <div onClick={likePost_Handler}>
                                 <i
                                     className="fas fa-heart"
-                                    // style={{ padding: "2px 2px 1px 1rem", color: heartColor, fontSize: "1.4rem" }}
                                     style={{ padding: "2px 2px 1px 1rem", color: setStyleColor(), fontSize: "1.4rem", }}></i>
                                 {each_cardObj.Like_count}{" "}
                             </div>
