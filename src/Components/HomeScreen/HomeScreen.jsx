@@ -68,7 +68,7 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
     return (
         <div>
             <section>
-                < div className="jumbotron" >
+                <div className="jumbotron" >
                     <Row>
                         <Col md={6} xs={12}>
                             <div className="title">
@@ -96,7 +96,7 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                                 <div className="d-flex flex-wrap justify-content-end">
                                     <div>
                                         <Dropdown>
-                                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                            <Dropdown.Toggle variant="danger" id="dropdown-basic">
                                                 Filter <i class="fas fa-filter"></i>
                                             </Dropdown.Toggle>
 

@@ -8,13 +8,14 @@ import '../../STYLES/homescreen.css';
 import '../../App.css';
 import EACH_CARD from '../HomeScreen/HomePost_Card.js';
 import LOAD from '../Loading.js';
+import firebase from "firebase";
 
 
 
 const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading, country, setCity, city, setCountry, setState, state, fetch_About, about,
-    setAbout }) => {
+    setAbout, LK_posts, setLK_posts, fetch_LikedShots, final_arr, setfinal_arr }) => {
 
-    // const db = firebase.firestore();
+    const db = firebase.firestore();
 
 
 
@@ -36,6 +37,49 @@ const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Pos
     }, [about]);
 
 
+
+    useEffect(() => {
+        if (Object.keys(USER).length !== 0) {
+            fetch_LikedShots();
+        }
+    }, [USER]);
+
+
+
+    useEffect(() => {
+        if (LK_posts && LK_posts[0] && LK_posts[0].arr.length !== 0) {
+            console.log(LK_posts[0].arr);
+            // console.log(LK_posts[0].arr[0])
+
+            var i, j;
+
+
+            db.collection("posts/all_posts/all_unverified").onSnapshot(snapshot => {
+                var likedposts_array = [];
+                for (i = 0; i < LK_posts[0].arr.length; i++) {                           // array of the user Liked_Post__________ in USER COLLECTION
+
+                    for (j = 0; j < snapshot.docs.length; j++) {
+                        if (LK_posts[0].arr[i] === snapshot.docs[j].id) {
+                            console.log(snapshot.docs[j].data());
+                            // console.log(snapshot.docs[j].id);
+
+                            likedposts_array.push(snapshot.docs[j].data());
+                        }
+                    }
+                }
+                setfinal_arr(likedposts_array);
+            })
+        }
+        else {
+            console.log("Not yet Fetched")
+        }
+    }, [LK_posts]);
+
+
+
+
+
+    console.log(final_arr);
 
 
 
@@ -82,9 +126,9 @@ const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Pos
                 <Row className="justify-content-md-center rowTopgap" style={{ width: "100%", height: "40rem" }}>
 
                     {loading ? <LOAD /> :
-                        user_Posts.length !== 0 ?
+                        final_arr && final_arr.length !== 0 ?
                             (
-                                user_Posts.map(card => (
+                                final_arr.map(card => (
                                     <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
                                         <EACH_CARD
                                             ID={card.id}

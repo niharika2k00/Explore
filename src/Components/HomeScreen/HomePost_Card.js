@@ -24,7 +24,7 @@ const Post_Card = ({ ID, each_cardObj, USER }) => {
                     let obj = LIKED_POSTS_arr[0];
                     let val = Object.values(obj);
                     // console.log(val)
-                    console.log(val[0]);
+                    // console.log(val[0]);
                     setfetchLIKED_POSTS_arr(val[0]);
                 }
             });

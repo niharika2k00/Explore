@@ -40,6 +40,9 @@ const App = () => {
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
   const [about, setAbout] = useState([]);
+  const [LK_posts, setLK_posts] = useState([]);
+  const [final_arr, setfinal_arr] = useState([]);           // for the Liked Post Display
+
 
 
   const USER_DETAILS = firebase.auth().currentUser;
@@ -172,17 +175,13 @@ const App = () => {
   const fetch_LikedShots = async () => {
     if (Object.keys(USER).length !== 0) {
 
-      // fetching only the logged In Users Posts
-      /*  const Coll_Size = await db.collection("users").doc(USER_DETAILS.uid).collection("liked_posts").get();
- 
-       db.collection('users').doc(USER_DETAILS.uid).collection('liked_posts').doc('Coll_Size.docs[0].id').onSnapshot(snapshot => {
-         const User_All_Posts = snapshot.docs.map(doc => ({
-           id: doc.id,
-           ...doc.data(),
-         }))
-         console.log(User_All_Posts);
-         setUser_Posts(User_All_Posts)
-       }) */
+      db.collection('users').doc(USER_DETAILS.uid).collection('liked_posts').onSnapshot(snapshot => {
+        let likedpostsArray = snapshot.docs.map((doc) => ({
+          ...doc.data(),
+        }));
+        // console.log(likedpostsArray);
+        setLK_posts(likedpostsArray)
+      })
 
     }
     else {
@@ -191,8 +190,7 @@ const App = () => {
   }
 
 
-
-
+  // console.log(final_LKarr)
 
 
 
@@ -310,6 +308,11 @@ const App = () => {
                 fetch_About={fetch_About}
                 about={about}
                 setAbout={setAbout}
+                fetch_LikedShots={fetch_LikedShots}
+                LK_posts={LK_posts}
+                setLK_posts={setLK_posts}
+                final_arr={final_arr}
+                setfinal_arr={setfinal_arr}
               />
             )}
             exact

@@ -175,6 +175,11 @@
     color: white;
 }
 
+.activee {
+    color: white;
+    background-image: linear-gradient( 160deg, #00a19a, #ffee59);
+}
+
 /* ------------   MEDIA QUERYYY  ----------------- */
 
 @media (max-width: 450px) {
@@ -196,15 +201,13 @@
         font-family: 'slick';
         font-size: 0px;
     }
-}
-
-@media (max-width: 450px) {
     #gapping {
         margin-top: .1rem;
     }
-}
-
-.activee {
-    color: white;
-    background-image: linear-gradient( 160deg, #00a19a, #ffee59);
+    .jumbotron {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+    }
 }
