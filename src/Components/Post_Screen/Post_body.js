@@ -25,6 +25,7 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
     const URL = window.location.href;     // full url of the site
     console.log(URL);
 
+    console.log(card_body.User_UID)
 
 
     return (
@@ -67,7 +68,8 @@ const Post_body = ({ ID, card_body, USER, set_USER, }) => {
                     <div className="d-flex justify-content-between" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }} >
                         <div>
                             <p className="post_titles">
-                                <i className="fas fa-user" style={{ fontSize: "1.4rem", paddingRight: ".5rem" }} ></i> <b>Posted by {card_body.Display_Name} {" "} </b>
+                                <i className="fas fa-user" style={{ fontSize: "1.4rem", paddingRight: ".5rem" }} ></i>
+                                <Link to={`/user/${card_body.User_UID}`}> <b>Posted by {card_body.Display_Name} {" "} </b>  </Link>
                             </p>
                         </div>
 

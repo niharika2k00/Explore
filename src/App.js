@@ -12,6 +12,8 @@ import UPLOADSHOTSCREEN from './Components/UploadShot/UploadShot_Screen.jsx';
 import POSTSCREEN from './Components/Post_Screen/Post_Screen.jsx';
 import PROFILE_ABOUT from './Components/ProfileScreen/About.js';
 import PROFILE_LIKEDSHOTS from './Components/ProfileScreen/Liked_Shots.js';
+import OTHERS_PROFILE_SCREEN from './Components/ProfileScreen/OthersProfileScreen.js';
+
 
 
 
@@ -353,11 +355,25 @@ const App = () => {
           />
 
 
+          <Route path='/user/:id'
+            render={(props) => (
+              <OTHERS_PROFILE_SCREEN {...props}
+                USER={USER}
+                set_USER={set_USER}
+                allPost={allPost}
+                setallPost={setallPost}
+                fetch_ALL_Users_Posts={fetch_ALL_Users_Posts}
+                loading={loading}
+                setLoading={setLoading}
+              />
+            )}
+            exact
+          />
 
         </main>
 
 
-        <FOOTER />
+        {/* <FOOTER /> */}
       </div>
     </Router>
 

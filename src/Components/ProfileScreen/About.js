@@ -4,6 +4,8 @@ import { Row, Col, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../STYLES/profile.css';
 import '../../App.css';
+import { useHistory } from "react-router-dom";
+import { Redirect } from 'react-router-dom'
 import LOAD from '../Loading.js';
 import MESS from '../Message.js';
 import firebase from 'firebase';
@@ -14,6 +16,8 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
     fetch_About, about, setAbout, msg_Warn, setMsg_Warn, msg_Success, setMsg_Success }) => {
 
     const db = firebase.firestore();
+    let history = useHistory();
+
 
 
     const about_submit_Handler = async (e) => {
@@ -41,6 +45,9 @@ const About = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, lo
     useEffect(() => {
         if (Object.keys(USER).length !== 0) {
             fetch_About();
+        }
+        else {
+            history.push('/');
         }
     }, [USER]);
 

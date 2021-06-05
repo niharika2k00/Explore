@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import '../../STYLES/profile.css';
 import '../../STYLES/homescreen.css';
 import '../../App.css';
+import { useHistory } from "react-router-dom";
+import { Redirect } from 'react-router-dom'
 import EACH_CARD from '../HomeScreen/HomePost_Card.js';
 import LOAD from '../Loading.js';
 
@@ -12,12 +14,22 @@ import LOAD from '../Loading.js';
 
 const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Posts, loading, setLoading, city, country, state, fetch_About, about, setAbout }) => {
 
+
+    let history = useHistory();
+
+
     useEffect(() => {
         setLoading(true);
         if (Object.keys(USER).length !== 0) {
             fetch_USER_Posts();
+            fetch_About();
+            console.log(USER)
+        }
+        else {
+            history.push('/');
         }
     }, [USER]);
+
 
 
     useEffect(() => {
@@ -25,12 +37,6 @@ const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_
         setLoading(false);
     }, [user_Posts, set_USER]);
 
-
-    useEffect(() => {
-        if (Object.keys(USER).length !== 0) {
-            fetch_About();
-        }
-    }, [USER]);
 
 
 
@@ -92,10 +98,10 @@ const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_
                             <Col md={4} sm={12} style={{ paddingTop: "2rem" }}>
                                 <div className="card" style={{ width: "90%" }} className="pro_card">
                                     <div className="card-body">
-                                        <h5 className="card-title">Upload your shot</h5>
+                                        <h5 className="card-title" style={{ textShadow: "2px 1px", fontSize: "1.4rem" }}  >Upload your shot</h5>
                                         <p className="card-text">Upload Shots based on your life experience ....... </p>
                                         <section className="Button">
-                                            <a className="Button-btn" href="/uploadpost" style={{ marginTop: "1px " }}>
+                                            <a className="Button-btn" href="/uploadpost" style={{ marginTop: "1px" }}>
                                                 Upload Shot </a>
                                         </section>
                                     </div>
@@ -128,8 +134,6 @@ const Profile_Screen = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_
 
             </Container >
         </div>
-
-
     )
 }
 

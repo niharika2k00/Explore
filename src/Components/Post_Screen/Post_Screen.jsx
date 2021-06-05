@@ -118,10 +118,6 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
 
                          </Coverflow>
                          /StyleRoot> */}
-
-
-
-
                         </Row>
 
 
@@ -136,6 +132,7 @@ const Post_Screen = ({ history, USER, set_USER, allPost, setallPost, fetch_ALL_U
                                             USER={USER}
                                             set_USER={set_USER}
                                         />
+
                                     ) : []
                             ))}
                         </Row>

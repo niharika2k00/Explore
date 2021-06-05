@@ -97,7 +97,7 @@ const HomeScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Users_Posts
                                     <div>
                                         <Dropdown>
                                             <Dropdown.Toggle variant="danger" id="dropdown-basic">
-                                                Filter <i class="fas fa-filter"></i>
+                                                Filter <i className="fas fa-filter"></i>
                                             </Dropdown.Toggle>
 
                                             <Dropdown.Menu>

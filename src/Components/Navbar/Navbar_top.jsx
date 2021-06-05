@@ -4,6 +4,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../STYLES/navbar.css';
+import { Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import ExploreLOGO from '../../Assets/explorepng.png';
 import { useLocation } from 'react-router-dom'
 import SIGNUP_POPUP from '../Authentication/SignUp.jsx';
@@ -12,10 +14,11 @@ import app from "../../Firebase/Firebase.js";
 
 
 
-const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, set_USER, name, setName, email, setEmail, password, setPassword,
+const Navbar_top = ({ signUp, setSignUp, login, setLogin, USER, set_USER, name, setName, email, setEmail, password, setPassword,
     confirmpass, setConfirmpass, Profile_Image, setProfile_Image, profile_img_handle, Upload_ProfileImg }) => {
 
 
+    let history = useHistory();
     const location = useLocation();
     const modify_url = location.pathname;
     // console.log(location.pathname);  // /post/:id
@@ -25,7 +28,8 @@ const Navbar_top = ({ match, history, signUp, setSignUp, login, setLogin, USER, 
         app.auth().signOut();
         console.log("Successfully Logged out ", name);
         set_USER({});
-        // history.push("/register");
+        history.push('/');
+        // return < Redirect to='/' />
     };
 
     console.log(USER)

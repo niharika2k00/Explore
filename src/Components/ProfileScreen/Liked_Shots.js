@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import '../../STYLES/profile.css';
 import '../../STYLES/homescreen.css';
 import '../../App.css';
+import { Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import LIKED_CARD from '../HomeScreen/Likedshots_page.js';
 import LOAD from '../Loading.js';
 import firebase from "firebase";
@@ -16,15 +18,20 @@ const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Pos
     setAbout, LK_posts, setLK_posts, fetch_LikedShots, final_arr, setfinal_arr }) => {
 
     const db = firebase.firestore();
-
+    let history = useHistory();
 
 
 
     useEffect(() => {
         if (Object.keys(USER).length !== 0) {
             fetch_About();
+            fetch_LikedShots();
+        }
+        else {
+            history.push('/');
         }
     }, [USER]);
+
 
 
 
@@ -33,17 +40,11 @@ const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Pos
             console.log(about);
             console.log(about[0].City)
         }
-        else { console.log("not running"); }
-    }, [about]);
-
-
-
-    useEffect(() => {
-        if (Object.keys(USER).length !== 0) {
-            fetch_LikedShots();
+        else {
+            console.log("not running");
+            <Redirect to='/' />
         }
-    }, [USER]);
-
+    }, [about]);
 
 
 
@@ -104,7 +105,7 @@ const Liked_Shots = ({ USER, set_USER, user_Posts, setUser_Posts, fetch_USER_Pos
 
 
 
-    console.log(final_arr);
+    // console.log(final_arr);
 
 
 
