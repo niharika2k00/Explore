@@ -7,12 +7,10 @@ import '../../STYLES/profile.css';
 import '../../STYLES/homescreen.css';
 import '../../App.css';
 import firebase from "firebase";
-import { useHistory } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
-import { Redirect } from 'react-router-dom'
-import EACH_CARD from '../HomeScreen/HomePost_Card.js';
 import LOAD from '../Loading.js';
-
+import OTHER_POST from '../HomeScreen/Likedshots_page.js';
+import '../../STYLES/otherProfileStyle.css';
 
 
 
@@ -20,26 +18,18 @@ const OthersProfileScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Us
 
     const db = firebase.firestore();
     const location = useLocation();
-
-
     const modify_url = location.pathname;
     const url_postId = modify_url.substring(modify_url.lastIndexOf('/') + 1)
-
-
-    /*  useEffect(() => {      
-         if (Object.keys(USER).length !== 0) {
-            
-         }
-         else {
-             history.push('/');
-         }
-     }, [USER]); */
 
 
     console.log(url_postId)
 
     const [other, setOther] = useState([]);
     const [about, setAbout] = useState([]);
+    const [otherPost, setOtherPost] = useState([]);
+
+
+
 
     // FETCHING DETAILS OF THE CORRESPONDING POST'S USER------- for profile
     const otherUserDetails = async () => {
@@ -62,7 +52,6 @@ const OthersProfileScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Us
     };
 
 
-
     const otherUserAbout = () => {
         if (Object.keys(USER).length !== 0) {
             db.collection('users').doc(url_postId).collection('about').onSnapshot(snapshot => {
@@ -73,7 +62,6 @@ const OthersProfileScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Us
                 console.log(ABOUT[0]);
                 setAbout(ABOUT[0])
             })
-
         }
         else {
             console.log("Currently No User Logged In. ")
@@ -81,10 +69,27 @@ const OthersProfileScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Us
     };
 
 
+    const otherUserPost = () => {
+        if (Object.keys(USER).length !== 0) {
+            db.collection('users').doc(url_postId).collection('posts').onSnapshot(snapshot => {
+                const POST = snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }))
+                console.log(POST);
+                setOtherPost(POST)
+            })
+        }
+        else {
+            console.log("Currently No User Logged In. ")
+        }
+    };
+
 
     useEffect(() => {
         otherUserDetails();
         otherUserAbout();
+        otherUserPost();
         console.log(other)
     }, [])
 
@@ -127,24 +132,48 @@ const OthersProfileScreen = ({ USER, set_USER, allPost, setallPost, fetch_ALL_Us
                                         height="180rem"
                                     />)
                             }
-
                         </Col>
 
                         <Col md={6} >
                             <div className="user_data">
                                 <h2>{other.Name} </h2>
                                 <p >{other.Email}</p>
-                                <p> City : {about.City} </p>
-                                <p> State : {about.State} </p>
-                                <p> Country : {about.Country} </p>
-
+                                {about && about.length != 0 ?
+                                    (<div>
+                                        <p> City : {about.City} </p>
+                                        <p> State : {about.State} </p>
+                                        <p> Country : {about.Country} </p>
+                                    </div>
+                                    ) : []}
                             </div>
+
                         </Col>
+                    </Row>
+
+
+                    <p id="otherpost"> {other.Name}'s Posts </p>
+                    <hr></hr>
+                    <Row style={{ padding: "4rem auto" }} >
+
+                        {loading ? <LOAD /> :
+                            otherPost && otherPost.length !== 0 ?
+                                (
+                                    otherPost.map(card => (
+                                        <Col key={card.id} sm={12} md={4} lg={4} xl={4} className="hovercard" style={{ padding: "2rem .6rem", margin: "0rem" }}>
+                                            <OTHER_POST
+                                                ID={card.id}
+                                                each_cardObj={card}   // Each Object 
+                                                USER={USER}
+                                            />
+                                        </Col>
+                                    ))
+                                ) : null
+                        }
                     </Row>
 
                 </Container >
             </div>
-        </div>
+        </div >
     )
 }
 

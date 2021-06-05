@@ -25,14 +25,13 @@ const Likedshots_page = ({ ID, each_cardObj, USER }) => {
                     backgroundColor: "rgba(255, 255, 255, 0.496)",
                     width: "100%",
                 }}>
-                <Link to={`/likedshots`}>
-                    <img
-                        src={each_cardObj.Cover_Image}
-                        className="card-img-top"
-                        alt="..."
-                        style={{ height: "16rem" }}
-                    />
-                </Link>
+
+                <img
+                    src={each_cardObj.Cover_Image}
+                    className="card-img-top"
+                    alt="..."
+                    style={{ height: "16rem" }}
+                />
 
                 <div className="card_overlay">
                     <div className="overlay_text" style={{ color: "white" }}>
