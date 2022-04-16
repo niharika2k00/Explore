@@ -1,25 +1,19 @@
-
-import React, { useState, useEffect } from 'react';
-import firebase from 'firebase';
+import React, { useState, useEffect } from "react";
+import firebase from "firebase";
 import app from "./Firebase/Firebase.js";
-import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import NAVIGATION_BAR from './Components/Navbar/Navbar_top.jsx';
-import FOOTER from './Components/Footer/Footer.jsx';
-import HOMESCREEN from './Components/HomeScreen/HomeScreen.jsx';
-import PROFILESCREEN from './Components/ProfileScreen/Profile_Screen.jsx';
-import UPLOADSHOTSCREEN from './Components/UploadShot/UploadShot_Screen.jsx';
-import POSTSCREEN from './Components/Post_Screen/Post_Screen.jsx';
-import PROFILE_ABOUT from './Components/ProfileScreen/About.js';
-import PROFILE_LIKEDSHOTS from './Components/ProfileScreen/Liked_Shots.js';
-import OTHERS_PROFILE_SCREEN from './Components/ProfileScreen/OthersProfileScreen.js';
-
-
-
-
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import NAVIGATION_BAR from "./components/Navbar/Navbar_top.jsx";
+import FOOTER from "./components/Footer/Footer.jsx";
+import HOMESCREEN from "./components/HomeScreen/HomeScreen.jsx";
+import PROFILESCREEN from "./components/ProfileScreen/Profile_Screen.jsx";
+import UPLOADSHOTSCREEN from "./components/UploadShot/UploadShot_Screen.jsx";
+import POSTSCREEN from "./components/Post_Screen/Post_Screen.jsx";
+import PROFILE_ABOUT from "./components/ProfileScreen/About.js";
+import PROFILE_LIKEDSHOTS from "./components/ProfileScreen/Liked_Shots.js";
+import OTHERS_PROFILE_SCREEN from "./components/ProfileScreen/OthersProfileScreen.js";
 
 const App = () => {
-
   const db = firebase.firestore();
   const store = firebase.storage();
 
@@ -31,32 +25,26 @@ const App = () => {
   const [msg_Warn, setMsg_Warn] = useState(null);
   const [USER, set_USER] = useState({});
   const [Profile_Image, setProfile_Image] = useState(null);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmpass, setConfirmpass] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpass, setConfirmpass] = useState("");
   const [allPost, setallPost] = useState([]);
   const [user_Posts, setUser_Posts] = useState([]);
   const [Person, setPerson] = useState({});
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [country, setCountry] = useState('');
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
   const [about, setAbout] = useState([]);
   const [LK_posts, setLK_posts] = useState([]);
-  const [final_arr, setfinal_arr] = useState([]);           // for the Liked Post Display
-
-
+  const [final_arr, setfinal_arr] = useState([]); // for the Liked Post Display
 
   const USER_DETAILS = firebase.auth().currentUser;
   // console.log(USER_DETAILS);
 
-
-
   const profile_img_handle = (e) => {
-    if (e.target.files[0])
-      setProfile_Image(e.target.files[0]);
+    if (e.target.files[0]) setProfile_Image(e.target.files[0]);
   };
-
 
   const Upload_ProfileImg = async () => {
     try {
@@ -66,39 +54,33 @@ const App = () => {
 
       console.log(downloadURL);
       return downloadURL;
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };
-
-
 
   // ----------------------------  USER VALIDATION    --------------------
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
       console.log(user);
-      if (user) {                     // both present
-        console.log("USER EXIST")
+      if (user) {
+        // both present
+        console.log("USER EXIST");
         console.log(user.displayName, " , ", user.uid);
         const User_Obj = {
           Name: user.displayName,
           Email: user.email,
           UID: user.uid,
-          Profile_Pic: user.photoURL
+          Profile_Pic: user.photoURL,
         };
         console.log(User_Obj);
         set_USER(User_Obj);
-      }
-      else {
-        console.log('No User');
+      } else {
+        console.log("No User");
         set_USER({});
       }
     });
   }, [set_USER]);
-
-
-
 
   /* useEffect(() => {
     if (Object.keys(USER).length === 0) {
@@ -113,91 +95,81 @@ const App = () => {
     }
   }, [USER]); */
 
-
-
   // Fetching ALL the posts of ALL THE USERS
   const fetch_ALL_Users_Posts = () => {
-    db.collection('posts/all_posts/all_unverified').onSnapshot(snapshot => {
-      const listItems = snapshot.docs.map(doc => ({
+    db.collection("posts/all_posts/all_unverified").onSnapshot((snapshot) => {
+      const listItems = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-      }))
+      }));
       console.log(listItems);
-      setallPost(listItems)
-    })
+      setallPost(listItems);
+    });
   };
-
-
 
   //  Fetching all the posts of THE LOGGED IN  USERS
   const fetch_USER_Posts = () => {
     if (Object.keys(USER).length !== 0) {
-      console.log("Logged In. ")
+      console.log("Logged In. ");
       console.log(USER_DETAILS.uid);
 
       // fetching only the logged In Users Posts
-      db.collection('users').doc(USER_DETAILS.uid).collection('posts').onSnapshot(snapshot => {
-        const User_All_Posts = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        console.log(User_All_Posts);
-        setUser_Posts(User_All_Posts)
-      })
-
-    }
-    else {
-      console.log("Currently No User Logged In. ")
+      db.collection("users")
+        .doc(USER_DETAILS.uid)
+        .collection("posts")
+        .onSnapshot((snapshot) => {
+          const User_All_Posts = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          console.log(User_All_Posts);
+          setUser_Posts(User_All_Posts);
+        });
+    } else {
+      console.log("Currently No User Logged In. ");
     }
   };
 
-
-
-  //  Fetching the ABOUT DETAILS of the Logged In USER 
+  //  Fetching the ABOUT DETAILS of the Logged In USER
   const fetch_About = () => {
     if (Object.keys(USER).length !== 0) {
-      db.collection('users').doc(USER_DETAILS.uid).collection('about').onSnapshot(snapshot => {
-        const User_About = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        console.log(User_About);
-        setAbout(User_About);
-      })
-    }
-    else {
-      console.log("Currently No User Logged In. ")
+      db.collection("users")
+        .doc(USER_DETAILS.uid)
+        .collection("about")
+        .onSnapshot((snapshot) => {
+          const User_About = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          console.log(User_About);
+          setAbout(User_About);
+        });
+    } else {
+      console.log("Currently No User Logged In. ");
     }
   };
-
-
-
 
   // Fetching all the Liked Posts of a Particular User
   const fetch_LikedShots = async () => {
     if (Object.keys(USER).length !== 0) {
-
-      db.collection('users').doc(USER_DETAILS.uid).collection('liked_posts').onSnapshot(snapshot => {
-        let likedpostsArray = snapshot.docs.map((doc) => ({
-          ...doc.data(),
-        }));
-        // console.log(likedpostsArray);
-        setLK_posts(likedpostsArray)
-      })
-
+      db.collection("users")
+        .doc(USER_DETAILS.uid)
+        .collection("liked_posts")
+        .onSnapshot((snapshot) => {
+          let likedpostsArray = snapshot.docs.map((doc) => ({
+            ...doc.data(),
+          }));
+          // console.log(likedpostsArray);
+          setLK_posts(likedpostsArray);
+        });
+    } else {
+      console.log("Currently No User Logged In. ");
     }
-    else {
-      console.log("Currently No User Logged In. ")
-    }
-  }
-
-
-
-
+  };
 
   return (
     <Router>
-      <div className="App" style={{ backgroundColor: "white" }} >
+      <div className="App" style={{ backgroundColor: "white" }}>
         <NAVIGATION_BAR
           signUp={signUp}
           setSignUp={setSignUp}
@@ -219,11 +191,12 @@ const App = () => {
           Upload_ProfileImg={Upload_ProfileImg}
         />
 
-
-        <main >
-          <Route path='/'
+        <main>
+          <Route
+            path="/"
             render={(props) => (
-              <HOMESCREEN {...props}
+              <HOMESCREEN
+                {...props}
                 USER={USER}
                 set_USER={set_USER}
                 allPost={allPost}
@@ -236,10 +209,11 @@ const App = () => {
             exact
           />
 
-
-          <Route path='/profile'
+          <Route
+            path="/profile"
             render={(props) => (
-              <PROFILESCREEN {...props}
+              <PROFILESCREEN
+                {...props}
                 USER={USER}
                 set_USER={set_USER}
                 user_Posts={user_Posts}
@@ -258,11 +232,11 @@ const App = () => {
             exact
           />
 
-
-
-          <Route path='/about'
+          <Route
+            path="/about"
             render={(props) => (
-              <PROFILE_ABOUT {...props}
+              <PROFILE_ABOUT
+                {...props}
                 USER={USER}
                 set_USER={set_USER}
                 user_Posts={user_Posts}
@@ -288,11 +262,11 @@ const App = () => {
             exact
           />
 
-
-
-          <Route path='/likedshots'
+          <Route
+            path="/likedshots"
             render={(props) => (
-              <PROFILE_LIKEDSHOTS {...props}
+              <PROFILE_LIKEDSHOTS
+                {...props}
                 USER={USER}
                 set_USER={set_USER}
                 user_Posts={user_Posts}
@@ -319,12 +293,11 @@ const App = () => {
             exact
           />
 
-
-
-
-          <Route path='/uploadpost'
+          <Route
+            path="/uploadpost"
             render={(props) => (
-              <UPLOADSHOTSCREEN {...props}
+              <UPLOADSHOTSCREEN
+                {...props}
                 USER={USER}
                 set_USER={set_USER}
                 loading={loading}
@@ -338,10 +311,11 @@ const App = () => {
             exact
           />
 
-
-          <Route path='/post/:id'
+          <Route
+            path="/post/:id"
             render={(props) => (
-              <POSTSCREEN {...props}
+              <POSTSCREEN
+                {...props}
                 USER={USER}
                 set_USER={set_USER}
                 allPost={allPost}
@@ -354,10 +328,11 @@ const App = () => {
             exact
           />
 
-
-          <Route path='/user/:id'
+          <Route
+            path="/user/:id"
             render={(props) => (
-              <OTHERS_PROFILE_SCREEN {...props}
+              <OTHERS_PROFILE_SCREEN
+                {...props}
                 USER={USER}
                 set_USER={set_USER}
                 allPost={allPost}
@@ -369,16 +344,12 @@ const App = () => {
             )}
             exact
           />
-
         </main>
-
 
         {/* <FOOTER /> */}
       </div>
     </Router>
-
-  )
-}
+  );
+};
 
 export default App;
-
