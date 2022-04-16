@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Row, Col, Container, Button, Form } from "react-bootstrap";
 import "../../STYLES/uploadShot.scss";
-import POPUP from "../Popup/Popup.js";
-import LOAD from "../Loading.js";
+import POPUP from "../modal/text-modal.jsx";
+import LOAD from "../loading.js";
 import MESS from "../message.js";
-import SETTING from "../Popup/PopupSetting.js";
+import SETTING from "../modal/setting-details.jsx";
 import firebase from "firebase";
 // import moment from 'moment';
 

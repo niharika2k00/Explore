@@ -5,7 +5,7 @@ import "../../STYLES/profile.css";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
-import LOAD from "../../components/Loading.js";
+import LOAD from "../../components/loading.js";
 import MESS from "../../components/message.js";
 import firebase from "firebase";
 

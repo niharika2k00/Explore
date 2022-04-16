@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import firebase from "firebase";
-import app from "./Firebase/Firebase.js";
+import app from "./firebase/firebase.js";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NAVIGATION_BAR from "./components/Navbar/Navbar_top.jsx";
+import NAVIGATION_BAR from "./components/navbar/index.jsx";
 import FOOTER from "./components/footer/index.jsx";
 import HOMESCREEN from "./screens/home/index.jsx";
 import PROFILESCREEN from "./screens/profile/index.jsx";
-import UPLOADSHOTSCREEN from "./components/UploadShot/UploadShot_Screen.jsx";
+import UPLOADSHOTSCREEN from "./components/UploadShot/index.jsx";
 import POSTSCREEN from "./screens/post/index.jsx";
 import PROFILE_ABOUT from "./screens/profile/about.jsx";
 import PROFILE_LIKEDSHOTS from "./screens/profile/favourite.jsx";

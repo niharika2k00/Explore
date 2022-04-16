@@ -7,7 +7,7 @@ import "../../App.css";
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import LIKED_CARD from "../home/liked-post";
-import LOAD from "../../components/Loading.js";
+import LOAD from "../../components/loading.js";
 import firebase from "firebase";
 
 const Liked_Shots = ({

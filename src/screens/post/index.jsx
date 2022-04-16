@@ -12,7 +12,7 @@ import firebase from "firebase";
 import CARD_BODY from "./post.jsx";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
-import LOAD from "../../components/Loading.js";
+import LOAD from "../../components/loading.js";
 
 const Post_Screen = ({
   history,

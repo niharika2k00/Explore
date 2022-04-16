@@ -9,7 +9,7 @@ import ExploreLOGO from "../../assets/explorepng.png";
 import { useLocation } from "react-router-dom";
 import SIGNUP_POPUP from "../Authentication/SignUp.jsx";
 import Login from "../Authentication/Login.jsx";
-import app from "../../Firebase/Firebase.js";
+import app from "../../firebase/firebase.js";
 
 const Navbar_top = ({
   signUp,
