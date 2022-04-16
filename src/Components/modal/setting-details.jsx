@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import CancelIcon from "@material-ui/icons/Cancel";
 import "../../STYLES/popup.css";
-// import firebase from 'firebase';
+import { colorPalette } from "../../utilities/theme.js";
 
 const Popup = ({
   type,
@@ -25,35 +25,38 @@ const Popup = ({
             onClick={() => setsettingPopup(false)}
             className="cross-btn"
           />
-          <h5 style={{ color: "#f99459" }}>ENTER THE DETAILS : </h5>
+          <h5 style={{ color: colorPalette.main.primary, fontWeight: "600" }}>
+            ENTER THE DETAILS :
+          </h5>
 
           <Row>
             <Col md={6}>
               <Form.Group controlId="exampleForm.ControlSelect1">
                 <Form.Label>
-                  <b>
+                  <div className="modalText">
                     Project Topic <span style={{ color: "crimson" }}>*</span>
-                  </b>
+                  </div>
                 </Form.Label>
                 <Form.Control
                   as="select"
                   className="form_box"
                   onChange={(e) => setTopic(e.target.value)}
                   value={topic}>
-                  <option>Memes</option>
+                  <option>Sci-fi</option>
                   <option>Motivational</option>
-                  <option>Food</option>
-                  <option>Art</option>
+                  <option>Memes</option>
+                  <option>Technology</option>
                   <option>Travel</option>
-                  <option>Global News</option>
+                  <option>Art</option>
+                  <option>Others</option>
                 </Form.Control>
               </Form.Group>
 
               <Form.Group controlId="title">
                 <Form.Label>
-                  <b>
+                  <div className="modalText">
                     Project Title <span style={{ color: "crimson" }}>*</span>{" "}
-                  </b>
+                  </div>
                 </Form.Label>
                 <Form.Control
                   className="form_box"
@@ -88,7 +91,7 @@ const Popup = ({
 
           <div className="btncenter">
             <Button type="button" variant="danger" onClick={Setting_handler}>
-              <b style={{ fontSize: "14px" }}>SAVE</b>
+              <b style={{ fontSize: "0.8rem" }}>Save</b>
             </Button>
           </div>
         </div>

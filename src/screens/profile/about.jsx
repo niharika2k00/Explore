@@ -6,7 +6,6 @@ import "../../STYLES/homescreen.css";
 import "../../STYLES/navbar.css";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import LOAD from "../../components/loading.js";
 import MESS from "../../components/message.js";
 import firebase from "firebase";
@@ -34,7 +33,7 @@ const About = ({
   setMsg_Success,
 }) => {
   const db = firebase.firestore();
-  let history = useHistory();
+  const history = useHistory();
 
   const about_submit_Handler = async (e) => {
     e.preventDefault();

@@ -4,8 +4,8 @@ import { Row, Col, Button, Form } from "react-bootstrap";
 import CancelIcon from "@material-ui/icons/Cancel";
 import "../../STYLES/authentication.scss";
 import app from "../../firebase/firebase.js";
+import { useHistory } from "react-router-dom";
 import firebase from "firebase";
-// import { useHistory } from "react-router-dom";
 
 const SignUp = ({
   type,
@@ -24,8 +24,8 @@ const SignUp = ({
   profile_img_handle,
   Upload_ProfileImg,
 }) => {
-  // const history = useHistory();
   const db = firebase.firestore();
+  const history = useHistory();
 
   const signUp_Handler = async (e) => {
     e.preventDefault();
@@ -54,7 +54,7 @@ const SignUp = ({
       });
       console.log("Name : ", result.user.displayName);
       setSignUp(false);
-      // history.push("/");
+      history.push("/");
 
       // --------- Putting into DB --------
       const USER_CURRENT = firebase.auth().currentUser;

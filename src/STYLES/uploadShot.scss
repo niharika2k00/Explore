@@ -33,10 +33,10 @@
   background-color: rgba(255, 255, 255, 0.959);
 }
 .form_box:hover {
-  border: 4px solid #fae5ed;
+  border: 4px solid var(--primary);
 }
 .form-control:focus {
-  border-color: #f7d3e0;
+  border-color: var(--primary);
   outline: none;
   box-shadow: none;
   //   border: none;
@@ -88,21 +88,28 @@
 }
 
 .file--upload > label:hover {
-  background-color: #e0fdfc8d;
+  background-color: var(--light1);
 }
 
 .file--upload > label:active {
-  background-color: #ffffffe8;
+  background-color: var(--white);
 }
+
 #centerbtn {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 8rem;
 }
+
 .ico_big {
   font-size: 1.5rem;
-  color: #00a19a;
+  color: var(--primary);
+}
+
+.modalText {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 /* ---------------------         MEDIA QUERYYY         --------------------- */

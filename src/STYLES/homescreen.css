@@ -161,7 +161,7 @@
 
 #tab li a {
     display: block;
-    color: #0c7b76;
+    color: var(--primary);
     text-align: center;
     padding: .6rem;
     font-weight: bold;
@@ -172,14 +172,14 @@
 #tab li a:hover {
     /* background-color: #ffe66d; */
     border-radius: 1.4rem;
-    background-image: linear-gradient( 160deg, #00a19a, #ffee59);
-    color: white;
+    background-image: linear-gradient( 160deg,var(--light1), var(--light1));
+    color: var(--white);
 }
 
 .activee {
-    color: white;
+    color: var(--white);
     border-radius: 1.4rem;
-    background-image: linear-gradient( 160deg, #00a19a, #ffee59);
+    background-image: linear-gradient( 160deg,var(--light1), var(--light1));
 }
 
 /* ------------   MEDIA QUERYYY  ----------------- */

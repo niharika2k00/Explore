@@ -1,23 +1,23 @@
 /* ---------------        MAIN STYLES APPLIED TO ALMOST ALL THE COMPONET    ------------------------ */
 
-
-
 :root {
-    --primary: #7b2cbf;
+    --primary: #8f63b5;
+     --lightPrimary: #a083b8;  /* button hover */
     --seconday: #f25f5c;
+    --light1 : #fee440;
     --black: #000;
     --white: #fff;
     --fullwidth: 100%;
 }
+
 
 /* 
 var(--seconday)
 var(--primary)
 */
 
-
-
-body, html {
+body,
+html {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -43,7 +43,6 @@ body, html {
         padding: .2rem 0 .6rem 0 !important;
         margin: .2rem 0 .6rem 0 !important;
     }
-
     .self_container {
         margin-top: 1rem !important;
         margin-bottom: 1rem !important;
@@ -52,7 +51,9 @@ body, html {
     }
 }
 
+
 /* font-family: 'Montserrat', sans-serif; */
+
 
 /* ------ Colours ------ */
 

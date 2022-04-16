@@ -199,11 +199,13 @@ const UploadShot_Screen = ({
                   <h5 style={{ color: "#ffa200" }}>
                     Please fill all the fields ....{" "}
                   </h5>
+
                   <Form.Label>
                     <b style={{ fontSize: "1.2rem" }}>
-                      Settings<span style={{ color: "crimson" }}>*</span>{" "}
+                      Settings<span style={{ color: "red" }}>*</span>{" "}
                     </b>
                   </Form.Label>
+
                   {setting && (
                     <SETTING
                       type="setting"
@@ -230,9 +232,12 @@ const UploadShot_Screen = ({
                     <b style={{ fontSize: "1.2rem" }}>
                       Upload Image{" "}
                       <i className="fas fa-cloud-upload-alt ico_big"></i>
-                      <span style={{ paddingLeft: "6px" }}>*</span>{" "}
+                      <span style={{ paddingLeft: "6px", color: "red" }}>
+                        *
+                      </span>{" "}
                     </b>
                   </Form.Label>
+
                   <div className="d-flex justify-content-between">
                     <div>
                       <div className="file file--upload">
@@ -260,6 +265,7 @@ const UploadShot_Screen = ({
                         Description_handler={Description_handler}
                       />
                     )}
+
                     <div>
                       <div className="file file--upload">
                         <label htmlFor="text" onClick={() => setPopup(true)}>

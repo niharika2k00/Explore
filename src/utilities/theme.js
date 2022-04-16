@@ -4,9 +4,12 @@ export const fontFamilies = {
 };
 
 export const colorPalette = {
-  primary: {
-    main: "#7b2cbf",
-    contrastText: "#fff",
+  main: {
+    primary: "#7b2cbf",
+    seconday: " #f25f5c",
+    light1: "#fee440",
+    black: "#000",
+    white: "#fff",
     grey: "#E5E7E9",
   },
 

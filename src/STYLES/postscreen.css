@@ -26,22 +26,19 @@
 }
 
 .post_titles b {
-    color: #ffa200;
-    font-size: 1.8rem;
+    color: var(--seconday);
+    font-size: 1.6rem;
     font-weight: 300px;
-    font-family: 'Montserrat', sans-serif;
-}
+  }
 
 .post_subtitles {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-}
+  }
 
 .post_subtitles b {
     color: #3b3639;
-    font-family: 'Montserrat', sans-serif;
-}
+  }
 
 .row_center {
     display: flex;
@@ -53,14 +50,12 @@
 .post-body {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
-    font-family: 'Montserrat', sans-serif;
-}
+  }
 
 .postedDate {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding-right: .7rem;
-    font-family: 'Montserrat', sans-serif;
-}
+  }
 
 .icon-whatsapp {
     background: #25d366 !important;

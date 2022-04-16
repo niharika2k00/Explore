@@ -15,7 +15,7 @@ const Popup = ({
         <div className="input-box">
           <CancelIcon onClick={() => setPopup(false)} className="cross-btn" />
 
-          <h5>Project Description :</h5>
+          <div className="modalText"> Project Description : </div>
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Control

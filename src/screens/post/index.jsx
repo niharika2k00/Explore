@@ -15,7 +15,6 @@ import moment from "moment";
 import LOAD from "../../components/loading.js";
 
 const Post_Screen = ({
-  history,
   USER,
   set_USER,
   allPost,

@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import "../../STYLES/profile.css";
 import "../../STYLES/homescreen.css";
 import "../../App.css";
-import { useNavigate, useHistory } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import EACH_CARD from "../home/card";
 import LOAD from "../../components/loading.js";
 
@@ -24,8 +23,7 @@ const Profile_Screen = ({
   about,
   setAbout,
 }) => {
-  let history = useHistory();
-  const navigate = useNavigate();
+  const history = useHistory();
 
   useEffect(() => {
     setLoading(true);
@@ -51,6 +49,8 @@ const Profile_Screen = ({
       console.log("not running");
     }
   }, [about]);
+
+  const name = USER.Name.split(/(\s+)/);
 
   return (
     <div>
@@ -112,19 +112,22 @@ const Profile_Screen = ({
                     <h5
                       className="card-title"
                       style={{ textShadow: "2px 1px", fontSize: "1.4rem" }}>
-                      Upload your shot
+                      Start a post
                     </h5>
+
                     <p className="card-text">
-                      Upload Shots based on your life experience .......{" "}
+                      {" "}
+                      {name[0]} Share what's on your mind ...{" "}
                     </p>
+
                     <section className="Button">
-                      <p
+                      <a
                         className="Button-btn"
-                        // href="/uploadpost"
-                        onClick={navigate("/uploadpost")}
+                        href="/upload"
+                        // onClick={history.push("/upload")}
                         style={{ marginTop: "1px" }}>
-                        Upload Shot{" "}
-                      </p>
+                        Follow Me!
+                      </a>
                     </section>
                   </div>
                 </div>

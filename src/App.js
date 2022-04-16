@@ -3,15 +3,15 @@ import firebase from "firebase";
 import app from "./firebase/firebase.js";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NAVIGATION_BAR from "./components/navbar/index.jsx";
-import FOOTER from "./components/footer/index.jsx";
-import HOMESCREEN from "./screens/home/index.jsx";
-import PROFILESCREEN from "./screens/profile/index.jsx";
-import UPLOADSHOTSCREEN from "./components/UploadShot/index.jsx";
-import POSTSCREEN from "./screens/post/index.jsx";
-import PROFILE_ABOUT from "./screens/profile/about.jsx";
-import PROFILE_LIKEDSHOTS from "./screens/profile/favourite.jsx";
-import PUBLIC_PROFILE from "./screens/profile/public-profile";
+import NavigationBar from "./components/navbar/index.jsx";
+import Footer from "./components/footer/index.jsx";
+import HomeScreen from "./screens/home/index.jsx";
+import ProfileScreen from "./screens/profile/index";
+import UploadPostScreen from "./components/UploadShot/index.jsx";
+import PostScreen from "./screens/post/index.jsx";
+import ProfileAbout from "./screens/profile/about.jsx";
+import ProfileFavouritePost from "./screens/profile/favourite.jsx";
+import PublicProfile from "./screens/profile/public-profile";
 
 const App = () => {
   const db = firebase.firestore();
@@ -170,7 +170,7 @@ const App = () => {
   return (
     <Router>
       <div className="App" style={{ backgroundColor: "white" }}>
-        <NAVIGATION_BAR
+        <NavigationBar
           signUp={signUp}
           setSignUp={setSignUp}
           login={login}
@@ -195,7 +195,7 @@ const App = () => {
           <Route
             path="/"
             render={(props) => (
-              <HOMESCREEN
+              <HomeScreen
                 {...props}
                 USER={USER}
                 set_USER={set_USER}
@@ -212,7 +212,7 @@ const App = () => {
           <Route
             path="/profile"
             render={(props) => (
-              <PROFILESCREEN
+              <ProfileScreen
                 {...props}
                 USER={USER}
                 set_USER={set_USER}
@@ -235,7 +235,7 @@ const App = () => {
           <Route
             path="/about"
             render={(props) => (
-              <PROFILE_ABOUT
+              <ProfileAbout
                 {...props}
                 USER={USER}
                 set_USER={set_USER}
@@ -265,7 +265,7 @@ const App = () => {
           <Route
             path="/likedshots"
             render={(props) => (
-              <PROFILE_LIKEDSHOTS
+              <ProfileFavouritePost
                 {...props}
                 USER={USER}
                 set_USER={set_USER}
@@ -294,9 +294,9 @@ const App = () => {
           />
 
           <Route
-            path="/uploadpost"
+            path="/upload"
             render={(props) => (
-              <UPLOADSHOTSCREEN
+              <UploadPostScreen
                 {...props}
                 USER={USER}
                 set_USER={set_USER}
@@ -314,7 +314,7 @@ const App = () => {
           <Route
             path="/post/:id"
             render={(props) => (
-              <POSTSCREEN
+              <PostScreen
                 {...props}
                 USER={USER}
                 set_USER={set_USER}
@@ -331,7 +331,7 @@ const App = () => {
           <Route
             path="/user/:id"
             render={(props) => (
-              <PUBLIC_PROFILE
+              <PublicProfile
                 {...props}
                 USER={USER}
                 set_USER={set_USER}
@@ -346,7 +346,7 @@ const App = () => {
           />
         </main>
 
-        <FOOTER />
+        <Footer />
       </div>
     </Router>
   );

@@ -7,8 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import "../../App.css";
 import "../../STYLES/homescreen.css";
 import EACH_CARD from "./card.jsx";
-// import firebase from 'firebase';
-// import app from "../../Firebase/Firebase.js";
 import LOAD from "../../components/loading.js";
 import { clone } from "ramda";
 
@@ -90,22 +88,16 @@ const HomeScreen = ({
 
                     <Dropdown.Menu>
                       <Dropdown.Item onClick={() => sort("")}>
-                        {" "}
                         <Link to="">All </Link>{" "}
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => sort("Motivational")}>
                         <Link to=""> Motivational</Link>
                       </Dropdown.Item>
-                      <Dropdown.Item
-                        onClick={() =>
-                          sort("Memes")
-                        } /* style={{ color: select ? "red" : "green" }} */
-                      >
-                        {" "}
+                      <Dropdown.Item onClick={() => sort("Memes")}>
                         <Link to="">Memes</Link>
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => sort("Food")}>
-                        <Link to="">Food </Link>
+                      <Dropdown.Item onClick={() => sort("Technology")}>
+                        <Link to="">Technology </Link>
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => sort("Travel")}>
                         <Link to="">Travel </Link>
@@ -113,11 +105,11 @@ const HomeScreen = ({
                       <Dropdown.Item onClick={() => sort("Art")}>
                         <Link to=""> Art</Link>
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => sort("Global News")}>
-                        <Link to="">Global News </Link>{" "}
+                      <Dropdown.Item onClick={() => sort("Others")}>
+                        <Link to="">Others </Link>{" "}
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => sort("Popular")}>
-                        <Link to="">Popular </Link>
+                      <Dropdown.Item onClick={() => sort("Scifi")}>
+                        <Link to=""> Sci-fi </Link>
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
@@ -133,12 +125,12 @@ const HomeScreen = ({
                       All{" "}
                     </Link>{" "}
                   </li>
-                  <li onClick={() => sort("Popular")}>
+                  <li onClick={() => sort("Scifi")}>
                     {" "}
                     <Link
                       to=""
-                      className={activee === "Popular" ? "activee" : ""}>
-                      Popular{" "}
+                      className={activee === "Scifi" ? "activee" : ""}>
+                      Sci-fi{" "}
                     </Link>{" "}
                   </li>
                   <li onClick={() => sort("Motivational")}>
@@ -158,10 +150,12 @@ const HomeScreen = ({
                       Memes
                     </Link>{" "}
                   </li>
-                  <li onClick={() => sort("Food")}>
+                  <li onClick={() => sort("Technology")}>
                     {" "}
-                    <Link to="" className={activee === "Food" ? "activee" : ""}>
-                      Food{" "}
+                    <Link
+                      to=""
+                      className={activee === "Technology" ? "activee" : ""}>
+                      Technology
                     </Link>{" "}
                   </li>
                   <li onClick={() => sort("Travel")}>
@@ -179,12 +173,12 @@ const HomeScreen = ({
                       Art
                     </Link>{" "}
                   </li>
-                  <li onClick={() => sort("Global News")}>
+                  <li onClick={() => sort("Others")}>
                     {" "}
                     <Link
                       to=""
-                      className={activee === "Global News" ? "activee" : ""}>
-                      Global News{" "}
+                      className={activee === "Others" ? "activee" : ""}>
+                      Others
                     </Link>{" "}
                   </li>
                 </ul>

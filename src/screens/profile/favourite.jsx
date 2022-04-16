@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "../../STYLES/profile.css";
 import "../../STYLES/homescreen.css";
 import "../../App.css";
-import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import LIKED_CARD from "../home/liked-post";
 import LOAD from "../../components/loading.js";
@@ -34,7 +33,7 @@ const Liked_Shots = ({
   setfinal_arr,
 }) => {
   const db = firebase.firestore();
-  let history = useHistory();
+  const history = useHistory();
 
   useEffect(() => {
     if (Object.keys(USER).length !== 0) {
@@ -51,7 +50,7 @@ const Liked_Shots = ({
       console.log(about[0].City);
     } else {
       console.log("not running");
-      <Redirect to="/" />;
+      history.push("/");
     }
   }, [about]);
 

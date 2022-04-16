@@ -3,7 +3,6 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../../STYLES/navbar.css";
-import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import ExploreLOGO from "../../assets/explorepng.png";
 import { useLocation } from "react-router-dom";
@@ -31,8 +30,9 @@ const Navbar_top = ({
   profile_img_handle,
   Upload_ProfileImg,
 }) => {
-  let history = useHistory();
+  //
   const location = useLocation();
+  const history = useHistory();
   const modify_url = location.pathname;
   // console.log(location.pathname);  // /post/:id
 
@@ -41,7 +41,6 @@ const Navbar_top = ({
     console.log("Successfully Logged out ", name);
     set_USER({});
     history.push("/");
-    // return < Redirect to='/' />
   };
 
   console.log(USER);
@@ -63,25 +62,24 @@ const Navbar_top = ({
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto navItems">
             <Nav.Link>
-              {" "}
               <Link to="/" className="modiflink nav_top">
                 HOME
               </Link>
             </Nav.Link>
+
             <Nav.Link>
-              <Link to="/uploadpost" className="modiflink nav_top">
+              <Link to="/upload" className="modiflink nav_top">
                 POST
               </Link>
             </Nav.Link>
 
-            {Object.keys(USER).length !== 0 ? (
+            {Object.keys(USER).length !== 0 && (
               <Nav.Link>
-                {" "}
                 <Link to="/profile" className="modiflink nav_top">
                   PROFILE
                 </Link>
               </Nav.Link>
-            ) : null}
+            )}
           </Nav>
 
           {/* --------------  LOGIN  POPUP   -- for exsisting user------------ */}
