@@ -6,7 +6,7 @@ import "../../STYLES/homescreen.css";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
-import EACH_CARD from "../HomeScreen/card.js";
+import EACH_CARD from "../home/card";
 import LOAD from "../Loading.js";
 
 const Profile_Screen = ({

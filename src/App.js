@@ -4,14 +4,14 @@ import app from "./Firebase/Firebase.js";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NAVIGATION_BAR from "./components/Navbar/Navbar_top.jsx";
-import FOOTER from "./components/Footer/Footer.jsx";
-import HOMESCREEN from "./components/HomeScreen/HomeScreen.jsx";
-import PROFILESCREEN from "./components/ProfileScreen/Profile_Screen.jsx";
+import FOOTER from "./components/footer/index.jsx";
+import HOMESCREEN from "./components/home/index.jsx";
+import PROFILESCREEN from "./components/profile/Profile_Screen.jsx";
 import UPLOADSHOTSCREEN from "./components/UploadShot/UploadShot_Screen.jsx";
 import POSTSCREEN from "./components/Post_Screen/Post_Screen.jsx";
-import PROFILE_ABOUT from "./components/ProfileScreen/About.js";
-import PROFILE_LIKEDSHOTS from "./components/ProfileScreen/Liked_Shots.js";
-import OTHERS_PROFILE_SCREEN from "./components/ProfileScreen/OthersProfileScreen.js";
+import PROFILE_ABOUT from "./components/profile/About.js";
+import PROFILE_LIKEDSHOTS from "./components/profile/Liked_Shots.js";
+import OTHERS_PROFILE_SCREEN from "./components/profile/OthersProfileScreen.js";
 
 const App = () => {
   const db = firebase.firestore();
@@ -346,7 +346,7 @@ const App = () => {
           />
         </main>
 
-        {/* <FOOTER /> */}
+        <FOOTER />
       </div>
     </Router>
   );

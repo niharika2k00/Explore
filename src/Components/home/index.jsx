@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 // import Slider from "react-slick";
 import "../../App.css";
 import "../../STYLES/homescreen.css";
-import EACH_CARD from "./card.js";
+import EACH_CARD from "./card.jsx";
 // import firebase from 'firebase';
 // import app from "../../Firebase/Firebase.js";
 import LOAD from "../Loading.js";
