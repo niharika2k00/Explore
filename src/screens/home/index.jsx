@@ -9,7 +9,7 @@ import "../../STYLES/homescreen.css";
 import EACH_CARD from "./card.jsx";
 // import firebase from 'firebase';
 // import app from "../../Firebase/Firebase.js";
-import LOAD from "../Loading.js";
+import LOAD from "../../components/Loading.js";
 import { clone } from "ramda";
 
 const HomeScreen = ({

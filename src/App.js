@@ -5,13 +5,13 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NAVIGATION_BAR from "./components/Navbar/Navbar_top.jsx";
 import FOOTER from "./components/footer/index.jsx";
-import HOMESCREEN from "./components/home/index.jsx";
-import PROFILESCREEN from "./components/profile/index.jsx";
+import HOMESCREEN from "./screens/home/index.jsx";
+import PROFILESCREEN from "./screens/profile/index.jsx";
 import UPLOADSHOTSCREEN from "./components/UploadShot/UploadShot_Screen.jsx";
-import POSTSCREEN from "./components/Post_Screen/Post_Screen.jsx";
-import PROFILE_ABOUT from "./components/profile/about.jsx";
-import PROFILE_LIKEDSHOTS from "./components/profile/favourite.jsx";
-import OTHERS_PROFILE_SCREEN from "./components/profile/public-profile";
+import POSTSCREEN from "./screens/post/index.jsx";
+import PROFILE_ABOUT from "./screens/profile/about.jsx";
+import PROFILE_LIKEDSHOTS from "./screens/profile/favourite.jsx";
+import OTHERS_PROFILE_SCREEN from "./screens/profile/public-profile";
 
 const App = () => {
   const db = firebase.firestore();

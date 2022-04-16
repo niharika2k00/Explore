@@ -6,7 +6,7 @@ import "../../STYLES/homescreen.css";
 import "../../App.css";
 import firebase from "firebase";
 import { useLocation } from "react-router-dom";
-import LOAD from "../Loading.js";
+import LOAD from "../../components/Loading.js";
 import OTHER_POST from "../home/liked-post";
 import "../../STYLES/otherProfileStyle.css";
 
