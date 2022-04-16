@@ -11,7 +11,7 @@ import UPLOADSHOTSCREEN from "./components/UploadShot/index.jsx";
 import POSTSCREEN from "./screens/post/index.jsx";
 import PROFILE_ABOUT from "./screens/profile/about.jsx";
 import PROFILE_LIKEDSHOTS from "./screens/profile/favourite.jsx";
-import OTHERS_PROFILE_SCREEN from "./screens/profile/public-profile";
+import PUBLIC_PROFILE from "./screens/profile/public-profile";
 
 const App = () => {
   const db = firebase.firestore();
@@ -331,7 +331,7 @@ const App = () => {
           <Route
             path="/user/:id"
             render={(props) => (
-              <OTHERS_PROFILE_SCREEN
+              <PUBLIC_PROFILE
                 {...props}
                 USER={USER}
                 set_USER={set_USER}

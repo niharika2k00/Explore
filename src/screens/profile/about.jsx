@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Row, Col, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../../STYLES/profile.css";
+import "../../STYLES/homescreen.css";
+import "../../STYLES/navbar.css";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
@@ -109,16 +111,13 @@ const About = ({
       <section>
         <div className="d-flex justify-content-evenly" id="line">
           <div className="subtopic">
-            {" "}
             <Link to="/profile"> SHOTS </Link>{" "}
           </div>
           <div className="subtopic">
-            {" "}
             <Link to="/likedshots">LIKED SHOTS </Link>{" "}
           </div>
           {/* <div className="subtopic"> <Link to="/collection" >COLLECTION  </Link> </div> */}
           <div className="subtopic">
-            {" "}
             <Link to="/about"> ABOUT</Link>{" "}
           </div>
         </div>
@@ -202,7 +201,18 @@ const About = ({
               </Row>
 
               <Row>
-                <div id="centerSubmit">
+                <section className="Button">
+                  <p
+                    className="Button-btn"
+                    style={{
+                      marginTop: "3rem",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}>
+                    Submit
+                  </p>
+                </section>
+                {/* <div id="centerSubmit">
                   <button
                     type="submit"
                     className="btn btn-dark"
@@ -213,7 +223,7 @@ const About = ({
                     }}>
                     Submit
                   </button>
-                </div>
+                </div> */}
               </Row>
             </Form>
             {/* </Loginform_Container> */}

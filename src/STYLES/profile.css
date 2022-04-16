@@ -62,7 +62,7 @@
 #line .subtopic a {
     font-weight: 700;
     font-size: 1.2rem;
-    color: #ffa200 !important;
+    color: var(--primary) !important;
     text-decoration: none;
 }
 
@@ -84,7 +84,8 @@
 
 .profile_head {
     font-family: "Montserrat", sans-serif;
-    background: linear-gradient(160deg, #268951, #fff766);
+    /* background: linear-gradient(160deg, #268951, #fff766); */
+    background: linear-gradient(160deg, var(--seconday), var(--seconday));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 2rem;
@@ -116,16 +117,20 @@
         padding-top: 1rem;
         font-size: 1.8rem;
     }
+
     #line .subtopic a {
         font-weight: 700;
         font-size: 1.15rem;
     }
+
     #line {
         padding-top: 1.8rem;
     }
+
     .profile_head {
         font-size: 1.4rem;
     }
+
     .profile_icon_heart {
         font-size: 1.3rem;
     }

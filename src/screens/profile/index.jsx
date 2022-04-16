@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../../STYLES/profile.css";
 import "../../STYLES/homescreen.css";
 import "../../App.css";
-import { useHistory } from "react-router-dom";
+import { useNavigate, useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import EACH_CARD from "../home/card";
 import LOAD from "../../components/loading.js";
@@ -25,6 +25,7 @@ const Profile_Screen = ({
   setAbout,
 }) => {
   let history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -84,16 +85,13 @@ const Profile_Screen = ({
         <section>
           <div className="d-flex justify-content-evenly" id="line">
             <div className="subtopic">
-              {" "}
               <Link to="/profile"> SHOTS </Link>{" "}
             </div>
             <div className="subtopic">
-              {" "}
               <Link to="/likedshots">LIKED SHOTS </Link>{" "}
             </div>
             {/* <div className="subtopic"> <Link to="/collection" >COLLECTION  </Link> </div> */}
             <div className="subtopic">
-              {" "}
               <Link to="/about"> ABOUT</Link>{" "}
             </div>
           </div>
@@ -120,12 +118,13 @@ const Profile_Screen = ({
                       Upload Shots based on your life experience .......{" "}
                     </p>
                     <section className="Button">
-                      <a
+                      <p
                         className="Button-btn"
-                        href="/uploadpost"
+                        // href="/uploadpost"
+                        onClick={navigate("/uploadpost")}
                         style={{ marginTop: "1px" }}>
                         Upload Shot{" "}
-                      </a>
+                      </p>
                     </section>
                   </div>
                 </div>
