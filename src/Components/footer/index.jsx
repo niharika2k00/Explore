@@ -20,7 +20,7 @@ const Footer = () => {
             <div
               className="col col-lg-6 col-md-6 col-12 mb-4 mb-md-0"
               style={{ color: "#c6c3ae", padding: "4px 4px" }}>
-              © 2022 Copyright
+              {/* © 2022 Copyright */}
               <a
                 className="text-light"
                 href="/index.html"

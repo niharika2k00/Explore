@@ -21,8 +21,8 @@ const HomeScreen = ({
 }) => {
   // --------- FILTER FUNCTIONALITY ----------
   const [currentPost, setcurrentPost] = useState([]);
-
   const [activee, setActivee] = useState("");
+
   const sort = (Topic) => {
     if (!Topic) {
       setcurrentPost(allPost);
@@ -46,7 +46,7 @@ const HomeScreen = ({
   }, []);
 
   useEffect(() => {
-    console.log(allPost);
+    console.log("All Posts ==> ", allPost);
     setLoading(false);
   }, [allPost, set_USER]);
 
@@ -183,7 +183,7 @@ const HomeScreen = ({
           </Row>
         </section>
 
-        {loading && allPost.length !== 0 ? (
+        {loading && allPost.length > 0 ? (
           <LOAD />
         ) : (
           <section style={{ padding: "1rem 0 ", margin: "1rem 0" }}>

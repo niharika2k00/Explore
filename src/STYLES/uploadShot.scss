@@ -14,7 +14,7 @@
   padding: 1.2rem;
   background-color: #fff;
   display: flex;
-  border-radius: 5px; // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);      outside
+  border-radius: 1.2rem; // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);      outside
   box-shadow: inset 2px 2px 5px #9499a8, inset -5px -5px 10px #fff;
   background-color: rgba(255, 255, 255, 0.6);
   // background-image: url("../assets/post.jpg");
@@ -82,9 +82,7 @@
 }
 
 .file--upload > label {
-  color: hsl(204, 86%, 53%);
-  // border: 3px ridge rgb(236, 182, 193);
-  // border-color: #2fac66;
+  border: 1.6px ridge var(--secondary);
 }
 
 .file--upload > label:hover {
