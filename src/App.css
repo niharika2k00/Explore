@@ -2,9 +2,10 @@
 
 :root {
     --primary: #8f63b5;
-     --lightPrimary: #a083b8;  /* button hover */
+    --lightPrimary: #a083b8;
+    /* button hover */
     --seconday: #f25f5c;
-    --light1 : #fee440;
+    --light1: #fee440;
     --black: #000;
     --white: #fff;
     --fullwidth: 100%;
@@ -14,6 +15,8 @@
 /* 
 var(--seconday)
 var(--primary)
+
+ box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
 */
 
 body,
@@ -43,6 +46,7 @@ html {
         padding: .2rem 0 .6rem 0 !important;
         margin: .2rem 0 .6rem 0 !important;
     }
+
     .self_container {
         margin-top: 1rem !important;
         margin-bottom: 1rem !important;

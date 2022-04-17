@@ -13,7 +13,7 @@
     position: fixed;
     background-color: rgba(0, 0, 0, 0.514);
     z-index: 99999;
-      }
+}
 
 .input-box input {
     font-size: 1rem !important;
@@ -27,10 +27,10 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    }
+}
 
 .cross-btn {
-    color: crimson;
+    color: red;
     height: 4rem;
     width: 4rem;
     font-size: 4rem;
@@ -54,6 +54,8 @@
     margin-bottom: 20px;
 }
 
+
+/* Button Style */
 .input-box button {
     padding: 5px 8px;
     font-size: 18px;
@@ -69,5 +71,23 @@
 
 .input-box button:hover {
     background: var(--lightPrimary);
-    border: 1px solid  var(--lightPrimary);
+    border: 1px solid var(--lightPrimary);
+}
+
+.ButtonStyle2 {
+    padding: 5px 8px;
+    font-size: 18px;
+    margin: auto;
+    background-color: var(--primary);
+    color: white;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    text-transform: none;
+}
+
+.ButtonStyle2 :hover {
+    background: var(--lightPrimary);
+    border: 1px solid var(--lightPrimary);
 }

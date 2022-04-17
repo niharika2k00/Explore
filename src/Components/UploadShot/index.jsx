@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Row, Col, Container, Button, Form } from "react-bootstrap";
 import "../../STYLES/uploadShot.scss";
+import "../../STYLES/popup.css";
+import "../../STYLES/border.scss";
 import POPUP from "../modal/text-modal.jsx";
 import LOAD from "../loading.js";
 import MESS from "../message.js";
@@ -111,7 +113,7 @@ const UploadShot_Screen = ({
   };
 
   // -----------------    FINAL UPLOAD(submit) POST HANDLER   --------------------
-  const PostSubmit_Handler = async (e) => {
+  const submitPostHandler = async (e) => {
     e.preventDefault();
 
     try {
@@ -186,6 +188,10 @@ const UploadShot_Screen = ({
       <Container className="self_container ">
         <h1 className="loginhead">POST</h1>
 
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div class="sketchy"> Upload Post </div>
+        </div>
+
         {msg_Warn && <MESS variant="danger">{msg_Warn}</MESS>}
         {msg_Success && <MESS variant="success">{msg_Success}</MESS>}
 
@@ -194,7 +200,7 @@ const UploadShot_Screen = ({
         ) : (
           <Row className="justify-content-md-center  myrow">
             <Col md={6} xs={12} style={{ padding: "1rem" }}>
-              <Form id="login_form" onSubmit={PostSubmit_Handler}>
+              <Form id="login_form" onSubmit={submitPostHandler}>
                 <Form.Group controlId="title">
                   <h5 style={{ color: "#ffa200" }}>
                     Please fill all the fields ....{" "}
@@ -277,14 +283,14 @@ const UploadShot_Screen = ({
                   </div>
                 </Form.Group>
 
-                <div id="centerbtn">
-                  <Button
+                <div className="Button">
+                  <button
                     type="submit"
-                    variant="danger"
                     disabled={loading}
-                    style={{ marginTop: "1rem" }}>
-                    <b style={{ fontSize: "16px" }}>Submit Post</b>
-                  </Button>
+                    className="Button-btn"
+                    style={{ marginTop: "1px" }}>
+                    Submit Post
+                  </button>
                 </div>
               </Form>
             </Col>

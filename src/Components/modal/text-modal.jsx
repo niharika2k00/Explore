@@ -30,7 +30,8 @@ const Popup = ({
           <div className="btncenter">
             <Button
               type="button"
-              variant="danger"
+              // variant="danger"
+              className="ButtonStyle2"
               onClick={Description_handler}>
               <b style={{ fontSize: "14px" }}> Add Description</b>
             </Button>

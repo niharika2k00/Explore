@@ -124,7 +124,6 @@ const Profile_Screen = ({
                       <a
                         className="Button-btn"
                         href="/upload"
-                        // onClick={history.push("/upload")}
                         style={{ marginTop: "1px" }}>
                         Follow Me!
                       </a>

@@ -108,7 +108,7 @@ const HomeScreen = ({
                       <Dropdown.Item onClick={() => sort("Others")}>
                         <Link to="">Others </Link>{" "}
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => sort("Scifi")}>
+                      <Dropdown.Item onClick={() => sort("Sci-fi")}>
                         <Link to=""> Sci-fi </Link>
                       </Dropdown.Item>
                     </Dropdown.Menu>
@@ -120,66 +120,63 @@ const HomeScreen = ({
               <div className="d-flex flex-wrap justify-content-evenly">
                 <ul id="tab">
                   <li onClick={() => sort("")}>
-                    {" "}
                     <Link to="" className={activee === "" ? "activee" : ""}>
-                      All{" "}
-                    </Link>{" "}
+                      All
+                    </Link>
                   </li>
-                  <li onClick={() => sort("Scifi")}>
-                    {" "}
+
+                  <li onClick={() => sort("Sci-fi")}>
                     <Link
                       to=""
-                      className={activee === "Scifi" ? "activee" : ""}>
-                      Sci-fi{" "}
-                    </Link>{" "}
+                      className={activee === "Sci-fi" ? "activee" : ""}>
+                      Sci-fi
+                    </Link>
                   </li>
+
                   <li onClick={() => sort("Motivational")}>
-                    {" "}
                     <Link
                       to=""
                       className={activee === "Motivational" ? "activee" : ""}>
-                      {" "}
                       Motivational
-                    </Link>{" "}
+                    </Link>
                   </li>
+
                   <li onClick={() => sort("Memes")}>
-                    {" "}
                     <Link
                       to=""
                       className={activee === "Memes" ? "activee" : ""}>
                       Memes
-                    </Link>{" "}
+                    </Link>
                   </li>
+
                   <li onClick={() => sort("Technology")}>
-                    {" "}
                     <Link
                       to=""
                       className={activee === "Technology" ? "activee" : ""}>
                       Technology
-                    </Link>{" "}
+                    </Link>
                   </li>
+
                   <li onClick={() => sort("Travel")}>
-                    {" "}
                     <Link
                       to=""
                       className={activee === "Travel" ? "activee" : ""}>
-                      Travel{" "}
-                    </Link>{" "}
+                      Travel
+                    </Link>
                   </li>
+
                   <li onClick={() => sort("Art")}>
-                    {" "}
                     <Link to="" className={activee === "Art" ? "activee" : ""}>
-                      {" "}
                       Art
-                    </Link>{" "}
+                    </Link>
                   </li>
+
                   <li onClick={() => sort("Others")}>
-                    {" "}
                     <Link
                       to=""
                       className={activee === "Others" ? "activee" : ""}>
                       Others
-                    </Link>{" "}
+                    </Link>
                   </li>
                 </ul>
               </div>

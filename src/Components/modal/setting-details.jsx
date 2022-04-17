@@ -79,7 +79,7 @@ const Popup = ({
                   <Form.Group style={{ color: "black" }}>
                     <Form.File
                       id="exampleFormControlFile1"
-                      label="Upload Cover Picture"
+                      label="Upload Cover Picture *"
                       onChange={Img_handle}
                       required
                     />
