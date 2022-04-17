@@ -119,10 +119,13 @@ const Login = ({
               onChange={(e) => setPassword(e.target.value)}></Form.Control>
           </Form.Group>
 
-          <div className="btncenter">
-            <Button type="submit" variant="danger">
-              <b style={{ fontSize: "14px" }}>Log In</b>
-            </Button>
+          <div className="Button">
+            <button
+              type="submit"
+              className="Button-btn"
+              style={{ marginTop: "1px" }}>
+              Login
+            </button>
           </div>
         </Form>
 

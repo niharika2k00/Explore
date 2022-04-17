@@ -11,7 +11,7 @@
 
 .myrow {
   margin: 40px;
-  padding: 30px;
+  padding: 1.2rem;
   background-color: #fff;
   display: flex;
   border-radius: 5px; // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);      outside
@@ -33,7 +33,7 @@
   background-color: rgba(255, 255, 255, 0.959);
 }
 .form_box:hover {
-  border: 4px solid var(--primary);
+  border: 0.1rem solid var(--primary);
 }
 .form-control:focus {
   border-color: var(--primary);
@@ -83,7 +83,7 @@
 
 .file--upload > label {
   color: hsl(204, 86%, 53%);
-  border: 3px ridge rgb(236, 182, 193);
+  // border: 3px ridge rgb(236, 182, 193);
   // border-color: #2fac66;
 }
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../../STYLES/profile.css";
 import "../../STYLES/homescreen.css";
 import "../../STYLES/navbar.css";
+import "../../STYLES/border.scss";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
 import LOAD from "../../components/loading.js";
@@ -35,7 +36,7 @@ const About = ({
   const db = firebase.firestore();
   const history = useHistory();
 
-  const about_submit_Handler = async (e) => {
+  const aboutFormHandler = async (e) => {
     e.preventDefault();
     try {
       // --------- Putting into DB --------
@@ -112,10 +113,11 @@ const About = ({
           <div className="subtopic">
             <Link to="/profile"> SHOTS </Link>{" "}
           </div>
+
           <div className="subtopic">
-            <Link to="/likedshots">LIKED SHOTS </Link>{" "}
+            <Link to="/favourites">LIKED SHOTS </Link>{" "}
           </div>
-          {/* <div className="subtopic"> <Link to="/collection" >COLLECTION  </Link> </div> */}
+
           <div className="subtopic">
             <Link to="/about"> ABOUT</Link>{" "}
           </div>
@@ -131,9 +133,13 @@ const About = ({
         <Row className="justify-content-md-center rowTopgap">
           <Col md={6} xs={12} sm={11}>
             {/* <Loginform_Container> */}
-            <h2 className="profile_head">ABOUT</h2>
+            {/* <h2 className="profile_head">ABOUT</h2> */}
 
-            <Form onSubmit={about_submit_Handler} id="about">
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div class="sketchy">About</div>
+            </div>
+
+            <Form onSubmit={aboutFormHandler} id="about">
               <Form.Group controlId="name">
                 <Form.Label>
                   <b>Name</b>
@@ -201,7 +207,8 @@ const About = ({
 
               <Row>
                 <section className="Button">
-                  <p
+                  <button
+                    type="submit"
                     className="Button-btn"
                     style={{
                       marginTop: "3rem",
@@ -209,20 +216,8 @@ const About = ({
                       alignItems: "center",
                     }}>
                     Submit
-                  </p>
-                </section>
-                {/* <div id="centerSubmit">
-                  <button
-                    type="submit"
-                    className="btn btn-dark"
-                    style={{
-                      marginTop: "3rem",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}>
-                    Submit
                   </button>
-                </div> */}
+                </section>
               </Row>
             </Form>
             {/* </Loginform_Container> */}

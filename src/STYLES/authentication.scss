@@ -104,7 +104,7 @@
   text-align: center;
   padding-bottom: 0rem;
   font-family: "Montserrat", sans-serif;
-  background: linear-gradient(160deg, #00a19a, #15c4bb);
+  background: linear-gradient(160deg, var(--primary), var(--white));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;

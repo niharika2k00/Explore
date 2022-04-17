@@ -263,7 +263,7 @@ const App = () => {
           />
 
           <Route
-            path="/likedshots"
+            path="/favourites"
             render={(props) => (
               <ProfileFavouritePost
                 {...props}

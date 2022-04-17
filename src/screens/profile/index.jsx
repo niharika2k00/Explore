@@ -3,6 +3,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../../STYLES/profile.css";
 import "../../STYLES/homescreen.css";
+import "../../STYLES/border.scss";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
 import EACH_CARD from "../home/card";
@@ -50,7 +51,7 @@ const Profile_Screen = ({
     }
   }, [about]);
 
-  const name = USER.Name.split(/(\s+)/);
+  const name = USER.Name && USER.Name.split(/(\s+)/);
 
   return (
     <div>
@@ -87,10 +88,11 @@ const Profile_Screen = ({
             <div className="subtopic">
               <Link to="/profile"> SHOTS </Link>{" "}
             </div>
+
             <div className="subtopic">
-              <Link to="/likedshots">LIKED SHOTS </Link>{" "}
+              <Link to="/favourites">LIKED SHOTS </Link>{" "}
             </div>
-            {/* <div className="subtopic"> <Link to="/collection" >COLLECTION  </Link> </div> */}
+
             <div className="subtopic">
               <Link to="/about"> ABOUT</Link>{" "}
             </div>
@@ -101,7 +103,12 @@ const Profile_Screen = ({
 
         <section>
           <section className="rowTopgap">
-            <h2 className="profile_head">SHOTS</h2>
+            {/* <h2 className="profile_head">SHOTS</h2> */}
+
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div class="sketchy">Your posts</div>
+            </div>
+
             <Row style={{ padding: "3rem auto" }}>
               <Col md={4} sm={12} style={{ paddingTop: "2rem" }}>
                 <div
@@ -117,7 +124,7 @@ const Profile_Screen = ({
 
                     <p className="card-text">
                       {" "}
-                      {name[0]} Share what's on your mind ...{" "}
+                      {name && name[0]} Share what's on your mind ...{" "}
                     </p>
 
                     <section className="Button">
@@ -134,7 +141,8 @@ const Profile_Screen = ({
 
               {loading ? (
                 <LOAD />
-              ) : user_Posts.length !== 0 ? (
+              ) : (
+                user_Posts.length !== 0 &&
                 user_Posts.map((card) => (
                   <Col
                     key={card.id}
@@ -147,7 +155,7 @@ const Profile_Screen = ({
                     <EACH_CARD ID={card.id} each_cardObj={card} USER={USER} />
                   </Col>
                 ))
-              ) : null}
+              )}
             </Row>
           </section>
         </section>

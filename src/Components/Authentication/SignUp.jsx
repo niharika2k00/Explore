@@ -156,10 +156,19 @@ const SignUp = ({
             />
           </Form.Group>
 
-          <div className="btncenter">
+          {/*  <div className="btncenter">
             <Button type="submit" variant="success">
               <b style={{ fontSize: "14px" }}>Register</b>
             </Button>
+          </div> */}
+
+          <div className="Button">
+            <button
+              type="submit"
+              className="Button-btn"
+              style={{ marginTop: "1px" }}>
+              Register
+            </button>
           </div>
         </Form>
 
@@ -172,7 +181,7 @@ const SignUp = ({
                 setSignUp(false);
                 setLogin(true);
               }}>
-              Sign In
+              SignIn
             </Link>
           </Col>
         </Row>

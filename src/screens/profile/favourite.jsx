@@ -50,7 +50,6 @@ const Liked_Shots = ({
       console.log(about[0].City);
     } else {
       console.log("not running");
-      history.push("/");
     }
   }, [about]);
 
@@ -146,16 +145,14 @@ const Liked_Shots = ({
       <section>
         <div className="d-flex justify-content-evenly" id="line">
           <div className="subtopic">
-            {" "}
             <Link to="/profile"> SHOTS </Link>{" "}
           </div>
+
           <div className="subtopic">
-            {" "}
-            <Link to="/likedshots">LIKED SHOTS </Link>{" "}
+            <Link to="/favourites">LIKED SHOTS </Link>{" "}
           </div>
-          {/* <div className="subtopic"> <Link to="/collection" >COLLECTION  </Link> </div> */}
+
           <div className="subtopic">
-            {" "}
             <Link to="/about"> ABOUT</Link>{" "}
           </div>
         </div>
@@ -164,13 +161,12 @@ const Liked_Shots = ({
       <hr></hr>
 
       <section className="rowTopgap">
-        <h2 className="profile_head">
-          <i className="fas fa-heart profile_icon_heart"></i>
-          LIKED SHOTS
-          <i
-            className="fas fa-heart profile_icon_heart"
-            style={{ padding: "2px 2px 1px .4rem" }}></i>
-        </h2>
+        {/* <i className="fas fa-heart profile_icon_heart"></i> */}
+
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div class="sketchy">Favourites ❤️</div>
+        </div>
+
         <Row style={{ padding: "4rem auto" }}>
           {loading ? (
             <LOAD />

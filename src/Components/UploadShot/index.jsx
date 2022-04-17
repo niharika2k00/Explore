@@ -186,10 +186,12 @@ const UploadShot_Screen = ({
   return (
     <div>
       <Container className="self_container">
-        <h1 className="loginhead">POST</h1>
+        {/* <h1 className="loginhead">POST</h1> */}
 
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <div class="sketchy"> Upload Post </div>
+          <div class="sketchy">
+            Upload Post <i className="fas fa-cloud-upload-alt ico_big"></i>
+          </div>
         </div>
 
         {msg_Warn && <MESS variant="danger">{msg_Warn}</MESS>}
@@ -199,18 +201,18 @@ const UploadShot_Screen = ({
           <LOAD />
         ) : (
           <Row className="justify-content-md-center  myrow">
-            <Col md={6} xs={12} style={{ padding: "1rem" }}>
+            <Col md={6} xs={12} style={{ padding: "1rem 0rem" }}>
               <Form id="login_form" onSubmit={submitPostHandler}>
                 <Form.Group controlId="title">
-                  <h5 style={{ color: "#ffa200" }}>
-                    Please fill all the fields ....{" "}
+                  <h5 style={{ color: "#ffa200", paddingBottom: "1.4rem" }}>
+                    Steps to be followed...
                   </h5>
 
-                  <Form.Label>
+                  {/* <Form.Label>
                     <b style={{ fontSize: "1.2rem" }}>
                       Settings<span style={{ color: "red" }}>*</span>{" "}
                     </b>
-                  </Form.Label>
+                  </Form.Label> */}
 
                   {setting && (
                     <SETTING
@@ -225,26 +227,30 @@ const UploadShot_Screen = ({
                     />
                   )}
 
-                  <div className="file file--upload">
-                    <label onClick={() => setsettingPopup(true)}>
-                      <i className="fas fa-cogs ico_big"></i>
-                    </label>
-                  </div>
-                </Form.Group>
-
-                <Form.Group controlId="title">
                   {/* Multiple Images Upload */}
-                  <Form.Label>
+                  {/*  <Form.Label>
                     <b style={{ fontSize: "1.2rem" }}>
                       Upload Image{" "}
                       <i className="fas fa-cloud-upload-alt ico_big"></i>
                       <span style={{ paddingLeft: "6px", color: "red" }}>
                         *
-                      </span>{" "}
+                      </span>
                     </b>
-                  </Form.Label>
+                  </Form.Label> */}
 
                   <div className="d-flex justify-content-between">
+                    <div>
+                      <div className="file file--upload">
+                        <label onClick={() => setsettingPopup(true)}>
+                          <i className="fas fa-cogs ico_big"></i>
+                        </label>
+                      </div>
+
+                      <p style={{ color: "black", marginLeft: "1rem" }}>
+                        Step 1 : Settings
+                      </p>
+                    </div>
+
                     <div>
                       <div className="file file--upload">
                         <label htmlFor="input-file">
@@ -258,7 +264,7 @@ const UploadShot_Screen = ({
                         />
                       </div>
                       <p style={{ color: "black", marginLeft: "1rem" }}>
-                        Images
+                        Step 2 : Upload Images
                       </p>
                     </div>
 
@@ -278,10 +284,15 @@ const UploadShot_Screen = ({
                           <i className="fas fa-text-height ico_big"></i>
                         </label>
                       </div>
-                      <p style={{ color: "black", marginLeft: "1rem" }}>Text</p>
+                      <p style={{ color: "black", marginLeft: "1rem" }}>
+                        {" "}
+                        Step 3 : Content
+                      </p>
                     </div>
                   </div>
                 </Form.Group>
+
+                {/* <Form.Group controlId="title"></Form.Group> */}
 
                 <div className="Button">
                   <button
