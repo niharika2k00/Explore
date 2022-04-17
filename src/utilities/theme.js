@@ -5,9 +5,9 @@ export const fontFamilies = {
 
 export const colorPalette = {
   main: {
-    primary: "#7b2cbf",
+    primary: "#ef233c",
     seconday: " #f25f5c",
-    light1: "#fee440",
+    light1: "#fff0f3",
     black: "#000",
     white: "#fff",
     grey: "#E5E7E9",
@@ -15,8 +15,6 @@ export const colorPalette = {
 
   secondary: {
     main: "#F5F5F5",
-    light: "#F6FFFA",
-    dark: "#8CAA9A",
   },
 };
 

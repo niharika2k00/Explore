@@ -10,6 +10,8 @@ import {
   LinkedinShareButton,
   LinkedinIcon,
 } from "react-share";
+
+import HomeIcon from "../../assets/home.png";
 import { useLocation } from "react-router-dom";
 
 const Post_body = ({ ID, card_body, USER, set_USER }) => {
@@ -28,7 +30,7 @@ const Post_body = ({ ID, card_body, USER, set_USER }) => {
           <FacebookShareButton
             className="btn btn-primary btn-floating m-1 btn-lg icon-facebook"
             url={URL}
-            title="TPP"
+            title="Explore"
             source="">
             <FacebookIcon size={38} round={true} />
           </FacebookShareButton>
@@ -36,7 +38,7 @@ const Post_body = ({ ID, card_body, USER, set_USER }) => {
           <LinkedinShareButton
             className="btn btn-primary btn-floating m-1 btn-lg icon-linkedin"
             url={URL}
-            title="TPP"
+            title="Explore"
             source="">
             <LinkedinIcon size={38} round={true} />
           </LinkedinShareButton>
@@ -77,11 +79,17 @@ const Post_body = ({ ID, card_body, USER, set_USER }) => {
           style={{ backgroundColor: "rgba(255, 255, 255, 0)" }}>
           <div>
             <p className="post_titles">
-              <i
-                className="fas fa-user"
-                style={{ fontSize: "1.4rem", paddingRight: ".5rem" }}></i>
               <Link to={`/user/${card_body.User_UID}`}>
-                <b> Posted by {card_body.Display_Name} </b>
+                <h4 style={{ fontWeight: "600" }}>
+                  <i
+                    className="fas fa-user"
+                    style={{
+                      fontSize: "1.6rem",
+                      paddingRight: ".5rem",
+                      color: "#000",
+                    }}></i>{" "}
+                  Posted by {card_body.Display_Name}
+                </h4>
               </Link>
             </p>
           </div>
@@ -108,11 +116,9 @@ const Post_body = ({ ID, card_body, USER, set_USER }) => {
         <b>Description : </b> <br /> {card_body.Description}
       </p>
 
-      <section className="Button">
+      <section className="Button" style={{ marginTop: "5rem" }}>
         <Link to="/">
-          <button className="Button-btn" style={{ margin: "3rem 0px" }}>
-            BACK
-          </button>
+          <img src={HomeIcon} style={{ width: "1.5rem" }} />
         </Link>
       </section>
     </div>

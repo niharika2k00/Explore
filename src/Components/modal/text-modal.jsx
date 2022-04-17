@@ -15,7 +15,7 @@ const Popup = ({
         <div className="input-box">
           <CancelIcon onClick={() => setPopup(false)} className="cross-btn" />
 
-          <div className="modalText"> Project Description : </div>
+          <div className="modalText"> Content of your post : </div>
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Control
@@ -34,7 +34,7 @@ const Popup = ({
               // variant="danger"
               className="ButtonStyle2"
               onClick={Description_handler}>
-              <b style={{ fontSize: "14px" }}> Add Description</b>
+              <b style={{ fontSize: "14px" }}> Add Content</b>
             </Button>
           </div>
         </div>

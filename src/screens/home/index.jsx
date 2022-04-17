@@ -64,8 +64,7 @@ const HomeScreen = ({
 
               <p className="lead">
                 Lets explore art & travel experiences globally and gets
-                motivated together in life with the Prodigious Peoples new
-                Explore section ......
+                motivated together in life...
               </p>
             </Col>
           </Row>

@@ -26,7 +26,7 @@ const Popup = ({
             className="cross-btn"
           />
           <h5 style={{ color: colorPalette.main.primary, fontWeight: "600" }}>
-            ENTER THE DETAILS :
+            Enter the details :
           </h5>
 
           <Row>
@@ -34,7 +34,7 @@ const Popup = ({
               <Form.Group controlId="exampleForm.ControlSelect1">
                 <Form.Label>
                   <div className="modalText">
-                    Project Topic <span style={{ color: "crimson" }}>*</span>
+                    Post Genre <span style={{ color: "crimson" }}>*</span>
                   </div>
                 </Form.Label>
                 <Form.Control
@@ -55,7 +55,7 @@ const Popup = ({
               <Form.Group controlId="title">
                 <Form.Label>
                   <div className="modalText">
-                    Project Title <span style={{ color: "crimson" }}>*</span>{" "}
+                    Post Heading <span style={{ color: "crimson" }}>*</span>{" "}
                   </div>
                 </Form.Label>
                 <Form.Control
@@ -91,7 +91,7 @@ const Popup = ({
 
           <div className="btncenter">
             <Button type="button" variant="danger" onClick={Setting_handler}>
-              <b style={{ fontSize: "0.8rem" }}>Save</b>
+              <b style={{ fontSize: "0.8rem" }}>Save Details</b>
             </Button>
           </div>
         </div>

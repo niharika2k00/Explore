@@ -2,10 +2,9 @@
 
 :root {
     --primary: #ef233c;
-    --lightPrimary: #edf2fb;
-    /* button hover */
-    --seconday: #f25f5c;
+    --lightPrimary: #f25f5c;
     --light1: #fff0f3;
+    --seconday: #2ec4b6;
     --black: #000;
     --white: #fff;
     --fullwidth: 100%;

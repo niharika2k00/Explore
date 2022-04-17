@@ -201,7 +201,7 @@ const UploadShot_Screen = ({
           <LOAD />
         ) : (
           <Row className="justify-content-md-center  myrow">
-            <Col md={6} xs={12} style={{ padding: "1rem 0rem" }}>
+            <Col md={12} lg={12} xs={12} style={{ padding: "1rem 0rem" }}>
               <Form id="login_form" onSubmit={submitPostHandler}>
                 <Form.Group controlId="title">
                   <h5 style={{ color: "#ffa200", paddingBottom: "1.4rem" }}>
@@ -238,7 +238,7 @@ const UploadShot_Screen = ({
                     </b>
                   </Form.Label> */}
 
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-around py-5">
                     <div>
                       <div className="file file--upload">
                         <label onClick={() => setsettingPopup(true)}>
