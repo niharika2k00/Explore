@@ -1,5 +1,5 @@
 import React from "react";
-import LOGO from "../../assets/logo-light-fot.webp";
+// import LOGO from "../../assets/logo-light-fot.webp";
 import "../../STYLES/footer.css";
 
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-5 col-md-12 mb-4 mb-md-0">
               <a href="/index.html">
-                <img src={LOGO} alt="Logo images" width="200" />
+                {/* <img src={LOGO} alt="Logo images" width="200" /> */}
               </a>
               <p
                 style={{ color: "#c6c9d8", padding: "1rem 0" }}
