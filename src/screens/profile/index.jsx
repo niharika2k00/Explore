@@ -118,13 +118,13 @@ const Profile_Screen = ({
                   <div className="card-body">
                     <h5
                       className="card-title"
-                      style={{ textShadow: "2px 1px", fontSize: "1.4rem" }}>
+                      style={{ textShadow: "1px 1px", fontSize: "1.4rem" }}>
                       Start a post
                     </h5>
 
                     <p className="card-text">
                       {" "}
-                      {name && name[0]} Share what's on your mind ...{" "}
+                      {name && name[0]} Share what's in your mind...{" "}
                     </p>
 
                     <section className="Button">

@@ -45,7 +45,7 @@ const Post_body = ({ ID, card_body, USER, set_USER }) => {
 
           <WhatsappShareButton
             url={URL}
-            title="Go and Check Out Our Post... "
+            title="Go and check out this post😃!! "
             separator=" "
             className="btn btn-primary btn-floating m-1 btn-lg icon-whatsapp">
             <WhatsappIcon size={38} round={true} />
