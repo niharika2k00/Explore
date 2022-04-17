@@ -1,11 +1,11 @@
 /* ---------------        MAIN STYLES APPLIED TO ALMOST ALL THE COMPONET    ------------------------ */
 
 :root {
-    --primary: #8f63b5;
-    --lightPrimary: #a083b8;
+    --primary: #ef233c;
+    --lightPrimary: #edf2fb;
     /* button hover */
     --seconday: #f25f5c;
-    --light1: #fee440;
+    --light1: #fff0f3;
     --black: #000;
     --white: #fff;
     --fullwidth: 100%;
