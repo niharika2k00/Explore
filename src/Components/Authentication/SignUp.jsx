@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import CancelIcon from "@material-ui/icons/Cancel";
-import "../../STYLES/authentication.scss";
+import "../../styles/authentication.scss";
 import app from "../../firebase/firebase.js";
 import { useHistory } from "react-router-dom";
 import firebase from "firebase";

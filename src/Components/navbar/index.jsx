@@ -2,7 +2,7 @@ import React from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../../STYLES/navbar.css";
+import "../../styles/navbar.css";
 import { useHistory } from "react-router-dom";
 import ExploreLOGO from "../../assets/explorepng.png";
 import { useLocation } from "react-router-dom";

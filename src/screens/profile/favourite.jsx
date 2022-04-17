@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../../STYLES/profile.css";
-import "../../STYLES/homescreen.css";
+import "../../styles/profile.css";
+import "../../styles/homescreen.css";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
 import LIKED_CARD from "../home/liked-post";

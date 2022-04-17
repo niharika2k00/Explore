@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import CancelIcon from "@material-ui/icons/Cancel";
-import "../../STYLES/popup.css";
+import "../../styles/popup.css";
 
 const Popup = ({
   setPopup,

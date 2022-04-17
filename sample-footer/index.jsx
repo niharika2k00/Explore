@@ -1,6 +1,6 @@
 import React from "react";
 // import LOGO from "../../assets/logo-light-fot.webp";
-import "../../STYLES/footer.css";
+import "../../styles/footer.css";
 
 const Footer = () => {
   return (

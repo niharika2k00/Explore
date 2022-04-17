@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Row, Col, Container, Button, Form } from "react-bootstrap";
-import "../../STYLES/uploadShot.scss";
-import "../../STYLES/popup.css";
-import "../../STYLES/border.scss";
+import "../../styles/uploadShot.scss";
+import "../../styles/popup.css";
+import "../../styles/border.scss";
 import POPUP from "../modal/text-modal.jsx";
 import LOAD from "../loading.js";
 import MESS from "../message.js";

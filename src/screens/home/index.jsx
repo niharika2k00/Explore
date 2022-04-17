@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import Slider from "react-slick";
 import "../../App.css";
-import "../../STYLES/homescreen.css";
+import "../../styles/homescreen.css";
 import EACH_CARD from "./card.jsx";
 import LOAD from "../../components/loading.js";
 import { clone } from "ramda";

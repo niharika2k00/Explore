@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Row, Container, Col } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import "../../App.css";
-import "../../STYLES/postscreen.css";
+import "../../styles/postscreen.css";
 // import ReactDOM from 'react-dom';
 // import Coverflow from 'react-coverflow';
 // import { StyleRoot } from 'radium';

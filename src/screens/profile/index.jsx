@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../../STYLES/profile.css";
-import "../../STYLES/homescreen.css";
-import "../../STYLES/border.scss";
+import "../../styles/profile.css";
+import "../../styles/homescreen.css";
+import "../../styles/border.scss";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
 import EACH_CARD from "../home/card";

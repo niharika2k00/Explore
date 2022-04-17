@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../../STYLES/profile.css";
-import "../../STYLES/homescreen.css";
+import "../../styles/profile.css";
+import "../../styles/homescreen.css";
 import "../../App.css";
 import firebase from "firebase";
 import { useLocation } from "react-router-dom";
 import LOAD from "../../components/loading.js";
 import OTHER_POST from "../home/liked-post";
-import "../../STYLES/otherProfileStyle.css";
+import "../../styles/otherProfileStyle.css";
 
 const Othersprofile = ({
   USER,
