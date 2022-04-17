@@ -185,7 +185,7 @@ const UploadShot_Screen = ({
 
   return (
     <div>
-      <Container className="self_container ">
+      <Container className="self_container">
         <h1 className="loginhead">POST</h1>
 
         <div style={{ display: "flex", justifyContent: "center" }}>

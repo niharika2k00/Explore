@@ -19,6 +19,7 @@ const Popup = ({
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Control
+              placeholder="write something..."
               as="textarea"
               rows={5}
               value={description}
