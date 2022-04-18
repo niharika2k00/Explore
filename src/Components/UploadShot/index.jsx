@@ -238,7 +238,12 @@ const UploadShot_Screen = ({
                     </b>
                   </Form.Label> */}
 
-                  <div className="d-flex justify-content-around py-5">
+                  <div
+                    className="d-flex justify-content-around py-5"
+                    style={{
+                      flexDirection:
+                        window.innerWidth <= 450 ? "column" : "row",
+                    }}>
                     <div>
                       <div className="file file--upload">
                         <label onClick={() => setsettingPopup(true)}>
